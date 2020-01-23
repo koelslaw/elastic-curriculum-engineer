@@ -18,3 +18,4 @@ Requirements:
 *** look at video and page content
 ** Have Documentation but don't forget that someone will actually have to teach this
 * Add teaching notes
+* get everything added to github
