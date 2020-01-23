@@ -1,0 +1,20 @@
+Elastic User Guide
+===================
+Kirk Koelzer <someemail@gmail.com>
+:Author Initials: KSK
+:toc:
+:icons:
+:numbered:
+:website: https://elastic.io/
+
+Requirements:
+
+* 30 min.
+* Technical Content is important, but structure is more important.
+* TODO
+** Build elastic stack
+** ingest a datasest
+** look at current training to gauge look and feel
+*** look at video and page content
+** Have Documentation but don't forget that someone will actually have to teach this
+* Add teaching notes
