@@ -1,0 +1,670 @@
+Welcome to Ubuntu 16.04.6 LTS (GNU/Linux 4.4.0-1100-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+33 packages can be updated.
+0 updates are security updates.
+
+New release '18.04.3 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Fri Jan 24 15:56:54 2020 from 174.234.20.109
+]0;ubuntu@flightdata1: ~[01;32mubuntu@flightdata1[00m:[01;34m~[00m$ exitsudo systemctl stop elasticsearch[1P elasticsearch[1P elasticsearch[1P elasticsearcht elasticsearcha elasticsearchr elasticsearcht elasticsearch
+]0;ubuntu@flightdata1: ~[01;32mubuntu@flightdata1[00m:[01;34m~[00m$ sudo -s
+]0;root@flightdata1: ~[01;32mroot@flightdata1[00m:[01;34m~[00m# exitsudo systemctl stop elasticsearch[2@atus[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccurl http://localhost:9200/_cluster/health?pretty
+{
+  "cluster_name" : "flightdata",
+  "status" : "green",
+  "timed_out" : false,
+  "number_of_nodes" : 1,
+  "number_of_data_nodes" : 1,
+  "active_primary_shards" : 1,
+  "active_shards" : 1,
+  "relocating_shards" : 0,
+  "initializing_shards" : 0,
+  "unassigned_shards" : 0,
+  "delayed_unassigned_shards" : 0,
+  "number_of_pending_tasks" : 0,
+  "number_of_in_flight_fetch" : 0,
+  "task_max_waiting_in_queue_millis" : 0,
+  "active_shards_percent_as_number" : 100.0
+}
+]0;root@flightdata1: ~[01;32mroot@flightdata1[00m:[01;34m~[00m# curl http://localhost:9200/_cluster/health?pretty
+{
+  "cluster_name" : "flightdata",
+  "status" : "green",
+  "timed_out" : false,
+  "number_of_nodes" : 1,
+  "number_of_data_nodes" : 1,
+  "active_primary_shards" : 1,
+  "active_shards" : 1,
+  "relocating_shards" : 0,
+  "initializing_shards" : 0,
+  "unassigned_shards" : 0,
+  "delayed_unassigned_shards" : 0,
+  "number_of_pending_tasks" : 0,
+  "number_of_in_flight_fetch" : 0,
+  "task_max_waiting_in_queue_millis" : 0,
+  "active_shards_percent_as_number" : 100.0
+}
+]0;root@flightdata1: ~[01;32mroot@flightdata1[00m:[01;34m~[00m# curl http://localhost:9200/_cluster/health?pretty
+{
+  "cluster_name" : "flightdata",
+  "status" : "green",
+  "timed_out" : false,
+  "number_of_nodes" : 1,
+  "number_of_data_nodes" : 1,
+  "active_primary_shards" : 1,
+  "active_shards" : 1,
+  "relocating_shards" : 0,
+  "initializing_shards" : 0,
+  "unassigned_shards" : 0,
+  "delayed_unassigned_shards" : 0,
+  "number_of_pending_tasks" : 0,
+  "number_of_in_flight_fetch" : 0,
+  "task_max_waiting_in_queue_millis" : 0,
+  "active_shards_percent_as_number" : 100.0
+}
+]0;root@flightdata1: ~[01;32mroot@flightdata1[00m:[01;34m~[00m# curl http://localhost:9200/_cluster/health?pretty
+{
+  "cluster_name" : "flightdata",
+  "status" : "green",
+  "timed_out" : false,
+  "number_of_nodes" : 1,
+  "number_of_data_nodes" : 1,
+  "active_primary_shards" : 1,
+  "active_shards" : 1,
+  "relocating_shards" : 0,
+  "initializing_shards" : 0,
+  "unassigned_shards" : 0,
+  "delayed_unassigned_shards" : 0,
+  "number_of_pending_tasks" : 0,
+  "number_of_in_flight_fetch" : 0,
+  "task_max_waiting_in_queue_millis" : 0,
+  "active_shards_percent_as_number" : 100.0
+}
+]0;root@flightdata1: ~[01;32mroot@flightdata1[00m:[01;34m~[00m# curl http://localhost:9200/_cluster/health?pretty
+{
+  "cluster_name" : "flightdata",
+  "status" : "green",
+  "timed_out" : false,
+  "number_of_nodes" : 1,
+  "number_of_data_nodes" : 1,
+  "active_primary_shards" : 1,
+  "active_shards" : 1,
+  "relocating_shards" : 0,
+  "initializing_shards" : 0,
+  "unassigned_shards" : 0,
+  "delayed_unassigned_shards" : 0,
+  "number_of_pending_tasks" : 0,
+  "number_of_in_flight_fetch" : 0,
+  "task_max_waiting_in_queue_millis" : 0,
+  "active_shards_percent_as_number" : 100.0
+}
+]0;root@flightdata1: ~[01;32mroot@flightdata1[00m:[01;34m~[00m# curl http://localhost:9200/_cluster/health?pretty
+{
+  "cluster_name" : "flightdata",
+  "status" : "green",
+  "timed_out" : false,
+  "number_of_nodes" : 1,
+  "number_of_data_nodes" : 1,
+  "active_primary_shards" : 1,
+  "active_shards" : 1,
+  "relocating_shards" : 0,
+  "initializing_shards" : 0,
+  "unassigned_shards" : 0,
+  "delayed_unassigned_shards" : 0,
+  "number_of_pending_tasks" : 0,
+  "number_of_in_flight_fetch" : 0,
+  "task_max_waiting_in_queue_millis" : 0,
+  "active_shards_percent_as_number" : 100.0
+}
+]0;root@flightdata1: ~[01;32mroot@flightdata1[00m:[01;34m~[00m# curl http://localhost:9200/_cluster/health?pretty
+{
+  "cluster_name" : "flightdata",
+  "status" : "green",
+  "timed_out" : false,
+  "number_of_nodes" : 1,
+  "number_of_data_nodes" : 1,
+  "active_primary_shards" : 1,
+  "active_shards" : 1,
+  "relocating_shards" : 0,
+  "initializing_shards" : 0,
+  "unassigned_shards" : 0,
+  "delayed_unassigned_shards" : 0,
+  "number_of_pending_tasks" : 0,
+  "number_of_in_flight_fetch" : 0,
+  "task_max_waiting_in_queue_millis" : 0,
+  "active_shards_percent_as_number" : 100.0
+}
+]0;root@flightdata1: ~[01;32mroot@flightdata1[00m:[01;34m~[00m# curl http://localhost:9200/_cluster/health?pretty
+{
+  "cluster_name" : "flightdata",
+  "status" : "green",
+  "timed_out" : false,
+  "number_of_nodes" : 1,
+  "number_of_data_nodes" : 1,
+  "active_primary_shards" : 1,
+  "active_shards" : 1,
+  "relocating_shards" : 0,
+  "initializing_shards" : 0,
+  "unassigned_shards" : 0,
+  "delayed_unassigned_shards" : 0,
+  "number_of_pending_tasks" : 0,
+  "number_of_in_flight_fetch" : 0,
+  "task_max_waiting_in_queue_millis" : 0,
+  "active_shards_percent_as_number" : 100.0
+}
+]0;root@flightdata1: ~[01;32mroot@flightdata1[00m:[01;34m~[00m# curl http://localhost:9200/_cluster/health?pretty
+{
+  "cluster_name" : "flightdata",
+  "status" : "green",
+  "timed_out" : false,
+  "number_of_nodes" : 1,
+  "number_of_data_nodes" : 1,
+  "active_primary_shards" : 1,
+  "active_shards" : 1,
+  "relocating_shards" : 0,
+  "initializing_shards" : 0,
+  "unassigned_shards" : 0,
+  "delayed_unassigned_shards" : 0,
+  "number_of_pending_tasks" : 0,
+  "number_of_in_flight_fetch" : 0,
+  "task_max_waiting_in_queue_millis" : 0,
+  "active_shards_percent_as_number" : 100.0
+}
+]0;root@flightdata1: ~[01;32mroot@flightdata1[00m:[01;34m~[00m# curl http://localhost:9200/_cluster/health?pretty
+{
+  "cluster_name" : "flightdata",
+  "status" : "green",
+  "timed_out" : false,
+  "number_of_nodes" : 1,
+  "number_of_data_nodes" : 1,
+  "active_primary_shards" : 1,
+  "active_shards" : 1,
+  "relocating_shards" : 0,
+  "initializing_shards" : 0,
+  "unassigned_shards" : 0,
+  "delayed_unassigned_shards" : 0,
+  "number_of_pending_tasks" : 0,
+  "number_of_in_flight_fetch" : 0,
+  "task_max_waiting_in_queue_millis" : 0,
+  "active_shards_percent_as_number" : 100.0
+}
+]0;root@flightdata1: ~[01;32mroot@flightdata1[00m:[01;34m~[00m# curl http://localhost:9200/_cluster/health?pretty
+{
+  "cluster_name" : "flightdata",
+  "status" : "green",
+  "timed_out" : false,
+  "number_of_nodes" : 1,
+  "number_of_data_nodes" : 1,
+  "active_primary_shards" : 1,
+  "active_shards" : 1,
+  "relocating_shards" : 0,
+  "initializing_shards" : 0,
+  "unassigned_shards" : 0,
+  "delayed_unassigned_shards" : 0,
+  "number_of_pending_tasks" : 0,
+  "number_of_in_flight_fetch" : 0,
+  "task_max_waiting_in_queue_millis" : 0,
+  "active_shards_percent_as_number" : 100.0
+}
+]0;root@flightdata1: ~[01;32mroot@flightdata1[00m:[01;34m~[00m# curl http://localhost:9200/_cluster/health?pretty
+{
+  "cluster_name" : "flightdata",
+  "status" : "green",
+  "timed_out" : false,
+  "number_of_nodes" : 1,
+  "number_of_data_nodes" : 1,
+  "active_primary_shards" : 1,
+  "active_shards" : 1,
+  "relocating_shards" : 0,
+  "initializing_shards" : 0,
+  "unassigned_shards" : 0,
+  "delayed_unassigned_shards" : 0,
+  "number_of_pending_tasks" : 0,
+  "number_of_in_flight_fetch" : 0,
+  "task_max_waiting_in_queue_millis" : 0,
+  "active_shards_percent_as_number" : 100.0
+}
+]0;root@flightdata1: ~[01;32mroot@flightdata1[00m:[01;34m~[00m# curl http://localhost:9200/_cluster/health?pretty
+{
+  "cluster_name" : "flightdata",
+  "status" : "green",
+  "timed_out" : false,
+  "number_of_nodes" : 1,
+  "number_of_data_nodes" : 1,
+  "active_primary_shards" : 1,
+  "active_shards" : 1,
+  "relocating_shards" : 0,
+  "initializing_shards" : 0,
+  "unassigned_shards" : 0,
+  "delayed_unassigned_shards" : 0,
+  "number_of_pending_tasks" : 0,
+  "number_of_in_flight_fetch" : 0,
+  "task_max_waiting_in_queue_millis" : 0,
+  "active_shards_percent_as_number" : 100.0
+}
+]0;root@flightdata1: ~[01;32mroot@flightdata1[00m:[01;34m~[00m# curl http://localhost:9200/_cluster/health?pretty
+{
+  "cluster_name" : "flightdata",
+  "status" : "green",
+  "timed_out" : false,
+  "number_of_nodes" : 1,
+  "number_of_data_nodes" : 1,
+  "active_primary_shards" : 1,
+  "active_shards" : 1,
+  "relocating_shards" : 0,
+  "initializing_shards" : 0,
+  "unassigned_shards" : 0,
+  "delayed_unassigned_shards" : 0,
+  "number_of_pending_tasks" : 0,
+  "number_of_in_flight_fetch" : 0,
+  "task_max_waiting_in_queue_millis" : 0,
+  "active_shards_percent_as_number" : 100.0
+}
+]0;root@flightdata1: ~[01;32mroot@flightdata1[00m:[01;34m~[00m# curl http://localhost:9200/_cluster/health?pretty
+{
+  "cluster_name" : "flightdata",
+  "status" : "green",
+  "timed_out" : false,
+  "number_of_nodes" : 1,
+  "number_of_data_nodes" : 1,
+  "active_primary_shards" : 1,
+  "active_shards" : 1,
+  "relocating_shards" : 0,
+  "initializing_shards" : 0,
+  "unassigned_shards" : 0,
+  "delayed_unassigned_shards" : 0,
+  "number_of_pending_tasks" : 0,
+  "number_of_in_flight_fetch" : 0,
+  "task_max_waiting_in_queue_millis" : 0,
+  "active_shards_percent_as_number" : 100.0
+}
+]0;root@flightdata1: ~[01;32mroot@flightdata1[00m:[01;34m~[00m# curl http://localhost:9200/_cluster/health?pretty
+{
+  "cluster_name" : "flightdata",
+  "status" : "green",
+  "timed_out" : false,
+  "number_of_nodes" : 1,
+  "number_of_data_nodes" : 1,
+  "active_primary_shards" : 1,
+  "active_shards" : 1,
+  "relocating_shards" : 0,
+  "initializing_shards" : 0,
+  "unassigned_shards" : 0,
+  "delayed_unassigned_shards" : 0,
+  "number_of_pending_tasks" : 0,
+  "number_of_in_flight_fetch" : 0,
+  "task_max_waiting_in_queue_millis" : 0,
+  "active_shards_percent_as_number" : 100.0
+}
+]0;root@flightdata1: ~[01;32mroot@flightdata1[00m:[01;34m~[00m# curl http://localhost:9200/_cluster/health?pretty
+{
+  "cluster_name" : "flightdata",
+  "status" : "green",
+  "timed_out" : false,
+  "number_of_nodes" : 1,
+  "number_of_data_nodes" : 1,
+  "active_primary_shards" : 1,
+  "active_shards" : 1,
+  "relocating_shards" : 0,
+  "initializing_shards" : 0,
+  "unassigned_shards" : 0,
+  "delayed_unassigned_shards" : 0,
+  "number_of_pending_tasks" : 0,
+  "number_of_in_flight_fetch" : 0,
+  "task_max_waiting_in_queue_millis" : 0,
+  "active_shards_percent_as_number" : 100.0
+}
+]0;root@flightdata1: ~[01;32mroot@flightdata1[00m:[01;34m~[00m# curl http://localhost:9200/_cluster/health?pretty
+{
+  "cluster_name" : "flightdata",
+  "status" : "green",
+  "timed_out" : false,
+  "number_of_nodes" : 1,
+  "number_of_data_nodes" : 1,
+  "active_primary_shards" : 1,
+  "active_shards" : 1,
+  "relocating_shards" : 0,
+  "initializing_shards" : 0,
+  "unassigned_shards" : 0,
+  "delayed_unassigned_shards" : 0,
+  "number_of_pending_tasks" : 0,
+  "number_of_in_flight_fetch" : 0,
+  "task_max_waiting_in_queue_millis" : 0,
+  "active_shards_percent_as_number" : 100.0
+}
+]0;root@flightdata1: ~[01;32mroot@flightdata1[00m:[01;34m~[00m# cd /var/log/elasticsearch/
+]0;root@flightdata1: /var/log/elasticsearch[01;32mroot@flightdata1[00m:[01;34m/var/log/elasticsearch[00m# ls
+elasticsearch_audit.json                   flightdata_deprecation.json             gc.log.01  gc.log.11
+elasticsearch_deprecation.json             flightdata_deprecation.log              gc.log.02  gc.log.12
+elasticsearch_deprecation.log              flightdata_index_indexing_slowlog.json  gc.log.03  gc.log.13
+elasticsearch_index_indexing_slowlog.json  flightdata_index_indexing_slowlog.log   gc.log.04  gc.log.14
+elasticsearch_index_indexing_slowlog.log   flightdata_index_search_slowlog.json    gc.log.05  gc.log.15
+elasticsearch_index_search_slowlog.json    flightdata_index_search_slowlog.log     gc.log.06  gc.log.16
+elasticsearch_index_search_slowlog.log     flightdata.log                          gc.log.07  gc.log.17
+elasticsearch.log                          flightdata_server.json                  gc.log.08  gc.log.18
+elasticsearch_server.json                  gc.log                                  gc.log.09  gc.log.19
+flightdata_audit.json                      gc.log.00                               gc.log.10  gc.log.20
+]0;root@flightdata1: /var/log/elasticsearch[01;32mroot@flightdata1[00m:[01;34m/var/log/elasticsearch[00m# tailf flightdata.log 
+[2020-01-24T17:43:46,060][INFO ][o.e.b.BootstrapChecks    ] [flightdata1] bound or publishing to a non-loopback address, enforcing bootstrap checks
+[2020-01-24T17:43:46,085][INFO ][o.e.c.c.Coordinator      ] [flightdata1] cluster UUID [4djy6OF3ShmrU-0xQCjuLw]
+[2020-01-24T17:43:46,425][INFO ][o.e.c.s.MasterService    ] [flightdata1] elected-as-master ([1] nodes joined)[{flightdata1}{PxZZRhTRS1CB2EsTiybgDg}{8NDoMwueTiWrmL1VBg6fbg}{172.31.44.109}{172.31.44.109:9300}{dilm}{ml.machine_memory=4142059520, xpack.installed=true, ml.max_open_jobs=20} elect leader, _BECOME_MASTER_TASK_, _FINISH_ELECTION_], term: 60, version: 70, delta: master node changed {previous [], current [{flightdata1}{PxZZRhTRS1CB2EsTiybgDg}{8NDoMwueTiWrmL1VBg6fbg}{172.31.44.109}{172.31.44.109:9300}{dilm}{ml.machine_memory=4142059520, xpack.installed=true, ml.max_open_jobs=20}]}
+[2020-01-24T17:43:46,488][INFO ][o.e.c.s.ClusterApplierService] [flightdata1] master node changed {previous [], current [{flightdata1}{PxZZRhTRS1CB2EsTiybgDg}{8NDoMwueTiWrmL1VBg6fbg}{172.31.44.109}{172.31.44.109:9300}{dilm}{ml.machine_memory=4142059520, xpack.installed=true, ml.max_open_jobs=20}]}, term: 60, version: 70, reason: Publication{term=60, version=70}
+[2020-01-24T17:43:46,567][INFO ][o.e.h.AbstractHttpServerTransport] [flightdata1] publish_address {172.31.44.109:9200}, bound_addresses {[::]:9200}
+[2020-01-24T17:43:46,568][INFO ][o.e.n.Node               ] [flightdata1] started
+[2020-01-24T17:43:46,855][INFO ][o.e.l.LicenseService     ] [flightdata1] license [fb3adb28-4550-46b1-b184-6895bdaff9cd] mode [basic] - valid
+[2020-01-24T17:43:46,856][INFO ][o.e.x.s.s.SecurityStatusChangeListener] [flightdata1] Active license is now [BASIC]; Security is disabled
+[2020-01-24T17:43:46,871][INFO ][o.e.g.GatewayService     ] [flightdata1] recovered [1] indices into cluster_state
+[2020-01-24T17:43:47,459][INFO ][o.e.c.r.a.AllocationService] [flightdata1] Cluster health status changed from [RED] to [GREEN] (reason: [shards started [[.monitoring-es-7-2020.01.24][0]]]).
+^[^[:q!
+q
+^C
+]0;root@flightdata1: /var/log/elasticsearch[01;32mroot@flightdata1[00m:[01;34m/var/log/elasticsearch[00m# tailf flightdata.log ls[Kcd /var/log/elasticsearch/url http://localhost:9200/_cluster/health?pretty[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[23Pd /var/log/elasticsearch/url http://localhost:9200/_cluster/health?pretty[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cexit[Kcurl http://localhost:9200/_cluster/health?pretty[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cexit[Ksudo systemctl stop elasticsearch[2@atus[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccurl http://localhost:9200/_cluster/health?pretty300/_cluster/health?pretty200/_cluster/health?pretty[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[15Psudo systemctl start elasticsearch-s[Kcurl http://localhost:9200/_cluster/health?pretty[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[14Psudo systemctl status elasticsearch[1Prt[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1Pop[C[C[C[C[C[C[C[C[C[C[C[C[C[C-s[Kls[Kcd elasticsearch/ls[Kcurl http://localhost:9200/_cluster/health?pretty[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[26Psudo ufw allow 9300/tcp200/tcp-s[Kls[Kcd elasticsearch/ls[Ksudo -sufw allow 9200/tcp300/tcpcurl http://localhost:9200/_cluster/health?pretty[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[Kcd elasticsearch/ls[Ksudo -ssystemctl stop elasticsearch[1@art[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@tus[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccurl http://localhost:9200/_cluster/health?pretty[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Csudo -s[Ksystemctl start elasticsearchcurl http://localhost:9200/_cluster/health?pretty300/_cluster/health?pretty200/_cluster/health?pretty[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[14Psudo systemctl status elasticsearch[2Pop[C[C[C[C[C[C[C[C[C[C[C[C[C[Cexit[Kcurl http://localhost:9200/_cluster/health?pretty[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[23Pd /var/log/elasticsearch/ls[Ktailf flightdata.log [Ktailf flightdata.log [Ksudo vi /etc/elasticsearch/elasticsearch.yml 
+[?1049h[?1h=[2;1H▽[6n[2;1H  [1;1H]11;?[1;25r[?12;25h[?12l[?25h[27m[23m[m[H[2J[?25l[25;1H"/etc/elasticsearch/elasticsearch.yml" 94L, 2957C[>c[1;1H[34m# ======================== Elasticsearch Configuration =========================
+#
+# [m[30m[103mNOTE[m[34m: Elasticsearch comes with reasonable defaults for most settings.
+#       Before you set out to tweak and tune the configuration, make sure you
+#       understand what are you trying to accomplish and the consequences.
+#
+# The primary way of configuring a node is via this file. This template lists
+# the most important settings you may want to configure for a production cluster.
+#
+# Please consult the documentation for further information on configuration options:
+# https://www.elastic.co/guide/en/elasticsearch/reference/index.html
+#
+# ---------------------------------- Cluster -----------------------------------
+#
+# Use a descriptive name for your cluster:
+#[m
+[36mcluster.name[m[35m:[m flightdata
+[34m#
+# ------------------------------------ Node ------------------------------------
+#
+# Use a descriptive name for the node:
+#[m
+[36mnode.name[m[35m:[m flightdata1
+[34m#[m[25;100H1,1[11CTop[1;1H[?12l[?25h[?25l[25;100H2[2;1H[?12l[?25h[?25l[25;100H3[3;1H[?12l[?25h[?25l[25;100H4[4;1H[?12l[?25h[?25l[25;100H5[5;1H[?12l[?25h[?25l[25;100H6[6;1H[?12l[?25h[?25l[25;100H7[7;1H[?12l[?25h[?25l[25;100H8[8;1H[?12l[?25h[?25l[25;100H9[9;1H[?12l[?25h[?25l[25;100H10,1[10;1H[?12l[?25h[?25l[25;101H1[11;1H[?12l[?25h[?25l[25;101H2[12;1H[?12l[?25h[?25l[25;101H3[13;1H[?12l[?25h[?25l[25;101H4[14;1H[?12l[?25h[?25l[25;101H5[15;1H[?12l[?25h[?25l[25;101H6[16;1H[?12l[?25h[?25l[25;101H7[17;1H[?12l[?25h[?25l[25;101H8[18;1H[?12l[?25h[?25l[25;101H9[19;1H[?12l[?25h[?25l[25;100H20[20;1H[?12l[?25h[?25l[25;101H1[21;1H[?12l[?25h[?25l[25;101H2[22;1H[?12l[?25h[?25l[25;101H3[23;1H[?12l[?25h[?25l[25;101H4[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m# Add custom attributes to the node:[m[25;1H[K[25;100H25,1[11C1%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m#[m[25;100H[K[25;100H26,1[11C2%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m#node.attr.rack: r1[m[25;100H[K[25;100H27,1[11C4%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m#[m[25;100H[K[25;100H28,1[11C5%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m# ----------------------------------- Paths ------------------------------------[m[25;100H[K[25;100H29,1[11C7%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m#[m[25;100H[K[25;100H30,1[11C8%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m# Path to directory where to store the data (separate multiple locations by comma):[m[25;100H[K[25;100H31,1[10C10%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m#[m[25;100H[K[25;100H32,1[10C11%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[36mpath.data[m[35m:[m /var/lib/elasticsearch[25;100H[K[25;100H33,1[10C12%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m#[m[25;100H[K[25;100H34,1[10C14%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m# Path to log files:[m[25;100H[K[25;100H35,1[10C15%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m#[m[25;100H[K[25;100H36,1[10C17%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[36mpath.logs[m[35m:[m /var/log/elasticsearch[25;100H[K[25;100H37,1[10C18%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m#[m[25;100H[K[25;100H38,1[10C20%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m# ----------------------------------- Memory -----------------------------------[m[25;100H[K[25;100H39,1[10C21%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m#[m[25;100H[K[25;100H40,1[10C22%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m# Lock the memory on startup:[m[25;100H[K[25;100H41,1[10C24%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m#[m[25;100H[K[25;100H42,1[10C25%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m#bootstrap.memory_lock: true[m[25;100H[K[25;100H43,1[10C27%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m#[m[25;100H[K[25;100H44,1[10C28%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m# Make sure that the heap size is set to about half the memory available[m[25;100H[K[25;100H45,1[10C30%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m# on the system and that the owner of the process is allowed to use this[m[25;100H[K[25;100H46,1[10C31%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m# limit.[m[25;100H[K[25;100H47,1[10C32%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m#[m[25;100H[K[25;100H48,1[10C34%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m# Elasticsearch performs poorly when the system is swapping the memory.[m[25;100H[K[25;100H49,1[10C35%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m#[m[25;100H[K[25;100H50,1[10C37%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m# ---------------------------------- Network -----------------------------------[m[25;100H[K[25;100H51,1[10C38%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m#[m[25;100H[K[25;100H52,1[10C40%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m# Set the bind address to a specific IP (IPv4 or IPv6):[m[25;100H[K[25;100H53,1[10C41%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m#[m[25;100H[K[25;100H54,1[10C42%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[36mnetwork.host[m[35m:[m 0.0.0.0[25;100H[K[25;100H55,1[10C44%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m#[m[25;100H[K[25;100H56,1[10C45%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m# Set a custom port for HTTP:[m[25;100H[K[25;100H57,1[10C47%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m#[m[25;100H[K[25;100H58,1[10C48%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m#http.port: 9200[m[25;100H[K[25;100H59,1[10C50%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m#[m[25;100H[K[25;100H60,1[10C51%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m# For more information, consult the network module documentation.[m[25;100H[K[25;100H61,1[10C52%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m#[m[25;100H[K[25;100H62,1[10C54%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m# --------------------------------- Discovery ----------------------------------[m[25;100H[K[25;100H63,1[10C55%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m#[m[25;100H[K[25;100H64,1[10C57%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m# Pass an initial list of hosts to perform discovery when this node is started:[m[25;100H[K[25;100H65,1[10C58%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m# The default list of hosts is ["127.0.0.1", "[::1]"][m[25;100H[K[25;100H66,1[10C60%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m#[m[25;100H[K[25;100H67,1[10C61%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[36mdiscovery.seed_hosts[m[35m:[m [35m[[m[31m"flightdata1"[m, [31m"flightdata2"[m, [31m"flightdata3"[m[35m][m[25;100H[K[25;100H68,1[10C62%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m#[m[25;100H[K[25;100H69,1[10C64%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m# Bootstrap the cluster using an initial set of master-eligible nodes:[m[25;100H[K[25;100H70,1[10C65%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m#[m[25;100H[K[25;100H71,1[10C67%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[36mcluster.initial_master_nodes[m[35m:[m [35m[[m[31m"flightdata1"[m[35m][m[25;100H[K[25;100H72,1[10C68%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m#[m[25;100H[K[25;100H73,1[10C70%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m# For more information, consult the discovery and cluster formation module documentation.[m[25;100H[K[25;100H74,1[10C71%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m#[m[25;100H[K[25;100H75,1[10C72%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m# ---------------------------------- Gateway -----------------------------------[m[25;100H[K[25;100H76,1[10C74%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m#[m[25;100H[K[25;100H77,1[10C75%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m# Block initial recovery after a full cluster restart until N nodes are started:[m[25;100H[K[25;100H78,1[10C77%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m#[m[25;100H[K[25;100H79,1[10C78%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m#gateway.recover_after_nodes: 3[m[25;100H[K[25;100H80,1[10C80%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m#[m[25;100H[K[25;100H81,1[10C81%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m# For more information, consult the gateway module documentation.[m[25;100H[K[25;100H82,1[10C82%[24;1H[?12l[?25h[?25l[25;101H1[23;1H[?12l[?25h[?25l[25;101H0[22;1H[?12l[?25h[?25l[25;100H79[21;1H[?12l[?25h[?25l[25;101H8[20;1H[?12l[?25h[?25l[25;101H7[19;1H[?12l[?25h[?25l[25;101H6[18;1H[?12l[?25h[?25l[25;101H5[17;1H[?12l[?25h[?25l[25;101H4[16;1H[?12l[?25h[?25l[25;101H3[15;1H[?12l[?25h[?25l[25;101H2[14;1H[?12l[?25h[?25l[25;101H1[13;1H[?12l[?25h[?25l[25;101H0[12;1H[?12l[?25h[?25l[25;103H2[12;2H[?12l[?25h[?25l[25;103H3[12;3H[?12l[?25h[?25l[25;103H4[12;4H[?12l[?25h[?25l[25;103H5[12;5H[?12l[?25h[?25l[25;103H6[12;6H[?12l[?25h[?25l[25;103H7[12;7H[?12l[?25h[?25l[25;103H8[12;8H[?12l[?25h[?25l[25;103H9[12;9H[?12l[?25h[?25l[25;103H10[12;10H[?12l[?25h[?25l[25;104H1[12;11H[?12l[?25h[?25l[25;101H1,1 [13;1H[?12l[?25h[?25l[25;101H2,11[14;11H[?12l[?25h[?25l[25;104H2[14;12H[?12l[?25h[?25l[25;104H3[14;13H[?12l[?25h[?25l[25;104H4[14;14H[?12l[?25h[?25l[25;104H5[14;15H[?12l[?25h[?25l[25;104H6[14;16H[?12l[?25h[?25l[25;104H7[14;17H[?12l[?25h[?25l[25;104H8[14;18H[?12l[?25h[?25l[25;104H9[14;19H[?12l[?25h[?25l[25;103H20[14;20H[?12l[?25h[?25l[25;104H1[14;21H[?12l[?25h[?25l[25;104H2[14;22H[?12l[?25h[?25l[25;104H3[14;23H[?12l[?25h[?25l[25;104H4[14;24H[?12l[?25h[?25l[25;104H5[14;25H[?12l[?25h[?25l[25;104H6[14;26H[?12l[?25h[?25l[25;104H7[14;27H[?12l[?25h[?25l[25;104H8[14;28H[?12l[?25h[?25l[25;104H9[14;29H[?12l[?25h[?25l[25;103H30[14;30H[?12l[?25h[?25l [35m[106m[[13C][m[25;104H1[14;31H[?12l[?25h[?25l[35m[[13C][m[25;104H2[14;32H[?12l[?25h[?25l[25;104H3[14;33H[?12l[?25h[?25l[25;104H4[14;34H[?12l[?25h[?25l[25;104H5[14;35H[?12l[?25h[?25l[25;104H6[14;36H[?12l[?25h[?25l[25;104H7[14;37H[?12l[?25h[?25l[25;104H8[14;38H[?12l[?25h[?25l[25;104H9[14;39H[?12l[?25h[?25l[25;103H40[14;40H[?12l[?25h[?25l[25;104H1[14;41H[?12l[?25h[?25l[25;104H2[14;42H[?12l[?25h[?25l[25;104H3[14;43H[?12l[?25h[?25l[25;104H4[14;44H[?12l[?25h[?25l[14;31H[35m[106m[[13C][m[25;104H5[14;45H[?12l[?25h[?25l[25;1H[1m-- INSERT --[m[25;100H[K[25;100H72,45[9C82%[14;45H[?12l[?25h[?25l[25;104H6[14;46H[?12l[?25h[?25l[14;45H[K[14;31H[35m[[m[25;104H5[14;45H[?12l[?25h[?25l[14;44H[K[15;1H[31m#
+# For more information, consult the discovery and cluster formation module documentation.
+#
+# ---------------------------------- Gateway -----------------------------------
+#
+# Block initial recovery after a full cluster restart until N nodes are started:
+#
+#gateway.recover_after_nodes: 3
+#
+# For more information, consult the gateway module documentation.[m[25;104H4[14;44H[?12l[?25h[?25l[14;43H[K[25;104H3[14;43H[?12l[?25h[?25l[14;42H[K[25;104H2[14;42H[?12l[?25h[?25l[14;41H[K[25;104H1[14;41H[?12l[?25h[?25l[14;40H[K[25;104H0[14;40H[?12l[?25h[?25l[14;39H[K[25;103H39[14;39H[?12l[?25h[?25l[14;38H[K[25;104H8[14;38H[?12l[?25h[?25l[14;37H[K[25;104H7[14;37H[?12l[?25h[?25l[14;36H[K[25;104H6[14;36H[?12l[?25h[?25l[14;35H[K[25;104H5[14;35H[?12l[?25h[?25l[14;34H[K[25;104H4[14;34H[?12l[?25h[?25l[14;33H[K[25;104H3[14;33H[?12l[?25h[?25l[14;32H[K[15;1H[34m#
+# For more information, consult the discovery and cluster formation module documentation.
+#
+# ---------------------------------- Gateway -----------------------------------
+#
+# Block initial recovery after a full cluster restart until N nodes are started:
+#
+#gateway.recover_after_nodes: 3
+#
+# For more information, consult the gateway module documentation.[m[25;104H2[14;32H[?12l[?25h[?25l[14;31H[K[25;104H1[14;31H[?12l[?25h[?25lsudo systemctl start elasticsearch[25;103H65[14;65H[?12l[?25h[?25l[14;64H[K[25;104H4[14;64H[?12l[?25h[?25l[14;63H[K[25;104H3[14;63H[?12l[?25h[?25l[14;62H[K[25;104H2[14;62H[?12l[?25h[?25l[14;61H[K[25;104H1[14;61H[?12l[?25h[?25l[14;60H[K[25;104H0[14;60H[?12l[?25h[?25l[14;59H[K[25;103H59[14;59H[?12l[?25h[?25l[14;58H[K[25;104H8[14;58H[?12l[?25h[?25l[14;57H[K[25;104H7[14;57H[?12l[?25h[?25l[14;56H[K[25;104H6[14;56H[?12l[?25h[?25l[14;55H[K[25;104H5[14;55H[?12l[?25h[?25l[14;54H[K[25;104H4[14;54H[?12l[?25h[?25l[14;53H[K[25;104H3[14;53H[?12l[?25h[?25l[14;52H[K[25;104H2[14;52H[?12l[?25h[?25l[25;104H1[14;51H[?12l[?25h[?25l[14;50H[K[25;104H0[14;50H[?12l[?25h[?25l[14;49H[K[25;103H49[14;49H[?12l[?25h[?25l[14;48H[K[25;104H8[14;48H[?12l[?25h[?25l[14;47H[K[25;104H7[14;47H[?12l[?25h[?25l[14;46H[K[25;104H6[14;46H[?12l[?25h[?25l[25;104H5[14;45H[?12l[?25h[?25l[14;44H[K[25;104H4[14;44H[?12l[?25h[?25l[14;43H[K[25;104H3[14;43H[?12l[?25h[?25l[14;42H[K[25;104H2[14;42H[?12l[?25h[?25l[14;41H[K[25;104H1[14;41H[?12l[?25h[?25l[14;40H[K[25;104H0[14;40H[?12l[?25h[?25l[14;39H[K[25;103H39[14;39H[?12l[?25h[?25l[14;38H[K[25;104H8[14;38H[?12l[?25h[?25l[14;37H[K[25;104H7[14;37H[?12l[?25h[?25l[14;36H[K[25;104H6[14;36H[?12l[?25h[?25l[25;104H5[14;35H[?12l[?25h[?25l[14;34H[K[25;104H4[14;34H[?12l[?25h[?25l[14;33H[K[25;104H3[14;33H[?12l[?25h[?25l[14;32H[K[25;104H2[14;32H[?12l[?25h[?25l[14;31H[K[25;104H1[14;31H[?12l[?25h[?25l[15;24r[15;1H[L[1;25r[14;31H[35m[[m[31m"flightdata1"[m, [31m"flightdata2"[m, [31m"flightdata3"[m[35m][m[25;100H[K[25;100H73,1[10C81%[15;1H[?12l[?25h[?25l[14;24r[24;1H
+[1;25r[14;1H[36mcluster.initial_master_nodes[m[35m:[m [35m[[m[31m"flightdata1"[m, [31m"flightdata2"[m, [31m"flightdata3"[m[35m][m[24;1H[34m# For more information, consult the gateway module documentation.[m[25;100H[K[25;100H72,76[9C82%[14;31H[35m[106m[[43C][?12l[?25h[?25l[m[14;31H[35m[[43C][m[25;101H3,2 [15;2H[?12l[?25h[?25l[25;101H4,76[16;76H[?12l[?25h[?25l[25;101H5,2 [17;2H[?12l[?25h[?25l[25;101H6,76[18;76H[?12l[?25h[?25l[25;101H7,2 [19;2H[?12l[?25h[?25l[25;101H8,76[20;76H[?12l[?25h[?25l[25;101H9,2 [21;2H[?12l[?25h[?25l[25;100H80,32[22;32H[?12l[?25h[?25l[25;101H1,2 [23;2H[?12l[?25h[?25l[25;101H2,66[24;66H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m#[m[25;100H[K[25;100H83,2[10C84%[24;2H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m# ---------------------------------- Various -----------------------------------[m[25;100H[K[25;100H84,76[9C85%[24;76H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m#[m[25;100H[K[25;100H85,2[10C87%[24;2H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m# Require explicit names when deleting indices:[m[25;100H[K[25;100H86,48[9C88%[24;48H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m#[m[25;100H[K[25;100H87,2[10C90%[24;2H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[34m# Node Roles[m[25;100H[K[25;100H88,13[9C91%[24;13H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[36mnode.master[m[35m:[m [31mtrue[m[25;100H[K[25;100H89,18[9C92%[24;18H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[36mnode.data[m[35m:[m [31mtrue[m[25;100H[K[25;100H90,16[9C94%[24;16H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[36mnode.ingest[m[35m:[m [31mtrue[m[25;100H[K[25;100H91,18[9C95%[24;18H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[25;100H[K[25;100H92,1[10C97%[24;1H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[36maction.auto_create_index[m[35m:[m [31mTrue[m[25;100H[K[25;100H93,31[9C98%[24;31H[?12l[?25h[?25l[1;24r[24;1H
+[1;25r[24;1H[36maction.destructive_requires_name[m[35m:[m [31mtrue[m[25;100H[K[25;100H94,39[9CBot[24;39H[?12l[?25h[25;1H[K[?25l[25;100H94,38[9CBot[24;38H[?12l[?25h[?25l[25;100H[K[25;1H:[?12l[?25hw[?25l[?12l[?25hq[?25l[?12l[?25h![?25l[?12l[?25h[?25l"/etc/elasticsearch/elasticsearch.yml" 94L, 2987C written
+[?1l>[?12l[?25h[?1049l]0;root@flightdata1: /var/log/elasticsearch[01;32mroot@flightdata1[00m:[01;34m/var/log/elasticsearch[00m# sudo vi /etc/elasticsearch/elasticsearch.yml [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kexit
+exit
+]0;ubuntu@flightdata1: ~[01;32mubuntu@flightdata1[00m:[01;34m~[00m$ sudo -ssystemctl start elasticsearch[C[1P elasticsearch[1P elasticsearch[1P elasticsearcho elasticsearchp elasticsearch
+]0;ubuntu@flightdata1: ~[01;32mubuntu@flightdata1[00m:[01;34m~[00m$ sudo systemctl stop elasticsearch[1P elasticsearch[1P elasticsearcha elasticsearchr elasticsearcht elasticsearch
+]0;ubuntu@flightdata1: ~[01;32mubuntu@flightdata1[00m:[01;34m~[00m$ sudo systemctl start elasticsearch[1P elasticsearch[1P elasticsearcht elasticsearchu elasticsearchs elasticsearch
+[?1h=[0;1;32m●[0m elasticsearch.service - Elasticsearch[m
+   Loaded: loaded (/usr/lib/systemd/system/elasticsearch.service; disabled; vendor preset: enabled)[m
+   Active: [0;1;32mactive (running)[0m since Fri 2020-01-24 17:47:35 UTC; 12s ago[m
+     Docs: http://www.elastic.co[m
+ Main PID: 3631 (java)[m
+    Tasks: 53[m
+   Memory: 1.2G[m
+      CPU: 24.873s[m
+   CGroup: /system.slice/elasticsearch.service[m
+           ├─3631 /usr/share/elasticsearch/jdk/bin/java -Des.networkaddress.cache.ttl=60 -Des.networkaddress.cache.ne[m
+           └─3725 /usr/share/elasticsearch/modules/x-pack-ml/platform/linux-x86_64/bin/controller[m
+[m
+Jan 24 17:47:22 flightdata1 systemd[1]: Starting Elasticsearch...[m
+Jan 24 17:47:23 flightdata1 elasticsearch[3631]: OpenJDK 64-Bit Server VM warning: Option UseConcMarkSweepGC was depr[m
+Jan 24 17:47:35 flightdata1 systemd[1]: Started Elasticsearch.[m
+[7mlines 1-15/15 (END)[27m[K[K [KESCESC[KOO[KAA[K...skipping...
+[0;1;32m●[0m elasticsearch.service - Elasticsearch[m
+   Loaded: loaded (/usr/lib/systemd/system/elasticsearch.service; disabled; vendor preset: enabled)[m
+   Active: [0;1;32mactive (running)[0m since Fri 2020-01-24 17:47:35 UTC; 12s ago[m
+     Docs: http://www.elastic.co[m
+ Main PID: 3631 (java)[m
+    Tasks: 53[m
+   Memory: 1.2G[m
+      CPU: 24.873s[m
+   CGroup: /system.slice/elasticsearch.service[m
+           ├─3631 /usr/share/elasticsearch/jdk/bin/java -Des.networkaddress.cache.ttl=60 -Des.networkaddress.cache.ne[m
+           └─3725 /usr/share/elasticsearch/modules/x-pack-ml/platform/linux-x86_64/bin/controller[m
+[m
+Jan 24 17:47:22 flightdata1 systemd[1]: Starting Elasticsearch...[m
+Jan 24 17:47:23 flightdata1 elasticsearch[3631]: OpenJDK 64-Bit Server VM warning: Option UseConcMarkSweepGC was depr[m
+Jan 24 17:47:35 flightdata1 systemd[1]: Started Elasticsearch.[m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[7mlines 1-15/15 (END)[27m[K[K[?1l>]0;ubuntu@flightdata1: ~[01;32mubuntu@flightdata1[00m:[01;34m~[00m$ sudo systemctl status elasticsearch[1Prt[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1Pop[C[C[C[C[C[C[C[C[C[C[C[C[C[C-s[Ksystemctl start elasticsearch[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cexit[Ksudo systemctl stop elasticsearch[2@atus[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccurl http://localhost:9200/_cluster/health?pretty
+{
+  "cluster_name" : "flightdata",
+  "status" : "green",
+  "timed_out" : false,
+  "number_of_nodes" : 1,
+  "number_of_data_nodes" : 1,
+  "active_primary_shards" : 1,
+  "active_shards" : 1,
+  "relocating_shards" : 0,
+  "initializing_shards" : 0,
+  "unassigned_shards" : 0,
+  "delayed_unassigned_shards" : 0,
+  "number_of_pending_tasks" : 0,
+  "number_of_in_flight_fetch" : 0,
+  "task_max_waiting_in_queue_millis" : 0,
+  "active_shards_percent_as_number" : 100.0
+}
+]0;ubuntu@flightdata1: ~[01;32mubuntu@flightdata1[00m:[01;34m~[00m$ curl http://localhost:9200/_cluster/health?pretty
+{
+  "cluster_name" : "flightdata",
+  "status" : "green",
+  "timed_out" : false,
+  "number_of_nodes" : 1,
+  "number_of_data_nodes" : 1,
+  "active_primary_shards" : 1,
+  "active_shards" : 1,
+  "relocating_shards" : 0,
+  "initializing_shards" : 0,
+  "unassigned_shards" : 0,
+  "delayed_unassigned_shards" : 0,
+  "number_of_pending_tasks" : 0,
+  "number_of_in_flight_fetch" : 0,
+  "task_max_waiting_in_queue_millis" : 0,
+  "active_shards_percent_as_number" : 100.0
+}
+]0;ubuntu@flightdata1: ~[01;32mubuntu@flightdata1[00m:[01;34m~[00m$ curl http://localhost:9200/_cluster/health?pretty
+{
+  "cluster_name" : "flightdata",
+  "status" : "green",
+  "timed_out" : false,
+  "number_of_nodes" : 1,
+  "number_of_data_nodes" : 1,
+  "active_primary_shards" : 1,
+  "active_shards" : 1,
+  "relocating_shards" : 0,
+  "initializing_shards" : 0,
+  "unassigned_shards" : 0,
+  "delayed_unassigned_shards" : 0,
+  "number_of_pending_tasks" : 0,
+  "number_of_in_flight_fetch" : 0,
+  "task_max_waiting_in_queue_millis" : 0,
+  "active_shards_percent_as_number" : 100.0
+}
+]0;ubuntu@flightdata1: ~[01;32mubuntu@flightdata1[00m:[01;34m~[00m$ curl http://localhost:9200/_cluster/health?pretty
+{
+  "cluster_name" : "flightdata",
+  "status" : "green",
+  "timed_out" : false,
+  "number_of_nodes" : 1,
+  "number_of_data_nodes" : 1,
+  "active_primary_shards" : 1,
+  "active_shards" : 1,
+  "relocating_shards" : 0,
+  "initializing_shards" : 0,
+  "unassigned_shards" : 0,
+  "delayed_unassigned_shards" : 0,
+  "number_of_pending_tasks" : 0,
+  "number_of_in_flight_fetch" : 0,
+  "task_max_waiting_in_queue_millis" : 0,
+  "active_shards_percent_as_number" : 100.0
+}
+]0;ubuntu@flightdata1: ~[01;32mubuntu@flightdata1[00m:[01;34m~[00m$ curl http://localhost:9200/_cluster/health?pretty
+{
+  "cluster_name" : "flightdata",
+  "status" : "green",
+  "timed_out" : false,
+  "number_of_nodes" : 1,
+  "number_of_data_nodes" : 1,
+  "active_primary_shards" : 1,
+  "active_shards" : 1,
+  "relocating_shards" : 0,
+  "initializing_shards" : 0,
+  "unassigned_shards" : 0,
+  "delayed_unassigned_shards" : 0,
+  "number_of_pending_tasks" : 0,
+  "number_of_in_flight_fetch" : 0,
+  "task_max_waiting_in_queue_millis" : 0,
+  "active_shards_percent_as_number" : 100.0
+}
+]0;ubuntu@flightdata1: ~[01;32mubuntu@flightdata1[00m:[01;34m~[00m$ curl http://localhost:9200/_cluster/health?pretty
+{
+  "cluster_name" : "flightdata",
+  "status" : "green",
+  "timed_out" : false,
+  "number_of_nodes" : 1,
+  "number_of_data_nodes" : 1,
+  "active_primary_shards" : 1,
+  "active_shards" : 1,
+  "relocating_shards" : 0,
+  "initializing_shards" : 0,
+  "unassigned_shards" : 0,
+  "delayed_unassigned_shards" : 0,
+  "number_of_pending_tasks" : 0,
+  "number_of_in_flight_fetch" : 0,
+  "task_max_waiting_in_queue_millis" : 0,
+  "active_shards_percent_as_number" : 100.0
+}
+]0;ubuntu@flightdata1: ~[01;32mubuntu@flightdata1[00m:[01;34m~[00m$ curl http://localhost:9200/_cluster/health?pretty
+{
+  "cluster_name" : "flightdata",
+  "status" : "green",
+  "timed_out" : false,
+  "number_of_nodes" : 1,
+  "number_of_data_nodes" : 1,
+  "active_primary_shards" : 1,
+  "active_shards" : 1,
+  "relocating_shards" : 0,
+  "initializing_shards" : 0,
+  "unassigned_shards" : 0,
+  "delayed_unassigned_shards" : 0,
+  "number_of_pending_tasks" : 0,
+  "number_of_in_flight_fetch" : 0,
+  "task_max_waiting_in_queue_millis" : 0,
+  "active_shards_percent_as_number" : 100.0
+}
+]0;ubuntu@flightdata1: ~[01;32mubuntu@flightdata1[00m:[01;34m~[00m$ curl http://localhost:9200/_cluster/health?pretty
+{
+  "cluster_name" : "flightdata",
+  "status" : "green",
+  "timed_out" : false,
+  "number_of_nodes" : 1,
+  "number_of_data_nodes" : 1,
+  "active_primary_shards" : 1,
+  "active_shards" : 1,
+  "relocating_shards" : 0,
+  "initializing_shards" : 0,
+  "unassigned_shards" : 0,
+  "delayed_unassigned_shards" : 0,
+  "number_of_pending_tasks" : 0,
+  "number_of_in_flight_fetch" : 0,
+  "task_max_waiting_in_queue_millis" : 0,
+  "active_shards_percent_as_number" : 100.0
+}
+]0;ubuntu@flightdata1: ~[01;32mubuntu@flightdata1[00m:[01;34m~[00m$ sudo reboot
