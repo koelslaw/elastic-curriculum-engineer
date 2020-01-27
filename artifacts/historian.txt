@@ -1,0 +1,563 @@
+Welcome to Ubuntu 16.04.6 LTS (GNU/Linux 4.4.0-1092-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+0 packages can be updated.
+0 updates are security updates.
+
+New release '18.04.3 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Mon Jan 27 20:45:02 2020 from 162.219.60.9
+]0;ubuntu@historian1: ~[01;32mubuntu@historian1[00m:[01;34m~[00m$ sh -i "Elasticsearch.pem" ubuntu@34.226.158.249 | historian.txt
+sh: 0: Can't open Elasticsearch.pem
+historian.txt: command not found
+]0;ubuntu@historian1: ~[01;32mubuntu@historian1[00m:[01;34m~[00m$ wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+OK
+]0;ubuntu@historian1: ~[01;32mubuntu@historian1[00m:[01;34m~[00m$ sudo apt-get install apt-transport-https
+Reading package lists... 0%Reading package lists... 100%Reading package lists... Done
+Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 50%Building dependency tree... 50%Building dependency tree       
+Reading state information... 0%Reading state information... 5%Reading state information... Done
+apt-transport-https is already the newest version (1.2.32).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+]0;ubuntu@historian1: ~[01;32mubuntu@historian1[00m:[01;34m~[00m$ echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sour ces.list.d/elastic-7.x.list
+deb https://artifacts.elastic.co/packages/7.x/apt stable main
+]0;ubuntu@historian1: ~[01;32mubuntu@historian1[00m:[01;34m~[00m$ sudo apt-get update && sudo apt-get install filebeat
+0% [Working]            Hit:1 http://us-east-1.ec2.archive.ubuntu.com/ubuntu xenial InRelease
+0% [Connecting to security.ubuntu.com (91.189.88.31)]                                                     Get:2 http://us-east-1.ec2.archive.ubuntu.com/ubuntu xenial-updates InRelease [109 kB]
+0% [Waiting for headers] [Connecting to security.ubuntu.com (91.189.88.31)]                                                                           Get:3 http://us-east-1.ec2.archive.ubuntu.com/ubuntu xenial-backports InRelease [107 kB]
+0% [1 InRelease gpgv 247 kB] [Connecting to security.ubuntu.com (91.189.88.31)]                                                                               0% [Waiting for headers]0% [2 InRelease gpgv 109 kB] [Waiting for headers] [Waiting for headers]                                                                        Get:4 http://us-east-1.ec2.archive.ubuntu.com/ubuntu xenial/universe amd64 Packages [7,532 kB]
+0% [2 InRelease gpgv 109 kB] [4 Packages 120 kB/7,532 kB 2%] [Waiting for headers]                                                                                  Get:5 http://security.ubuntu.com/ubuntu xenial-security InRelease [109 kB]
+0% [2 InRelease gpgv 109 kB] [4 Packages 1,795 kB/7,532 kB 24%] [5 InRelease 2,586 B/109 kB 2%]                                                                                               0% [2 InRelease gpgv 109 kB] [5 InRelease 48.9 kB/109 kB 45%]                                                             Get:6 https://artifacts.elastic.co/packages/7.x/apt stable InRelease [7,124 B]
+                                                             0% [5 InRelease 54.7 kB/109 kB 50%]0% [4 Packages store 0 B] [Waiting for headers] [5 InRelease 54.7 kB/109 kB 50%]0% [4 Packages store 0 B] [3 InRelease gpgv 107 kB] [Waiting for headers] [5 InRelease 54.7 kB/109 kB 50%]                                                                                                          Get:7 http://us-east-1.ec2.archive.ubuntu.com/ubuntu xenial/universe Translation-en [4,354 kB]
+0% [4 Packages store 0 B] [3 InRelease gpgv 107 kB] [7 Translation-en 246 kB/4,354 kB 6%] [5 InRelease 57.6 kB/109 k                                                                                                                    0% [4 Packages store 0 B] [3 InRelease gpgv 107 kB] [7 Translation-en 2,147 kB/4,354 kB 49%]                                                                                            0% [4 Packages store 0 B] [3 InRelease gpgv 107 kB]                                                   Get:8 http://us-east-1.ec2.archive.ubuntu.com/ubuntu xenial/multiverse amd64 Packages [144 kB]
+0% [4 Packages store 0 B] [3 InRelease gpgv 107 kB] [8 Packages 0 B/144 kB 0%]                                                                              0% [4 Packages store 0 B] [3 InRelease gpgv 107 kB]                                                   Get:9 http://us-east-1.ec2.archive.ubuntu.com/ubuntu xenial/multiverse Translation-en [106 kB]
+0% [4 Packages store 0 B] [3 InRelease gpgv 107 kB] [9 Translation-en 0 B/106 kB 0%]                                                                                    0% [4 Packages store 0 B] [3 InRelease gpgv 107 kB]                                                   Get:10 http://us-east-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 Packages [1,096 kB]
+0% [4 Packages store 0 B] [3 InRelease gpgv 107 kB] [10 Packages 0 B/1,096 kB 0%]                                                                                 0% [4 Packages store 0 B] [3 InRelease gpgv 107 kB]                                                   Get:11 http://us-east-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main Translation-en [420 kB]
+0% [4 Packages store 0 B] [3 InRelease gpgv 107 kB] [11 Translation-en 0 B/420 kB 0%]                                                                                     0% [4 Packages store 0 B] [3 InRelease gpgv 107 kB]                                                   Get:12 http://us-east-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/universe amd64 Packages [780 kB]
+0% [4 Packages store 0 B] [3 InRelease gpgv 107 kB] [12 Packages 0 B/780 kB 0%]                                                                               0% [4 Packages store 0 B] [3 InRelease gpgv 107 kB]                                                   Get:13 http://us-east-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/universe Translation-en [327 kB]
+0% [4 Packages store 0 B] [3 InRelease gpgv 107 kB] [13 Translation-en 0 B/327 kB 0%]                                                                                     0% [4 Packages store 0 B] [3 InRelease gpgv 107 kB]                                                   Get:14 http://us-east-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/multiverse amd64 Packages [16.8 kB]
+0% [4 Packages store 0 B] [3 InRelease gpgv 107 kB] [14 Packages 0 B/16.8 kB 0%]                                                                                0% [4 Packages store 0 B] [3 InRelease gpgv 107 kB]                                                   Get:15 http://us-east-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/multiverse Translation-en [8,468 B]
+0% [4 Packages store 0 B] [3 InRelease gpgv 107 kB] [15 Translation-en 0 B/8,468 B 0%]                                                                                      0% [4 Packages store 0 B] [3 InRelease gpgv 107 kB]                                                   0% [4 Packages store 0 B]0% [4 Packages store 0 B] [6 InRelease gpgv 7,124 B] [Waiting for headers]                                                                          Get:16 http://us-east-1.ec2.archive.ubuntu.com/ubuntu xenial-backports/main amd64 Packages [7,280 B]
+                                                                          0% [4 Packages store 0 B] [6 InRelease gpgv 7,124 B]                                                    Get:17 http://us-east-1.ec2.archive.ubuntu.com/ubuntu xenial-backports/main Translation-en [4,456 B]
+0% [4 Packages store 0 B] [6 InRelease gpgv 7,124 B] [Waiting for headers]                                                                          Get:18 http://us-east-1.ec2.archive.ubuntu.com/ubuntu xenial-backports/universe amd64 Packages [8,064 B]
+0% [4 Packages store 0 B] [6 InRelease gpgv 7,124 B] [Waiting for headers]                                                                          Get:19 http://us-east-1.ec2.archive.ubuntu.com/ubuntu xenial-backports/universe Translation-en [4,328 B]
+                                                                          0% [4 Packages store 0 B] [6 InRelease gpgv 7,124 B]                                                    0% [4 Packages store 0 B]0% [4 Packages store 0 B] [5 InRelease gpgv 109 kB]                                                   Get:20 https://artifacts.elastic.co/packages/7.x/apt stable/main amd64 Packages [27.2 kB]
+0% [4 Packages store 0 B] [5 InRelease gpgv 109 kB]                                                   86% [4 Packages store 0 B]                          Get:21 http://security.ubuntu.com/ubuntu xenial-security/main amd64 Packages [810 kB]
+86% [4 Packages store 0 B] [21 Packages 2,687 B/810 kB 0%]                                                          90% [4 Packages store 0 B]                          Get:22 http://security.ubuntu.com/ubuntu xenial-security/main Translation-en [310 kB]
+90% [4 Packages store 0 B] [22 Translation-en 12.8 kB/310 kB 4%]                                                                Get:23 http://security.ubuntu.com/ubuntu xenial-security/universe amd64 Packages [476 kB]
+                                                                91% [4 Packages store 0 B] [23 Packages 2,270 B/476 kB 0%]                                                          Get:24 http://security.ubuntu.com/ubuntu xenial-security/universe Translation-en [195 kB]
+93% [4 Packages store 0 B] [24 Translation-en 8,109 B/195 kB 4%]                                                                Get:25 http://security.ubuntu.com/ubuntu xenial-security/multiverse amd64 Packages [5,728 B]
+                                                                Get:26 http://security.ubuntu.com/ubuntu xenial-security/multiverse Translation-en [2,708 B]
+94% [4 Packages store 0 B] [26 Translation-en 2,370 B/2,708 B 88%]                                                                  94% [4 Packages store 0 B]                          95% [Working]95% [7 Translation-en store 0 B]95% [7 Translation-en store 0 B]                                95% [Working]95% [8 Packages store 0 B]                          95% [Working]95% [9 Translation-en store 0 B]                                95% [Working]95% [10 Packages store 0 B]                           96% [Working]96% [11 Translation-en store 0 B]                                 96% [Working]96% [12 Packages store 0 B]                           96% [Working]96% [13 Translation-en store 0 B]                                 96% [Working]96% [14 Packages store 0 B]                           97% [Working]97% [15 Translation-en store 0 B]                                 97% [Working]97% [16 Packages store 0 B]                           97% [Working]97% [17 Translation-en store 0 B]                                 98% [Working]98% [18 Packages store 0 B]                           98% [Working]98% [19 Translation-en store 0 B]                                 98% [Working]98% [20 Packages store 0 B]                           98% [Working]98% [21 Packages store 0 B]                           99% [Working]99% [22 Translation-en store 0 B]                                 99% [Working]99% [23 Packages store 0 B]                           99% [Working]99% [24 Translation-en store 0 B]                                 99% [Working]99% [25 Packages store 0 B]                           100% [Working]100% [26 Translation-en store 0 B]                                  100% [Working]              Fetched 17.0 MB in 3s (4,772 kB/s)
+Reading package lists... 0%Reading package lists... 0%Reading package lists... 1%Reading package lists... 6%Reading package lists... 6%Reading package lists... 9%Reading package lists... 9%Reading package lists... 9%Reading package lists... 9%Reading package lists... 9%Reading package lists... 9%Reading package lists... 44%Reading package lists... 44%Reading package lists... 64%Reading package lists... 64%Reading package lists... 65%Reading package lists... 65%Reading package lists... 65%Reading package lists... 65%Reading package lists... 70%Reading package lists... 72%Reading package lists... 72%Reading package lists... 78%Reading package lists... 78%Reading package lists... 78%Reading package lists... 78%Reading package lists... 78%Reading package lists... 78%Reading package lists... 82%Reading package lists... 82%Reading package lists... 84%Reading package lists... 84%Reading package lists... 85%Reading package lists... 85%Reading package lists... 85%Reading package lists... 85%Reading package lists... 85%Reading package lists... 85%Reading package lists... 85%Reading package lists... 85%Reading package lists... 85%Reading package lists... 85%Reading package lists... 85%Reading package lists... 85%Reading package lists... 90%Reading package lists... 90%Reading package lists... 94%Reading package lists... 94%Reading package lists... 95%Reading package lists... 95%Reading package lists... 95%Reading package lists... 95%Reading package lists... 97%Reading package lists... 97%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... Done
+Reading package lists... 0%Reading package lists... 100%Reading package lists... Done
+Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 50%Building dependency tree... 50%Building dependency tree       
+Reading state information... 0%Reading state information... 5%Reading state information... Done
+The following NEW packages will be installed:
+  filebeat
+0 upgraded, 1 newly installed, 0 to remove and 69 not upgraded.
+Need to get 24.5 MB of archives.
+After this operation, 78.8 MB of additional disk space will be used.
+0% [Working]            Get:1 https://artifacts.elastic.co/packages/7.x/apt stable/main amd64 filebeat amd64 7.5.2 [24.5 MB]
+0% [1 filebeat 0 B/24.5 MB 0%]70% [1 filebeat 21.4 MB/24.5 MB 87%]                                    100% [Working]              Fetched 24.5 MB in 0s (30.2 MB/s)
+Selecting previously unselected package filebeat.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 51385 files and directories currently installed.)
+Preparing to unpack .../filebeat_7.5.2_amd64.deb ...
+Unpacking filebeat (7.5.2) ...
+Processing triggers for ureadahead (0.100.0-19.1) ...
+Processing triggers for systemd (229-4ubuntu21.22) ...
+Setting up filebeat (7.5.2) ...
+Processing triggers for ureadahead (0.100.0-19.1) ...
+Processing triggers for systemd (229-4ubuntu21.22) ...
+]0;ubuntu@historian1: ~[01;32mubuntu@historian1[00m:[01;34m~[00m$ filef[Kbeat
+Exiting: error loading config file: open /etc/filebeat/filebeat.yml: permission denied
+]0;ubuntu@historian1: ~[01;32mubuntu@historian1[00m:[01;34m~[00m$ sudo !!
+sudo filebeat
+^C]0;ubuntu@historian1: ~[01;32mubuntu@historian1[00m:[01;34m~[00m$ sudo vi /ey[Ktc/filebeat/fl[Kilebeat.yml 
+[?1049h[?1h=[2;1H▽[6n[2;1H  [1;1H]11;?[1;56r[?12;25h[?12l[?25h[27m[23m[m[H[2J[?25l[56;1H"/etc/filebeat/filebeat.yml" 218L, 8236C[>c[1;1H[34m###################### Filebeat Configuration Example #########################
+
+# This file is an example configuration file highlighting only the most common
+# options. The filebeat.reference.yml file from the same directory contains all the
+# supported options with more comments. You can use it as a reference.
+#
+# You can find the full configuration reference here:
+# https://www.elastic.co/guide/en/beats/filebeat/index.html
+
+# For more available modules and options, please see the filebeat.reference.yml sample
+# configuration file.
+
+#=========================== Filebeat inputs =============================[m
+
+[36mfilebeat.inputs[m[35m:[m
+
+[34m# Each - is an input. Most options can be set at the input level, so
+# you can use different inputs for various configurations.
+# Below are the input specific configurations.[m
+
+[38;5;130m- [m[36mtype[m[35m:[m log
+
+ [34m # Change to true to enable this input configuration.[m
+  [36menabled[m[35m:[m [31mfalse[m
+
+ [34m # Paths that should be crawled and fetched. Glob based paths.[m
+  [36mpaths[m[35m:[m
+    [38;5;130m- [m/var/log/*.log
+   [34m #- c:\programdata\elasticsearch\logs\*
+
+[m [34m # Exclude lines. A list of regular expressions to match. It drops the lines that are
+[m [34m # matching any regular expression from the list.
+[m [34m #exclude_lines: ['^DBG']
+
+[m [34m # Include lines. A list of regular expressions to match. It exports the lines that are
+[m [34m # matching any regular expression from the list.
+[m [34m #include_lines: ['^ERR', '^WARN']
+
+[m [34m # Exclude files. A list of regular expressions to match. Filebeat drops the files that
+[m [34m # are matching any regular expression from the list. By default, no files are dropped.
+[m [34m #exclude_files: ['.gz$']
+
+[m [34m # Optional additional fields. These fields can be freely picked
+[m [34m # to add additional information to the crawled log files for filtering
+[m [34m #fields:
+[m [34m #  level: debug
+[m [34m #  review: 1
+
+[m [34m ### Multiline options
+
+[m [34m # Multiline can be used for log messages spanning multiple lines. This is common
+[m [34m # for Java Stack Traces or C-Line Continuation
+
+[m [34m # The regexp Pattern that has to be matched. The example pattern matches all lines starting with [
+[m [34m #multiline.pattern: ^\[[m[56;100H1,1[11CTop[1;1H[?12l[?25h[?25l[56;1H[K[56;1H:[?12l[?25hq[?25l[?12l[?25h![?25l[?12l[?25h[?25l[56;1H[K[56;1H[?1l>[?12l[?25h[?1049l]0;ubuntu@historian1: ~[01;32mubuntu@historian1[00m:[01;34m~[00m$ f[Ksudo filebeat setup
+Exiting: Couldn't connect to any of the configured Elasticsearch hosts. Errors: [Error connection to Elasticsearch http://localhost:9200: Get http://localhost:9200: dial tcp 127.0.0.1:9200: connect: connection refused]
+]0;ubuntu@historian1: ~[01;32mubuntu@historian1[00m:[01;34m~[00m$ sudo vi /etc/filebeat/filebeat.yml
+[?1049h[?1h=[2;1H▽[6n[2;1H  [1;1H]11;?[1;56r[?12;25h[?12l[?25h[27m[23m[m[H[2J[?25l[56;1H"/etc/filebeat/filebeat.yml" 218L, 8236C[>c[1;1H[34m###################### Filebeat Configuration Example #########################
+
+# This file is an example configuration file highlighting only the most common
+# options. The filebeat.reference.yml file from the same directory contains all the
+# supported options with more comments. You can use it as a reference.
+#
+# You can find the full configuration reference here:
+# https://www.elastic.co/guide/en/beats/filebeat/index.html
+
+# For more available modules and options, please see the filebeat.reference.yml sample
+# configuration file.
+
+#=========================== Filebeat inputs =============================[m
+
+[36mfilebeat.inputs[m[35m:[m
+
+[34m# Each - is an input. Most options can be set at the input level, so
+# you can use different inputs for various configurations.
+# Below are the input specific configurations.[m
+
+[38;5;130m- [m[36mtype[m[35m:[m log
+
+ [34m # Change to true to enable this input configuration.[m
+  [36menabled[m[35m:[m [31mfalse[m
+
+ [34m # Paths that should be crawled and fetched. Glob based paths.[m
+  [36mpaths[m[35m:[m
+    [38;5;130m- [m/var/log/*.log
+   [34m #- c:\programdata\elasticsearch\logs\*
+
+[m [34m # Exclude lines. A list of regular expressions to match. It drops the lines that are
+[m [34m # matching any regular expression from the list.
+[m [34m #exclude_lines: ['^DBG']
+
+[m [34m # Include lines. A list of regular expressions to match. It exports the lines that are
+[m [34m # matching any regular expression from the list.
+[m [34m #include_lines: ['^ERR', '^WARN']
+
+[m [34m # Exclude files. A list of regular expressions to match. Filebeat drops the files that
+[m [34m # are matching any regular expression from the list. By default, no files are dropped.
+[m [34m #exclude_files: ['.gz$']
+
+[m [34m # Optional additional fields. These fields can be freely picked
+[m [34m # to add additional information to the crawled log files for filtering
+[m [34m #fields:
+[m [34m #  level: debug
+[m [34m #  review: 1
+
+[m [34m ### Multiline options
+
+[m [34m # Multiline can be used for log messages spanning multiple lines. This is common
+[m [34m # for Java Stack Traces or C-Line Continuation
+
+[m [34m # The regexp Pattern that has to be matched. The example pattern matches all lines starting with [
+[m [34m #multiline.pattern: ^\[[m[56;100H1,1[11CTop[1;1H[?12l[?25h[?25l[56;100H2,0-1[2;1H[?12l[?25h[?25l[56;100H3,1  [3;1H[?12l[?25h[?25l[56;100H4[4;1H[?12l[?25h[?25l[56;100H5[5;1H[?12l[?25h[?25l[56;100H6[6;1H[?12l[?25h[?25l[56;100H7[7;1H[?12l[?25h[?25l[56;100H8[8;1H[?12l[?25h[?25l[56;100H9,0-1[9;1H[?12l[?25h[?25l[56;100H10,1 [10;1H[?12l[?25h[?25l[56;101H1[11;1H[?12l[?25h[?25l[56;101H2,0-1[12;1H[?12l[?25h[?25l[56;101H3,1  [13;1H[?12l[?25h[?25l[56;101H4,0-1[14;1H[?12l[?25h[?25l[56;101H5,1  [15;1H[?12l[?25h[?25l[56;101H6,0-1[16;1H[?12l[?25h[?25l[56;101H7,1  [17;1H[?12l[?25h[?25l[56;101H8[18;1H[?12l[?25h[?25l[56;101H9[19;1H[?12l[?25h[?25l[56;100H20,0-1[20;1H[?12l[?25h[?25l[56;101H1,1  [21;1H[?12l[?25h[?25l[56;101H2,0-1[22;1H[?12l[?25h[?25l[56;101H3,1  [23;1H[?12l[?25h[?25l[56;101H4[24;1H[?12l[?25h[?25l[56;101H5,0-1[25;1H[?12l[?25h[?25l[56;101H6,1  [26;1H[?12l[?25h[?25l[56;101H7[27;1H[?12l[?25h[?25l[56;101H8[28;1H[?12l[?25h[?25l[56;101H9[29;1H[?12l[?25h[?25l[56;100H30,0-1[30;1H[?12l[?25h[?25l[56;101H1,1  [31;1H[?12l[?25h[?25l[56;101H2[32;1H[?12l[?25h[?25l[56;101H3[33;1H[?12l[?25h[?25l[56;101H2[32;1H[?12l[?25h[?25l[56;101H1[31;1H[?12l[?25h[?25l[56;101H0,0-1[30;1H[?12l[?25h[?25l[56;100H29,1  [29;1H[?12l[?25h[?25l[56;101H8[28;1H[?12l[?25h[?25l[56;101H7[27;1H[?12l[?25h[?25l[56;101H8[28;1H[?12l[?25h[?25l[56;101H9[29;1H[?12l[?25h[?25l[56;100H30,0-1[30;1H[?12l[?25h[?25l[56;101H1,1  [31;1H[?12l[?25h[?25l[56;101H2[32;1H[?12l[?25h[?25l[56;101H3[33;1H[?12l[?25h[?25l[56;101H4,0-1[34;1H[?12l[?25h[?25l[56;101H5,1  [35;1H[?12l[?25h[?25l[56;101H6[36;1H[?12l[?25h[?25l[56;101H7[37;1H[?12l[?25h[?25l[56;101H8,0-1[38;1H[?12l[?25h[?25l[56;101H9,1  [39;1H[?12l[?25h[?25l[56;100H40[40;1H[?12l[?25h[?25l[56;101H1[41;1H[?12l[?25h[?25l[56;101H2,0-1[42;1H[?12l[?25h[?25l[56;101H3,1  [43;1H[?12l[?25h[?25l[56;101H4[44;1H[?12l[?25h[?25l[56;101H5[45;1H[?12l[?25h[?25l[56;101H6[46;1H[?12l[?25h[?25l[56;101H7[47;1H[?12l[?25h[?25l[56;101H8,0-1[48;1H[?12l[?25h[?25l[56;101H9,1  [49;1H[?12l[?25h[?25l[56;100H50,0-1[50;1H[?12l[?25h[?25l[56;101H1,1  [51;1H[?12l[?25h[?25l[56;1H[K[56;1H?[?12l[?25hw[?25l[?12l[?25h[?25l[56;2H[K[56;2H[?12l[?25h [?25l[98C51,1[10CTop[51;1H[?12l[?25h[?25l[56;100H[K[56;1H/[?12l[?25hq[?25l[?12l[?25h[?25l[56;2H[K[56;2H[?12l[?25h [?25l[98C51,1[10CTop[51;1H[?12l[?25h[?25l[56;101H0,0-1[50;1H[?12l[?25h[?25l[56;100H[K[56;1H?[?12l[?25hp[?25l[?12l[?25hr[?25l[?12l[?25ho[?25l[?12l[?25hs[?25l[?12l[?25hp[?25l[?12l[?25he[?25l[?12l[?25hc[?25l[?12l[?25ht[?25l[?12l[?25ho[?25l[?12l[?25hr[?25l[?12l[?25h[?25l[31msearch hit TOP, continuing at BOTTOM[m[97m[41mE486: Pattern not found: prospector[m[56;36H[K[56;100H50,0-1[8CTop[50;1H[?12l[?25h[?25l[56;1H[K[56;1H/[?12l[?25hi[?25l[?12l[?25hn[?25l[?12l[?25hp[?25l[?12l[?25hu[?25l[?12l[?25ht[?25l[?12l[?25h[?25l[31msearch hit BOTTOM, continuing at TOP[m[63C13,39[9CTop[56;100H[K[56;100H13,39[9CTop[13;39H[?12l[?25h[?25l[56;1H[K[56;1H?[?12l[?25h[?25l?input[31msearch hit TOP, continuing at BOTTOM[m[63C23,35[9CTop[56;100H[K[56;100H23,35[9CTop[23;35H[?12l[?25h[27m[23m[m[H[2J[?25l[1;1H[34m###################### Filebeat Configuration Example #########################
+
+# This file is an example configuration file highlighting only the most common
+# options. The filebeat.reference.yml file from the same directory contains all the
+# supported options with more comments. You can use it as a reference.
+#
+# You can find the full configuration reference here:
+# https://www.elastic.co/guide/en/beats/filebeat/index.html
+
+# For more available modules and options, please see the filebeat.reference.yml sample
+# configuration file.
+
+#=========================== Filebeat inputs =============================[m
+
+[36mfilebeat.inputs[m[35m:[m
+
+[34m# Each - is an input. Most options can be set at the input level, so
+# you can use different inputs for various configurations.
+# Below are the input specific configurations.[m
+
+[38;5;130m- [m[36mtype[m[35m:[m log
+
+ [34m # Change to true to enable this input configuration.[m
+  [36menabled[m[35m:[m [31mfalse[m
+
+ [34m # Paths that should be crawled and fetched. Glob based paths.[m
+  [36mpaths[m[35m:[m
+    [38;5;130m- [m/var/log/*.log
+   [34m #- c:\programdata\elasticsearch\logs\*
+
+[m [34m # Exclude lines. A list of regular expressions to match. It drops the lines that are
+[m [34m # matching any regular expression from the list.
+[m [34m #exclude_lines: ['^DBG']
+
+[m [34m # Include lines. A list of regular expressions to match. It exports the lines that are
+[m [34m # matching any regular expression from the list.
+[m [34m #include_lines: ['^ERR', '^WARN']
+
+[m [34m # Exclude files. A list of regular expressions to match. Filebeat drops the files that
+[m [34m # are matching any regular expression from the list. By default, no files are dropped.
+[m [34m #exclude_files: ['.gz$']
+
+[m [34m # Optional additional fields. These fields can be freely picked
+[m [34m # to add additional information to the crawled log files for filtering
+[m [34m #fields:
+[m [34m #  level: debug
+[m [34m #  review: 1
+
+[m [34m ### Multiline options
+
+[m [34m # Multiline can be used for log messages spanning multiple lines. This is common
+[m [34m # for Java Stack Traces or C-Line Continuation
+
+[m [34m # The regexp Pattern that has to be matched. The example pattern matches all lines starting with [
+[m [34m #multiline.pattern: ^\[[m[57;220H23,35[9CTop[23;35H[?12l[?25h[?25l[57;221H4,16[24;16H[?12l[?25h[?25l[57;221H5,0-1[25;1H[?12l[?25h[?25l[57;221H6,35 [26;35H[?12l[?25h[?25l[57;221H7,8 [27;8H[?12l[?25h[?25l[57;221H8,20[28;20H[?12l[?25h[?25l[57;223H19[28;19H[?12l[?25h[?25l[57;224H8[28;18H[?12l[?25h[?25l[57;224H7[28;17H[?12l[?25h[?25l[57;224H6[28;16H[?12l[?25h[?25l[57;224H5[28;15H[?12l[?25h[?25l[57;224H6[28;16H[?12l[?25h[?25l[57;224H5[28;15H[?12l[?25h[?25l[57;224H4[28;14H[?12l[?25h[?25l[57;224H3[28;13H[?12l[?25h[?25l[57;1H[1m-- INSERT --[m[57;220H[K[57;220H28,13[9CTop[28;13H[?12l[?25h[?25l[57;224H4[28;14H[?12l[?25h[?25l[57;224H5[28;15H[?12l[?25h[?25l/*.log[28;20H[K[57;224H4[28;14H[?12l[?25h[?25l/*.log[28;19H[K[57;224H3[28;13H[?12l[?25h[?25l/*.log[28;18H[K[57;224H2[28;12H[?12l[?25h[?25l*.log[28;17H[K[57;224H1[28;11H[?12l[?25h[?25l/*.log[28;16H[K[57;224H0[28;10H[?12l[?25h[?25l/*.log[28;15H[K[57;223H9 [28;9H[?12l[?25h[?25l/*.log[28;14H[K[57;223H8[28;8H[?12l[?25h[?25l*.log[28;13H[K[57;223H7[28;7H[?12l[?25h[?25l//*.log[57;223H8[28;8H[?12l[?25h[?25lh/*.log[57;223H9[28;9H[?12l[?25h[?25lo/*.log[57;223H10[28;10H[?12l[?25h[?25lm/*.log[57;224H1[28;11H[?12l[?25h[?25le/*.log[57;224H2[28;12H[?12l[?25h[?25l//*.log[57;224H3[28;13H[?12l[?25h[?25lu/*.log[57;224H4[28;14H[?12l[?25h[?25lb/*.log[57;224H5[28;15H[?12l[?25h[?25lu/*.log[57;224H6[28;16H[?12l[?25h[?25ln/*.log[57;224H7[28;17H[?12l[?25h[?25lt/*.log[57;224H8[28;18H[?12l[?25h[?25lu/*.log[57;224H9[28;19H[?12l[?25h[?25l//*.log[57;223H20[28;20H[?12l[?25h[?25l*.log[28;25H[K[28;20H[?12l[?25h[?25l[57;224H1[28;21H[?12l[?25h[?25l[57;224H2[28;22H[?12l[?25h[?25log[28;24H[K[28;22H[?12l[?25h[?25lg[28;23H[K[28;22H[?12l[?25h[?25l[28;22H[K[28;22H[?12l[?25h[?25lc[57;224H3[28;23H[?12l[?25h[?25ls[57;224H4[28;24H[?12l[?25h[?25lv[57;224H5[28;25H[?12l[?25h[?25l[57;221H9[29;25H[?12l[?25h[?25l[57;220H30,1 [30;1H[?12l[?25h[?25l[57;221H1,25[31;25H[?12l[?25h[?25l[57;221H2[32;25H[?12l[?25h[?25l[57;221H3[33;25H[?12l[?25h[?25l[57;221H4,1 [34;1H[?12l[?25h[?25l[57;221H5,25[35;25H[?12l[?25h[27m[23m[m[H[2J[?25l[2;1H[34m# This file is an example configuration file highlighting only the most common
+# options. The filebeat.reference.yml file from the same directory contains all the
+# supported options with more comments. You can use it as a reference.
+#
+# You can find the full configuration reference here:
+# https://www.elastic.co/guide/en/beats/filebeat/index.html
+
+# For more available modules and options, please see the filebeat.reference.yml sample
+# configuration file.
+
+#=========================== Filebeat inputs =============================[m
+
+[36mfilebeat.inputs[m[35m:[m
+
+[34m# Each - is an input. Most options can be set at the input level, so
+# you can use different inputs for various configurations.
+# Below are the input specific configurations.[m
+
+[38;5;130m- [m[36mtype[m[35m:[m log
+
+ [34m # Change to true to enable this input configuration.[m
+  [36menabled[m[35m:[m [31mfalse[m
+
+ [34m # Paths that should be crawled and fetched. Glob based paths.[m
+  [36mpaths[m[35m:[m
+    [38;5;130m- [m/home/ubuntu/*.csv
+   [34m #- c:\programdata\elasticsearch\logs\*
+
+[m [34m # Exclude lines. A list of regular expressions to match. It drops the lines that are
+[m [34m # matching any regular expression from the list.
+[m [34m #exclude_lines: ['^DBG']
+
+[m [34m # Include lines. A list of regular expressions to match. It exports the lines that are
+[m [34m # matching any regular expression from the list.
+[m [34m #include_lines: ['^ERR', '^WARN']
+
+[m [34m # Exclude files. A list of regular expressions to match. Filebeat drops the files that
+[m [34m # are matching any regular expression from the list. By default, no files are dropped.
+[m [34m #exclude_files: ['.gz$']
+
+[m [34m # Optional additional fields. These fields can be freely picked
+[m [34m # to add additional information to the crawled log files for filtering
+[m [34m #fields:
+[m [34m #  level: debug
+[m [34m #  review: 1
+
+[m [34m ### Multiline options
+
+[m [34m # Multiline can be used for log messages spanning multiple lines. This is common
+[m [34m # for Java Stack Traces or C-Line Continuation
+
+[m [34m # The regexp Pattern that has to be matched. The example pattern matches all lines starting with [
+[m [34m #multiline.pattern: ^\[[m
+[1m-- INSERT --[m[87C35,25[10C0%[34;25H[?12l[?25h[27m[23m[m[H[2J[?25l[1;1H[34m###################### Filebeat Configuration Example #########################
+
+# This file is an example configuration file highlighting only the most common
+# options. The filebeat.reference.yml file from the same directory contains all the
+# supported options with more comments. You can use it as a reference.
+#
+# You can find the full configuration reference here:
+# https://www.elastic.co/guide/en/beats/filebeat/index.html
+
+# For more available modules and options, please see the filebeat.reference.yml sample
+# configuration file.
+
+#=========================== Filebeat inputs =============================[m
+
+[36mfilebeat.inputs[m[35m:[m
+
+[34m# Each - is an input. Most options can be set at the input level, so
+# you can use different inputs for various configurations.
+# Below are the input specific configurations.[m
+
+[38;5;130m- [m[36mtype[m[35m:[m log
+
+ [34m # Change to true to enable this input configuration.[m
+  [36menabled[m[35m:[m [31mfalse[m
+
+ [34m # Paths that should be crawled and fetched. Glob based paths.[m
+  [36mpaths[m[35m:[m
+    [38;5;130m- [m/home/ubuntu/*.csv
+   [34m #- c:\programdata\elasticsearch\logs\*
+
+[m [34m # Exclude lines. A list of regular expressions to match. It drops the lines that are
+[m [34m # matching any regular expression from the list.
+[m [34m #exclude_lines: ['^DBG']
+
+[m [34m # Include lines. A list of regular expressions to match. It exports the lines that are
+[m [34m # matching any regular expression from the list.
+[m [34m #include_lines: ['^ERR', '^WARN']
+
+[m [34m # Exclude files. A list of regular expressions to match. Filebeat drops the files that
+[m [34m # are matching any regular expression from the list. By default, no files are dropped.
+[m [34m #exclude_files: ['.gz$']
+
+[m [34m # Optional additional fields. These fields can be freely picked
+[m [34m # to add additional information to the crawled log files for filtering
+[m [34m #fields:
+[m [34m #  level: debug
+[m [34m #  review: 1
+
+[m [34m ### Multiline options
+
+[m [34m # Multiline can be used for log messages spanning multiple lines. This is common
+[m [34m # for Java Stack Traces or C-Line Continuation
+
+[m [34m # The regexp Pattern that has to be matched. The example pattern matches all lines starting with [
+[m [34m #multiline.pattern: ^\[[m
+
+[1m-- INSERT --[m[207C35,25[9CTop[35;25H[?12l[?25h[27m[23m[m[H[2J[?25l[2;1H[34m# This file is an example configuration file highlighting only the most common
+# options. The filebeat.reference.yml file from the same directory contains all the
+# supported options with more comments. You can use it as a reference.
+#
+# You can find the full configuration reference here:
+# https://www.elastic.co/guide/en/beats/filebeat/index.html
+
+# For more available modules and options, please see the filebeat.reference.yml sample
+# configuration file.
+
+#=========================== Filebeat inputs =============================[m
+
+[36mfilebeat.inputs[m[35m:[m
+
+[34m# Each - is an input. Most options can be set at the input level, so
+# you can use different inputs for various configurations.
+# Below are the input specific configurations.[m
+
+[38;5;130m- [m[36mtype[m[35m:[m log
+
+ [34m # Change to true to enable this input configuration.[m
+  [36menabled[m[35m:[m [31mfalse[m
+
+ [34m # Paths that should be crawled and fetched. Glob based paths.[m
+  [36mpaths[m[35m:[m
+    [38;5;130m- [m/home/ubuntu/*.csv
+   [34m #- c:\programdata\elasticsearch\logs\*
+
+[m [34m # Exclude lines. A list of regular expressions to match. It drops the lines that are
+[m [34m # matching any regular expression from the list.
+[m [34m #exclude_lines: ['^DBG']
+
+[m [34m # Include lines. A list of regular expressions to match. It exports the lines that are
+[m [34m # matching any regular expression from the list.
+[m [34m #include_lines: ['^ERR', '^WARN']
+
+[m [34m # Exclude files. A list of regular expressions to match. Filebeat drops the files that
+[m [34m # are matching any regular expression from the list. By default, no files are dropped.
+[m [34m #exclude_files: ['.gz$']
+
+[m [34m # Optional additional fields. These fields can be freely picked
+[m [34m # to add additional information to the crawled log files for filtering
+[m [34m #fields:
+[m [34m #  level: debug
+[m [34m #  review: 1
+
+[m [34m ### Multiline options
+
+[m [34m # Multiline can be used for log messages spanning multiple lines. This is common
+[m [34m # for Java Stack Traces or C-Line Continuation
+
+[m [34m # The regexp Pattern that has to be matched. The example pattern matches all lines starting with [
+[m [34m #multiline.pattern: ^\[[m
+[1m-- INSERT --[m[87C35,25[10C0%[34;25H[?12l[?25h[27m[23m[m[H[2J[?25l[2;1H[34m# This file is an example configuration file highlighting only the most common
+# options. The filebeat.reference.yml file from the same directory contains all the
+# supported options with more comments. You can use it as a reference.
+#
+# You can find the full configuration reference here:
+# https://www.elastic.co/guide/en/beats/filebeat/index.html
+
+# For more available modules and options, please see the filebeat.reference.yml sample
+# configuration file.
+
+#=========================== Filebeat inputs =============================[m
+
+[36mfilebeat.inputs[m[35m:[m
+
+[34m# Each - is an input. Most options can be set at the input level, so
+# you can use different inputs for various configurations.
+# Below are the input specific configurations.[m
+
+[38;5;130m- [m[36mtype[m[35m:[m log
+
+ [34m # Change to true to enable this input configuration.[m
+  [36menabled[m[35m:[m [31mfalse[m
+
+ [34m # Paths that should be crawled and fetched. Glob based paths.[m
+  [36mpaths[m[35m:[m
+    [38;5;130m- [m/home/ubuntu/*.csv
+   [34m #- c:\programdata\elasticsearch\logs\*
+
+[m [34m # Exclude lines. A list of regular expressions to match. It drops the lines that are
+[m [34m # matching any regular expression from the list.
+[m [34m #exclude_lines: ['^DBG']
+
+[m [34m # Include lines. A list of regular expressions to match. It exports the lines that are
+[m [34m # matching any regular expression from the list.
+[m [34m #include_lines: ['^ERR', '^WARN']
+
+[m [34m # Exclude files. A list of regular expressions to match. Filebeat drops the files that
+[m [34m # are matching any regular expression from the list. By default, no files are dropped.
+[m [34m #exclude_files: ['.gz$']
+
+[m [34m # Optional additional fields. These fields can be freely picked
+[m [34m # to add additional information to the crawled log files for filtering
+[m [34m #fields:
+[m [34m #  level: debug
+[m [34m #  review: 1
+
+[m [34m ### Multiline options
+
+[m [34m # Multiline can be used for log messages spanning multiple lines. This is common
+[m [34m # for Java Stack Traces or C-Line Continuation
+
+[m [34m # The regexp Pattern that has to be matched. The example pattern matches all lines starting with [
+[m [34m #multiline.pattern: ^\[[m
+
+[1m-- INSERT --[m[87C35,25[10C0%[34;25H[?12l[?25h[?25l[56;101H8,1 [37;1H[?12l[?25h[?25l[56;100H41,25[40;25H[?12l[?25h[?25l[56;101H4[43;25H[?12l[?25h[?25l[56;101H7,1[46;15H[?12l[?25h[?25l[56;100H50,1 [49;1H[?12l[?25h[?25l[56;101H3[52;1H[?12l[?25h[?25l[56;101H6[55;1H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[53;2H[34m # Defines if the pattern set under pattern should be negated or not. Default is false.
+[m [34m #multiline.negate: false[m[56;100H[K[56;100H59,1[11C2%[55;1H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[53;2H[34m # Match can be set to "after" or "before". It is used to define if lines should be append to a pattern
+[m [34m # that was (not) matched before or after or as long as a pattern is not matched based on negate.
+[m [34m # Note: After is the equivalent to previous and before is the equivalent to to next in Logstash[m[56;100H[K[56;100H62,25[10C4%[55;25H[?12l[?25h[?25l[56;100H59,1 [52;1H[?12l[?25h[?25l[56;101H6[49;1H[?12l[?25h[?25l[56;101H3[46;1H[?12l[?25h[?25l[56;101H0[43;1H[?12l[?25h[?25l[56;100H47,15[40;15H[?12l[?25h[?25l[56;101H4,2[37;25H[?12l[?25h[?25l[56;101H1[34;25H[?12l[?25h[?25l[56;100H38,1 [31;1H[?12l[?25h[?25l[56;101H5,25[28;25H[?12l[?25h[?25l[56;101H2[25;25H[?12l[?25h[?25l[56;101H5[28;25H[?12l[?25h[?25l[56;101H8,1 [31;1H[?12l[?25h[?25l[56;100H41,25[34;25H[?12l[?25h[?25l[56;101H4[37;25H[?12l[?25h[?25l[56;101H7,1[40;15H[?12l[?25h[?25l[56;100H50,1 [43;1H[?12l[?25h[?25l[56;101H3[46;1H[?12l[?25h[?25l[56;101H6[49;1H[?12l[?25h[?25l[56;101H9[52;1H[?12l[?25h[?25l[56;100H62,25[55;25H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[53;2H[34m #multiline.match: after[m[56;100H[K[56;100H65,1[11C6%[55;1H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[53;1H[34m#============================= Filebeat modules ===============================[m
+
+[36mfilebeat.config.modules[m[35m:[m[56;100H[K[56;100H68,25[10C7%[55;25H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[53;2H[34m # Glob pattern for configuration loading[m
+  [36mpath[m[35m:[m ${path.config}/modules.d/*.yml[56;100H[K[56;100H71,1[11C9%[55;1H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[53;2H[34m # Set to true to enable config reloading[m
+  [36mreload.enabled[m[35m:[m [31mfalse[m[56;100H[K[56;100H74,1[10C11%[55;1H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[53;2H[34m # Period on which files under path should be checked for changes
+[m [34m #reload.period: 10s[m[56;100H[K[56;100H77,1[10C13%[55;1H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[53;1H[34m#==================== Elasticsearch template setting ==========================[m
+
+[36msetup.template.settings[m[35m:[m[56;100H[K[56;100H80,25[9C15%[55;25H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[53;3H[36mindex.number_of_shards[m[35m:[m [31m1[m
+ [34m #index.codec: best_compression
+[m [34m #_source.enabled: false[m[56;100H[K[56;100H83,25[9C17%[55;25H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[54;1H[34m#================================ General =====================================[m[56;100H[K[56;100H86,1[10C19%[55;1H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[53;1H[34m# The name of the shipper that publishes the network data. It can be used to group
+# all the transactions sent by a single shipper in the web interface.
+#name:[m[56;100H[K[56;100H89,7[10C20%[55;7H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[54;1H[34m# The tags of the shipper are included in their own field with each
+# transaction published.[m[56;100H[K[56;100H92,25[9C22%[55;25H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[53;1H[34m#tags: ["service-X", "web-tier"]
+
+# Optional fields that you can specify to add additional information to the[m[56;100H[K[56;100H95,25[9C24%[55;25H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[53;1H[34m# output.
+#fields:
+#  env: staging[m[56;100H[K[56;100H98,16[9C26%[55;16H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[55;1H[34m#============================== Dashboards =====================================[m[56;100H[K[56;100H101,25[8C28%[55;25H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[53;1H[34m# These settings control loading the sample dashboards to the Kibana index. Loading
+# the dashboards is disabled by default and can be enabled either by setting the
+# options here or by using the `setup` command.[m[56;100H[K[56;100H104,25[8C30%[55;25H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[53;1H[34m#setup.dashboards.enabled: false
+
+# The URL from where to download the dashboards archive. By default this URL[m[56;100H[K[56;100H107,25[8C31%[55;25H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[53;1H[34m# has a value which is computed based on the Beat name and version. For released
+# versions, this URL points to the dashboard archive on the artifacts.elastic.co
+# website.[m[56;100H[K[56;100H110,11[8C33%[55;11H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[53;1H[34m#setup.dashboards.url:
+
+#============================== Kibana =====================================[m[56;100H[K[56;100H113,25[8C35%[55;25H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[54;1H[34m# Starting with Beats version 6.0.0, the dashboards are loaded via the Kibana API.
+# This requires a Kibana endpoint configuration.[m[56;100H[K[56;100H116,25[8C37%[55;25H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[53;1H[36msetup.kibana[m[35m:[m
+
+ [34m # Kibana Host[m[56;100H[K[56;100H119,16[8C39%[55;16H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[53;2H[34m # Scheme and port can be left out and will be set to the default (http and 5601)
+[m [34m # In case you specify and additional path, the scheme is required: http://localhost:5601/path
+[m [34m # IPv6 addresses should always be defined as: https://[2001:db8::1]:5601[m[56;100H[K[56;100H122,25[8C41%[55;25H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[53;2H[34m #host: "localhost:5601"
+
+[m [34m # Kibana Space ID[m[56;100H[K[56;100H125,20[8C42%[55;20H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[53;2H[34m # ID of the Kibana Space into which the dashboards should be loaded. By default,
+[m [34m # the Default Space will be used.
+[m [34m #space.id:[m[56;100H[K[56;100H128,13[8C44%[55;13H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[54;1H[34m#============================= Elastic Cloud ==================================[m[56;100H[K[56;100H131,1[9C46%[55;1H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[53;1H[34m# These settings simplify using Filebeat with the Elastic Cloud (https://cloud.elastic.co/).
+
+# The cloud.id setting overwrites the `output.elasticsearch.hosts` and[m[56;100H[K[56;100H134,25[8C48%[55;25H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[53;1H[34m# `setup.kibana.host` options.
+# You can find the `cloud.id` in the Elastic Cloud web UI.
+#cloud.id:[m[56;100H[K[56;100H137,11[8C50%[55;11H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[54;1H[34m# The cloud.auth setting overwrites the `output.elasticsearch.username` and
+# `output.elasticsearch.password` settings. The format is `<user>:<pass>`.[m[56;100H[K[56;100H140,25[8C52%[55;25H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[53;1H[34m#cloud.auth:
+
+#================================ Outputs =====================================[m[56;100H[K[56;100H143,25[8C53%[55;25H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[54;1H[34m# Configure what output to use when sending the data collected by the beat.[m[56;100H[K[56;100H146,1[9C55%[55;1H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[53;1H[34m#-------------------------- Elasticsearch output ------------------------------[m
+[36moutput.elasticsearch[m[35m:[m
+ [34m # Array of hosts to connect to.[m[56;100H[K[56;100H149,25[8C57%[55;25H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[53;3H[36mhosts[m[35m:[m [35m[[m[31m"localhost:9200"[m[35m][m
+
+ [34m # Optional protocol and basic auth credentials.[m[56;100H[K[56;100H152,25[8C59%[55;25H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[53;2H[34m #protocol: "https"
+[m [34m #username: "elastic"
+[m [34m #password: "changeme"[m[56;100H[K[56;100H155,24[8C61%[55;24H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[54;1H[34m#----------------------------- Logstash output --------------------------------
+#output.logstash:[m[56;100H[K[56;100H158,18[8C63%[55;18H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[53;2H[34m # The Logstash hosts
+[m [34m #hosts: ["localhost:5044"][m[56;100H[K[56;100H161,1[9C65%[55;1H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[53;2H[34m # Optional SSL. By default is off.
+[m [34m # List of root certificates for HTTPS server verifications
+[m [34m #ssl.certificate_authorities: ["/etc/pki/root/ca.pem"][m[56;100H[K[56;100H164,25[8C66%[55;25H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[54;2H[34m # Certificate for SSL client authentication
+[m [34m #ssl.certificate: "/etc/pki/client/cert.pem"[m[56;100H[K[56;100H167,25[8C68%[55;25H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[54;2H[34m # Client Certificate Key
+[m [34m #ssl.key: "/etc/pki/client/cert.key"[m[56;100H[K[56;100H170,25[8C70%[55;25H[?12l[?25h[?25l[1;55r[1;1H[3M[1;56r[54;1H[34m#================================ Processors =====================================[m[56;100H[K[56;100H173,1[9C72%[55;1H[?12l[?25h[?25l[56;102H0,25[52;25H[?12l[?25h[?25l[56;101H67[49;25H[?12l[?25h[?25l[56;102H4[46;25H[?12l[?25h[?25l[56;102H1,1 [43;1H[?12l[?25h[?25l[56;101H58,18[40;18H[?12l[?25h[?25l[56;102H5,24[37;24H[?12l[?25h[?25l[56;102H2,25[34;25H[?12l[?25h[?25l[56;101H49[31;25H[?12l[?25h[?25l[56;105H4[31;24H[?12l[?25h[?25l[56;105H3[31;23H[?12l[?25h[?25l[56;102H8,22[30;22H[?12l[?25h[?25l[56;102H7,23[29;23H[?12l[?25h[?25l[56;105H2[29;22H[?12l[?25h[?25l[56;105H1[29;21H[?12l[?25h[?25l[56;105H0[29;20H[?12l[?25h[?25l[56;104H19[29;19H[?12l[?25h[?25l[56;105H8[29;18H[?12l[?25h[?25l[56;105H7[29;17H[?12l[?25h[?25l[56;105H6[29;16H[?12l[?25h[?25l[56;105H5[29;15H[?12l[?25h[?25l[56;105H4[29;14H[?12l[?25h[?25l[56;105H3[29;13H[?12l[?25h[?25l[56;105H2[29;12H[?12l[?25h[?25l[56;105H1[29;11H[?12l[?25h[?25l[56;105H0[29;10H[?12l[?25h[?25l[56;104H9 [29;9H[?12l[?25h[?25l[56;104H8[29;8H[?12l[?25h[?25l[56;104H7[29;7H[?12l[?25h[?25l[56;104H6[29;6H[?12l[?25h[?25l[56;104H5[29;5H[?12l[?25h[?25l[56;104H4[29;4H[?12l[?25h[?25l[56;102H8[30;4H[?12l[?25h[?25l[56;102H9[31;4H[?12l[?25h[?25l[56;104H3[31;3H[?12l[?25h[?25l[56;102H8[30;3H[?12l[?25h[?25l[56;104H2[30;2H[?12l[?25h[?25l[56;104H1[30;1H[?12l[?25h[?25l[36mioutput.elasticsearch[m[35m:[m[56;104H2[30;2H[?12l[?25h[?25l[36moutput.elasticsearch[m[35m:[m[30;22H[K[56;104H1[30;1H[?12l[?25h[?25l[34m#output.elasticsearch:[m[56;104H2[30;2H[?12l[?25h[?25l[56;102H9[31;2H[?12l[?25h[?25l[56;101H50[32;2H[?12l[?25h[?25l[34m # hosts: ["localhost:9200"][m[56;104H3[32;3H[?12l[?25h[?25l[56;102H1,1[33;1H[?12l[?25h[?25l[56;102H2,3[34;3H[?12l[?25h[?25l[56;102H3[35;3H[?12l[?25h[?25l[56;102H4[36;3H[?12l[?25h[?25l[56;102H5[37;3H[?12l[?25h[?25l[56;102H6,1[38;1H[?12l[?25h[?25l[56;102H7,3[39;3H[?12l[?25h[?25l[56;102H8[40;3H[?12l[?25h[?25l[56;104H2[40;2H[?12l[?25h[?25l[56;104H1[40;1H[?12l[?25h[?25l[36moutput.logstash[m[35m:[m[40;17H[K[40;1H[?12l[?25h[?25l[56;104H2[40;2H[?12l[?25h[?25l[56;102H9[41;2H[?12l[?25h[?25l[56;101H60[42;2H[?12l[?25h[?25l[56;104H3[42;3H[?12l[?25h[?25l [36mhosts[m[35m:[m [35m[[m[31m"localhost:5044"[m[35m][m[42;28H[K[42;3H[?12l[?25h[?25l[56;104H4[42;4H[?12l[?25h[?25l[56;104H5[42;5H[?12l[?25h[?25l[56;104H6[42;6H[?12l[?25h[?25l[56;104H7[42;7H[?12l[?25h[?25l[56;104H8[42;8H[?12l[?25h[?25l[56;104H9[42;9H[?12l[?25h[?25l [35m[106m[[16C][m[56;104H10[42;10H[?12l[?25h[?25l[56;105H1[42;11H[?12l[?25h[?25l[35m[[16C][m[56;105H2[42;12H[?12l[?25h[?25l[56;105H3[42;13H[?12l[?25h[?25l[56;105H4[42;14H[?12l[?25h[?25l[56;105H5[42;15H[?12l[?25h[?25l[56;105H6[42;16H[?12l[?25h[?25l[56;105H7[42;17H[?12l[?25h[?25l[56;105H8[42;18H[?12l[?25h[?25l[56;105H9[42;19H[?12l[?25h[?25l[56;104H20[42;20H[?12l[?25h[?25l[56;105H1[42;21H[?12l[?25h[?25l[31m:5044"[m[35m][m[42;27H[K[56;105H0[42;20H[?12l[?25h[?25l[31m:5044"[m[35m][m[42;26H[K[56;104H19[42;19H[?12l[?25h[?25l[31m:5044"[m[35m][m[42;25H[K[56;105H8[42;18H[?12l[?25h[?25l[31m:5044"[m[35m][m[42;24H[K[56;105H7[42;17H[?12l[?25h[?25l[31m:5044"[m[35m][m[42;23H[K[56;105H6[42;16H[?12l[?25h[?25l[31m:5044"[m[35m][m[42;22H[K[56;105H5[42;15H[?12l[?25h[?25l[31m:5044"[m[35m][m[42;21H[K[56;105H4[42;14H[?12l[?25h[?25l[31m:5044"[m[35m][m[42;20H[K[56;105H3[42;13H[?12l[?25h[?25l[31m:5044"[m[35m][m[42;19H[K[56;105H2[42;12H[?12l[?25h[?25l[31m5:5044"[m[35m][m[56;105H3[42;13H[?12l[?25h[?25l[31m4:5044"[m[35m][m[56;105H4[42;14H[?12l[?25h[?25l[31m.:5044"[m[35m][m[56;105H5[42;15H[?12l[?25h[?25l[31m8:5044"[m[35m][m[56;105H6[42;16H[?12l[?25h[?25l[31m6:5044"[m[35m][m[56;105H7[42;17H[?12l[?25h[?25l[31m.:5044"[m[35m][m[56;105H8[42;18H[?12l[?25h[?25l[31m6:5044"[m[35m][m[56;105H9[42;19H[?12l[?25h[?25l[31m9:5044"[m[35m][m[56;104H20[42;20H[?12l[?25h[?25l[31m.:5044"[m[35m][m[56;105H1[42;21H[?12l[?25h[?25l[31m1:5044"[m[35m][m[56;105H2[42;22H[?12l[?25h[?25l[31m8:5044"[m[35m][m[56;105H3[42;23H[?12l[?25h[?25l[31m7:5044"[m[35m][m[56;105H4[42;24H[?12l[?25h[?25l[56;105H5[42;25H[?12l[?25h[?25l[56;105H6[42;26H[?12l[?25h[?25l[56;105H7[42;27H[?12l[?25h[?25l[56;105H8[42;28H[?12l[?25h[?25l[56;105H9[42;29H[?12l[?25h[?25l[42;10H[35m[106m[[19C][m[56;104H30[42;30H[?12l[?25h[?25l[56;105H1[42;31H[?12l[?25h[?25l[56;105H0[42;30H[?12l[?25h[?25l[42;10H[35m[[19C][m[56;102H1,1 [43;1H[?12l[?25h[?25l[56;102H2,30[44;30H[?12l[?25h[?25l[56;102H3[45;30H[?12l[?25h[?25l[56;102H4[46;30H[?12l[?25h[?25l[56;102H5,1 [47;1H[?12l[?25h[?25l[56;102H6,30[48;30H[?12l[?25h[?25l[56;102H7[49;30H[?12l[?25h[?25l[56;102H8,1 [50;1H[?12l[?25h[?25l[56;102H9,27[51;27H[?12l[?25h[?25l[56;101H70,30[52;30H[?12l[?25h[?25l[56;102H1,1 [53;1H[?12l[?25h[?25l[56;102H2,30[54;30H[?12l[?25h[?25l[56;102H3,1 [55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# Configure processors to enhance or manipulate events generated by the beat.[m[56;100H[K[56;100H174,30[8C73%[55;30H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[56;100H[K[56;100H175,1[9C73%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[36mprocessors[m[35m:[m[56;100H[K[56;100H176,12[8C74%[55;12H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;3H[38;5;130m- [m[36madd_host_metadata[m[35m:[m [31m~[m[56;100H[K[56;100H177,25[8C74%[55;25H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;3H[38;5;130m- [m[36madd_cloud_metadata[m[35m:[m [31m~[m[56;100H[K[56;100H178,26[8C75%[55;26H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;3H[38;5;130m- [m[36madd_docker_metadata[m[35m:[m [31m~[m[56;100H[K[56;100H179,27[8C76%[55;27H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;3H[38;5;130m- [m[36madd_kubernetes_metadata[m[35m:[m [31m~[m[56;100H[K[56;100H180,30[8C76%[55;30H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[56;100H[K[56;100H181,1[9C77%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#================================ Logging =====================================[m[56;100H[K[56;100H182,30[8C77%[55;30H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[56;100H[K[56;100H183,1[9C78%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# Sets log level. The default log level is info.[m[56;100H[K[56;100H184,30[8C79%[55;30H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# Available log levels are: error, warning, info, debug[m[56;100H[K[56;100H185,30[8C79%[55;30H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#logging.level: debug[m[56;100H[K[56;100H186,22[8C80%[55;22H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[56;100H[K[56;100H187,1[9C80%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# At debug level, you can selectively enable logging only for some components.[m[56;100H[K[56;100H188,30[8C81%[55;30H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# To enable all selectors use ["*"]. Examples of other selectors are "beat",[m[56;100H[K[56;100H189,30[8C82%[55;30H[?12l[?25h[?25l[56;102H8[54;30H[?12l[?25h[?25l[56;102H7,1 [53;1H[?12l[?25h[?25l[56;102H5,30[51;30H[?12l[?25h[?25l[56;102H4[50;30H[?12l[?25h[?25l[56;102H3,1 [49;1H[?12l[?25h[?25l[56;102H2,30[48;30H[?12l[?25h[?25l[56;102H1,1 [47;1H[?12l[?25h[?25l[56;102H0,30[46;30H[?12l[?25h[?25l[56;101H79,27[45;27H[?12l[?25h[?25l[56;102H8,26[44;26H[?12l[?25h[?25l[56;102H7,25[43;25H[?12l[?25h[?25l[56;102H8,26[44;26H[?12l[?25h[?25l[56;102H9,27[45;27H[?12l[?25h[?25l[56;101H80,30[46;30H[?12l[?25h[?25l[56;102H1,1 [47;1H[?12l[?25h[?25l[56;102H2,30[48;30H[?12l[?25h[?25l[56;102H3,1 [49;1H[?12l[?25h[?25l[56;102H4,30[50;30H[?12l[?25h[?25l[56;102H5[51;30H[?12l[?25h[?25l[56;102H6,22[52;22H[?12l[?25h[?25l[56;102H7,1 [53;1H[?12l[?25h[?25l[56;102H8,30[54;30H[?12l[?25h[?25l[56;102H9[55;30H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# "publish", "service".[m[56;100H[K[56;100H190,24[8C82%[55;24H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#logging.selectors: ["*"][m[56;100H[K[56;100H191,26[8C83%[55;21H[34m[106m[[3C][?12l[?25h[?25l[1;55r[m[55;1H
+[1;56r[56;100H[K[56;100H192,1[9C84%[54;21H[34m["*"]
+[?12l[?25h[?25l[1;55r[m[55;1H
+[1;56r[55;1H[34m#============================== X-Pack Monitoring ===============================[m[56;100H[K[56;100H193,30[8C84%[55;30H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# filebeat can export internal metrics to a central Elasticsearch monitoring[m[56;100H[K[56;100H194,30[8C85%[55;30H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# cluster.  This requires xpack monitoring to be enabled in Elasticsearch.  The[m[56;100H[K[56;100H195,30[8C85%[55;30H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# reporting is disabled by default.[m[56;100H[K[56;100H196,30[8C86%[55;30H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[56;100H[K[56;100H197,1[9C87%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# Set to true to enable the monitoring reporter.[m[56;100H[K[56;100H198,30[8C87%[55;30H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#monitoring.enabled: false[m[56;100H[K[56;100H199,27[8C88%[55;27H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[56;100H[K[56;100H200,1[9C88%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# Sets the UUID of the Elasticsearch cluster under which monitoring data for this[m[56;100H[K[56;100H201,30[8C89%[55;30H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# Filebeat instance will appear in the Stack Monitoring UI. If output.elasticsearch[m[56;100H[K[56;100H202,30[8C90%[55;30H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# is enabled, the UUID is derived from the Elasticsearch cluster referenced by output.elasticsearch.[m[56;100H[K[56;100H203,30[8C90%[55;30H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#monitoring.cluster_uuid:[m[56;100H[K[56;100H204,26[8C91%[55;26H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[56;100H[K[56;100H205,1[9C92%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# Uncomment to send the metrics to Elasticsearch. Most settings from the[m[56;100H[K[56;100H206,30[8C92%[55;30H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# Elasticsearch output are accepted here as well.[m[56;100H[K[56;100H207,30[8C93%[55;30H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# Note that the settings should point to your Elasticsearch *monitoring* cluster.[m[56;100H[K[56;100H208,30[8C93%[55;30H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# Any setting that is not set is automatically inherited from the Elasticsearch[m[56;100H[K[56;100H209,30[8C94%[55;30H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# output configuration, so if you have the Elasticsearch output configured such[m[56;100H[K[56;100H210,30[8C95%[55;30H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# that it is pointing to your Elasticsearch monitoring cluster, you can simply[m[56;100H[K[56;100H211,30[8C95%[55;30H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# uncomment the following line.[m[56;100H[K[56;100H212,30[8C96%[55;30H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#monitoring.elasticsearch:[m[56;100H[K[56;100H213,27[8C96%[55;27H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[56;100H[K[56;100H214,1[9C97%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#================================= Migration ==================================[m[56;100H[K[56;100H215,30[8C98%[55;30H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[56;100H[K[56;100H216,1[9C98%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# This allows to enable 6.7 migration aliases[m[56;100H[K[56;100H217,30[8C99%[55;30H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#migration.6_to_7.enabled: true[m[56;100H[K[56;100H218,30[8CBot[55;30H[?12l[?25h[?25l[56;102H7[54;30H[?12l[?25h[?25l[56;102H6,1 [53;1H[?12l[?25h[?25l[56;102H5,30[52;30H[?12l[?25h[?25l[56;102H4,1 [51;1H[?12l[?25h[?25l[56;102H3,27[50;27H[?12l[?25h[?25l[56;102H2,30[49;30H[?12l[?25h[?25l[56;102H1[48;30H[?12l[?25h[?25l[56;102H0[47;30H[?12l[?25h[?25l[56;101H09[46;30H[?12l[?25h[?25l[56;102H8[45;30H[?12l[?25h[?25l[56;102H7[44;30H[?12l[?25h[?25l[56;102H6[43;30H[?12l[?25h[?25l[56;102H5,1 [42;1H[?12l[?25h[?25l[56;102H4,26[41;26H[?12l[?25h[?25l[56;102H3,30[40;30H[?12l[?25h[?25l[56;102H2[39;30H[?12l[?25h[?25l[56;102H0,1 [37;1H[?12l[?25h[?25l[56;100H199,27[36;27H[?12l[?25h[?25l[56;102H8,30[35;30H[?12l[?25h[?25l[56;102H7,1 [34;1H[?12l[?25h[?25l[56;102H6,30[33;30H[?12l[?25h[?25l[56;102H5[32;30H[?12l[?25h[?25l[56;102H4[31;30H[?12l[?25h[?25l[56;102H3[30;30H[?12l[?25h[?25l[28;21H[34m[106m[[3C][m[56;102H1,26[28;26H[?12l[?25h[?25l[34m["*"][m[56;102H0,24[27;24H[?12l[?25h[?25l[56;101H88,30[25;30H[?12l[?25h[?25l[56;102H6,22[23;22H[?12l[?25h[?25l[56;102H5,30[22;30H[?12l[?25h[?25l[56;102H4[21;30H[?12l[?25h[?25l[56;102H3,1 [20;1H[?12l[?25h[?25l[56;102H2,30[19;30H[?12l[?25h[?25l[56;102H1,1 [18;1H[?12l[?25h[?25l[56;102H0,30[17;30H[?12l[?25h[?25l[56;101H79,27[16;27H[?12l[?25h[?25l[56;102H8,26[15;26H[?12l[?25h[?25l[56;102H7,25[14;25H[?12l[?25h[?25l[56;102H6,12[13;12H[?12l[?25h[?25l[56;102H5,1 [12;1H[?12l[?25h[?25l[56;102H3[10;1H[?12l[?25h[?25l[56;102H2,30[9;30H[?12l[?25h[?25l[56;102H1,1 [8;1H[?12l[?25h[?25l[56;101H69,27[6;27H[?12l[?25h[?25l[56;102H8,1 [5;1H[?12l[?25h[?25l[56;102H7,30[4;30H[?12l[?25h[?25l[56;102H6[3;30H[?12l[?25h[?25l[56;102H5,1 [2;1H[?12l[?25h[?25l[56;102H4,30[1;30H[?12l[?25h[?25l[1;55r[1;1H[L[1;56r[1;2H[34m # List of root certificates for HTTPS server verifications[m[56;100H[K[56;100H163,30[8C99%[1;30H[?12l[?25h[?25l[1;55r[1;1H[L[1;56r[1;2H[34m # Optional SSL. By default is off.[m[56;100H[K[56;100H162,30[8C98%[1;30H[?12l[?25h[?25l[1;55r[1;1H[L[1;56r[56;100H[K[56;100H161,1[9C98%[1;1H[?12l[?25h[?25l[1;55r[1;1H[L[1;56r[1;3H[36mhosts[m[35m:[m [35m[[m[31m"54.86.69.187:5044"[m[35m][m[56;100H[K[56;100H160,30[8C97%[1;10H[35m[106m[[19C][?12l[?25h[?25l[1;55r[m[1;1H[L[1;56r[1;2H[34m # The Logstash hosts[m[56;100H[K[56;100H159,23[8C96%[2;10H[35m[[19C][1;23H[?12l[?25h[?25l[1;55r[m[1;1H[L[1;56r[1;1H[36moutput.logstash[m[35m:[m[56;100H[K[56;100H158,17[8C96%[1;17H[?12l[?25h[?25l[1;55r[1;1H[L[1;56r[1;1H[34m#----------------------------- Logstash output --------------------------------[m[56;100H[K[56;100H157,30[8C95%[1;30H[?12l[?25h[?25l[1;55r[1;1H[L[1;56r[56;100H[K[56;100H156,1[9C95%[1;1H[?12l[?25h[?25l[1;55r[1;1H[L[1;56r[1;2H[34m #password: "changeme"[m[56;100H[K[56;100H155,24[8C94%[1;24H[?12l[?25h[?25l[1;55r[1;1H[L[1;56r[1;2H[34m #username: "elastic"[m[56;100H[K[56;100H154,23[8C93%[1;23H[?12l[?25h[?25l[1;55r[1;1H[L[1;56r[1;2H[34m #protocol: "https"[m[56;100H[K[56;100H153,21[8C93%[1;21H[?12l[?25h[?25l[1;55r[1;1H[L[1;56r[1;2H[34m # Optional protocol and basic auth credentials.[m[56;100H[K[56;100H152,30[8C92%[1;30H[?12l[?25h[?25l[1;55r[1;1H[L[1;56r[56;100H[K[56;100H151,1[9C92%[1;1H[?12l[?25h[?25l[1;55r[1;1H[L[1;56r[1;1H[34m # hosts: ["localhost:9200"][m[56;100H[K[56;100H150,29[8C91%[1;11H[34m[106m[[16C][?12l[?25h[?25l[m[1;11H[34m[[16C][m[56;102H1,1 [2;1H[?12l[?25h[?25l[56;102H2,30[3;30H[?12l[?25h[?25l[56;102H3,21[4;21H[?12l[?25h[?25l[56;102H4,23[5;23H[?12l[?25h[?25l[56;102H5,24[6;24H[?12l[?25h[?25l[56;102H6,1 [7;1H[?12l[?25h[?25l[56;102H7,30[8;30H[?12l[?25h[?25l[56;102H8,17[9;17H[?12l[?25h[?25l[56;102H9,23[10;23H[?12l[?25h[?25l[11;10H[35m[106m[[19C][m[56;101H60,30[11;30H[?12l[?25h[?25l[11;10H[35m[[19C][m[56;102H1,1 [12;1H[?12l[?25h[?25l[56;102H2,30[13;30H[?12l[?25h[?25l[56;102H3[14;30H[?12l[?25h[?25l[56;102H4[15;30H[?12l[?25h[?25l[56;102H5,1 [16;1H[?12l[?25h[?25l[56;102H6,30[17;30H[?12l[?25h[?25l[56;102H7[18;30H[?12l[?25h[?25l[56;102H8,1 [19;1H[?12l[?25h[?25l[56;102H9,27[20;27H[?12l[?25h[?25l[56;101H70,30[21;30H[?12l[?25h[?25l[56;102H1,1 [22;1H[?12l[?25h[?25l[56;102H2,30[23;30H[?12l[?25h[?25l[56;102H3,1 [24;1H[?12l[?25h[?25l[56;102H4,30[25;30H[?12l[?25h[?25l[56;102H5,1 [26;1H[?12l[?25h[?25l[56;102H6,12[27;12H[?12l[?25h[?25l[56;105H1[27;11H[?12l[?25h[?25l[56;105H0[27;10H[?12l[?25h[?25l[56;104H9 [27;9H[?12l[?25h[?25l[56;104H8[27;8H[?12l[?25h[?25l[56;104H7[27;7H[?12l[?25h[?25l[56;104H6[27;6H[?12l[?25h[?25l[56;104H5[27;5H[?12l[?25h[?25l[56;104H4[27;4H[?12l[?25h[?25l[56;104H3[27;3H[?12l[?25h[?25l[56;104H2[27;2H[?12l[?25h[?25l[56;104H1[27;1H[?12l[?25h
