@@ -1,1 +1,8 @@
 #placeholder for the student facing parts
+
+
+= Context
+= configure pipeline
+= start all the things
+= kibana
+= answer the questions?
