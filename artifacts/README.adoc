@@ -1,0 +1,19 @@
+different snippets for the creation of this Content
+
+==='etc hosts'
+127.0.0.1 localhost
+3.209.152.34    elasticsearch1
+52.4.38.112     kibana1
+34.226.158.249  historian1
+3.217.31.107    weather1
+54.86.69.187    logstash1
+
+# The following lines are desirable for IPv6 capable hosts
+::1 ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+ff02::3 ip6-allhosts
+~
+~
