@@ -1,408 +1,0 @@
-Welcome to Ubuntu 16.04.6 LTS (GNU/Linux 4.4.0-1100-aws x86_64)
-
- * Documentation:  https://help.ubuntu.com
- * Management:     https://landscape.canonical.com
- * Support:        https://ubuntu.com/advantage
-
-33 packages can be updated.
-0 updates are security updates.
-
-New release '18.04.3 LTS' available.
-Run 'do-release-upgrade' to upgrade to it.
-
-
-Last login: Fri Jan 24 17:43:18 2020 from 174.234.20.109
-]0;ubuntu@flightdata1: ~[01;32mubuntu@flightdata1[00m:[01;34m~[00m$ sudo rebootcurl http://localhost:9200/_cluster/health?pretty[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Csudo reboot[K[Ksudo [K[K[K[K[Ksudo cat .ha[K[Kbash_history 
-exit
-ls
-sudo apt-get update
-sudo apt install default-jre
-wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
-sudo apt-get install apt-transport-https
-echo https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html
-echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
-sudo apt update && sudo apt install elasticsearch
-sudo systemctl status elasticsearch
-sudo systemctl start elasticsearch
-sudo systemctl status elasticsearch
-ip a
-sudo vi /etc/elasticsearch/
-cd /etc/elasticsearch/
-sudo -s
-ls
-cd /etc/elasticsearch/
-ls
-sudo vi elasticsearch.yml 
-clear
-ip a
-sudo vi elasticsearch.yml 
-ls
-sudo vi elasticsearch.yml 
-sudo vi /etc/hosts
-ip a
-sudo nmtui
-sudo apt install nmtui
-sudo vi /etc/hostname 
-sudo reboot
-cat .bash_history 
-exit
-cd /etc/elasticsearch/
-sudo vi elasticsearch.yml 
-sudo vi /etc/hosts
-sudo vi elasticsearch.yml 
-cat elasticsearch.yml 
-sudo vi elasticsearch.yml 
-sudo systemctl status elasticsearch
-sudo systemctl start elasticsearch
-exit
-sudo vi elasticsearch.yml 
-sudo vi /etc/elasticsearch/elasticsearch.yml 
-exit
-tailf /var/log/elasticsearch/elasticsearch.log 
-exit
-cd elasticsearch/
-ls
-tail flightdata_server.json 
-tailf flightdata_server.json 
-tailf gc.log
-ls
-tailf elasticsearch.log 
-curl http://3.217.31.107:9200/_cluster/health?pretty
-curl http://localhost:9200/_cluster/health?pretty
-exit
-cd elasticsearch/
-ls
-tailf elasticsearch_audit.json 
-tailf flightdata.log 
-curl http://localhost:9200/_cluster/health?pretty
-exit
-cd elasticsearch/
-ls
-tail -f flightdata.log 
-systemctl stop elasticsearch.service 
-sudo vi /etc/elasticsearch/elasticsearch.yml
-sudo systemctl stop elasticsearch
-sudo systemctl start elasticsearch
-sudo systemctl status elasticsearch
-tail -f flightdata.log 
-curl http://localhost:9200/_cluster/health?pretty
-tail -f flightdata.log 
-sudo vi /etc/elasticsearch/elasticsearch.yml
-sudo systemctl stop elasticsearch
-sudo systemctl start elasticsearch
-tail -f flightdata.log 
-curl http://localhost:9200/_cluster/health?pretty
-tail -f gc.log
-curl http://localhost:9200/_cluster/health?pretty
-sudo vi /etc/elasticsearch/elasticsearch.yml
-sudo systemctl stop elasticsearch
-exit
-sudo vi /etc/hosts
-ping 8.8.8,8
-ping 8.8.8.8
-ip a
-ping 8.8.8.8
-ping flightdata3
-sudo systemctl stop elasticsearch
-cat .bash_history 
-sudo -s
-ls
-sudo -s
-sudo systemctl start elasticsearch
-sudo systemctl status elasticsearch
-sudo systemctl start elasticsearch
-sudo systemctl status elasticsearch
-sudo -s
-sudo systemctl start elasticsearch
-sudo .s
-sudo -s
-sudo systemctl start elasticsearch
-sudo systemctl status elasticsearch
-cd /var/log/
-ls
-cd elasticsearch/
-ls
-sudo -s
-sudo ufw allow 9200/tcp
-sudo ufw allow 9300/tcp
-curl http://localhost:9200/_cluster/health?pretty
-ls
-cd elasticsearch/
-ls
-sudo -s
-sudo systemctl stop elasticsearch
-sudo systemctl start elasticsearch
-sudo systemctl status elasticsearch
-curl http://localhost:9200/_cluster/health?pretty
-sudo -s
-sudo systemctl start elasticsearch
-curl http://localhost:9200/_cluster/health?pretty
-curl http://localhost:9300/_cluster/health?pretty
-curl http://localhost:9200/_cluster/health?pretty
-sudo systemctl status elasticsearch
-sudo systemctl stop elasticsearch
-exit
-curl http://localhost:9200/_cluster/health?pretty
-cd /var/log/elasticsearch/
-ls
-tailf flightdata.log 
-sudo vi /etc/elasticsearch/elasticsearch.yml 
-exit
-sudo systemctl start elasticsearch
-sudo -s
-sudo systemctl stop elasticsearch
-sudo systemctl start elasticsearch
-sudo systemctl status elasticsearch
-curl http://localhost:9200/_cluster/health?pretty
-sudo reboot
-]0;ubuntu@flightdata1: ~[01;32mubuntu@flightdata1[00m:[01;34m~[00m$ sudo cat .bash_history [12Prebootcurl http://localhost:9200/_cluster/health?pretty
-curl: (7) Failed to connect to localhost port 9200: Connection refused
-]0;ubuntu@flightdata1: ~[01;32mubuntu@flightdata1[00m:[01;34m~[00m$ curl http://localhost:9200/_cluster/health?pretty[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[26Psudo cat .bash_history [12Prebootcurl http://localhost:9200/_cluster/health?pretty[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[14Psudo systemctl status elasticsearch[1Prt[C[C[C[C[C[C[C[C[C[C[C[C[C[C
-]0;ubuntu@flightdata1: ~[01;32mubuntu@flightdata1[00m:[01;34m~[00m$ sudo systemctl start elasticsearch[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccurl http://localhost:9200/_cluster/health?pretty
-{
-  "cluster_name" : "flightdata",
-  "status" : "green",
-  "timed_out" : false,
-  "number_of_nodes" : 1,
-  "number_of_data_nodes" : 1,
-  "active_primary_shards" : 1,
-  "active_shards" : 1,
-  "relocating_shards" : 0,
-  "initializing_shards" : 0,
-  "unassigned_shards" : 0,
-  "delayed_unassigned_shards" : 0,
-  "number_of_pending_tasks" : 0,
-  "number_of_in_flight_fetch" : 0,
-  "task_max_waiting_in_queue_millis" : 0,
-  "active_shards_percent_as_number" : 100.0
-}
-]0;ubuntu@flightdata1: ~[01;32mubuntu@flightdata1[00m:[01;34m~[00m$ curl http://localhost:9200/_cluster/health?pretty
-{
-  "cluster_name" : "flightdata",
-  "status" : "green",
-  "timed_out" : false,
-  "number_of_nodes" : 1,
-  "number_of_data_nodes" : 1,
-  "active_primary_shards" : 1,
-  "active_shards" : 1,
-  "relocating_shards" : 0,
-  "initializing_shards" : 0,
-  "unassigned_shards" : 0,
-  "delayed_unassigned_shards" : 0,
-  "number_of_pending_tasks" : 0,
-  "number_of_in_flight_fetch" : 0,
-  "task_max_waiting_in_queue_millis" : 0,
-  "active_shards_percent_as_number" : 100.0
-}
-]0;ubuntu@flightdata1: ~[01;32mubuntu@flightdata1[00m:[01;34m~[00m$ curl http://localhost:9200/_cluster/health?pretty
-{
-  "cluster_name" : "flightdata",
-  "status" : "green",
-  "timed_out" : false,
-  "number_of_nodes" : 1,
-  "number_of_data_nodes" : 1,
-  "active_primary_shards" : 1,
-  "active_shards" : 1,
-  "relocating_shards" : 0,
-  "initializing_shards" : 0,
-  "unassigned_shards" : 0,
-  "delayed_unassigned_shards" : 0,
-  "number_of_pending_tasks" : 0,
-  "number_of_in_flight_fetch" : 0,
-  "task_max_waiting_in_queue_millis" : 0,
-  "active_shards_percent_as_number" : 100.0
-}
-]0;ubuntu@flightdata1: ~[01;32mubuntu@flightdata1[00m:[01;34m~[00m$ curl http://localhost:9200/_cluster/health?pretty
-{
-  "cluster_name" : "flightdata",
-  "status" : "green",
-  "timed_out" : false,
-  "number_of_nodes" : 1,
-  "number_of_data_nodes" : 1,
-  "active_primary_shards" : 1,
-  "active_shards" : 1,
-  "relocating_shards" : 0,
-  "initializing_shards" : 0,
-  "unassigned_shards" : 0,
-  "delayed_unassigned_shards" : 0,
-  "number_of_pending_tasks" : 0,
-  "number_of_in_flight_fetch" : 0,
-  "task_max_waiting_in_queue_millis" : 0,
-  "active_shards_percent_as_number" : 100.0
-}
-]0;ubuntu@flightdata1: ~[01;32mubuntu@flightdata1[00m:[01;34m~[00m$ curl http://localhost:9200/_cluster/health?pretty
-{
-  "cluster_name" : "flightdata",
-  "status" : "green",
-  "timed_out" : false,
-  "number_of_nodes" : 1,
-  "number_of_data_nodes" : 1,
-  "active_primary_shards" : 1,
-  "active_shards" : 1,
-  "relocating_shards" : 0,
-  "initializing_shards" : 0,
-  "unassigned_shards" : 0,
-  "delayed_unassigned_shards" : 0,
-  "number_of_pending_tasks" : 0,
-  "number_of_in_flight_fetch" : 0,
-  "task_max_waiting_in_queue_millis" : 0,
-  "active_shards_percent_as_number" : 100.0
-}
-]0;ubuntu@flightdata1: ~[01;32mubuntu@flightdata1[00m:[01;34m~[00m$ curl -XPUT 'ES_HOST:ES_PORT/_cluster/settings?pretty' -H 'Content-Type: application/json' -d '{ [A
->  "transient": {
->    "discovery.zen.minimum_master_nodes": 2
->  }
-> }'curl -XPUT 'ES_HOST:ES_PORT/_cluster/settings?pretty' -H 'Content-Type: application/json' -d '{
- "transient": {
-   "discovery.zen.minimum_master_nodes": 2
- }[A[A[A[C[C[C[C[C[46Phttp://localhost:9200/_cluster/health?pretty
-[K
-[K
-[K[A[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[15Psudo systemctl start elasticsearch[C[Ccurl http://localhost:9200/_cluster/health?pretty[C[C[C[C[C[C[C-XPUT 'ES_HOST:ES_PORT/_cluster/settings?pretty' -H 'Content-Type: application/json' -d '{
- "transient": {
-   "discovery.zen.minimum_master_nodes": 2
- }[A[A[A}'[K
-[K
-[K
-[K[A[A[A[C[C[C[C
-curl: (6) Could not resolve host: ES_HOST
-]0;ubuntu@flightdata1: ~[01;32mubuntu@flightdata1[00m:[01;34m~[00m$ curl -XPUT 'ES_HOST:ES_PORT/_cluster/settings?pretty' -H 'Content-Type: application/json' -d '{ 
- "transient": {
-   "discovery.zen.minimum_master_nodes": 2
- }
-}'[A[C[C[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P
- "transient": {
-[C  "discovery.zen.minimum_master_nodes": 2
-[C}                                        
-}'
-[K[A[A[A[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P[1P[1P[1P[1P[1P[1@l[1@o[1@c[1@a[1@l[1@h[1@o
-               
-[C[27P"transient": {
-[C  "discovery.zen.minimum_master_nodes": 2
- }
-}'[A[A[A[A[A]0;ubuntu@flightdata1: ~[01;32mubuntu@flightdata1[00m:[01;34m~[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cs:ES_PORT/_cluster/settings?pretty' -H 'Content-Type: application/json' -d '{{[A]0;ubuntu@flightdata1: ~[01;32mubuntu@flightdata1[00m:[01;34m~[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ct:ES_PORT/_cluster/settings?pretty' -H 'Content-Type: application/json' -d '{[A]0;ubuntu@flightdata1: ~[01;32mubuntu@flightdata1[00m:[01;34m~[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C/_cluster/settings?pretty' -H 'Content-Type: application/json' -d '{ [A]0;ubuntu@flightdata1: ~[01;32mubuntu@flightdata1[00m:[01;34m~[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C/_cluster/settings?pretty' -H 'Content-Type: application/json' -d '{  [A]0;ubuntu@flightdata1: ~[01;32mubuntu@flightdata1[00m:[01;34m~[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P
- "transient": {
-[C  "discovery.zen.minimum_master_nodes": 2
-[C}                                        
-}'
-[K[A[A[A[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P[1P[1P[1P[1@9[1@2[1@0[1@0
-
-
-
-
-{
-  "acknowledged" : true,
-  "persistent" : { },
-  "transient" : {
-    "discovery" : {
-      "zen" : {
-        "minimum_master_nodes" : "2"
-      }
-    }
-  }
-}
-]0;ubuntu@flightdata1: ~[01;32mubuntu@flightdata1[00m:[01;34m~[00m$ curl -XPUT 'localhost:9200/_cluster/settings?pretty' -H 'Content-Type: application/json' -d '{
- "transient": {
-   "discovery.zen.minimum_master_nodes": 2
- }
-}'[A[A[A[A]0;ubuntu@flightdata1: ~[01;32mubuntu@flightdata1[00m:[01;34m~[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[1@ES_HOST:ES_PORT
-               
-[C[27P"transient": {
-[C  "discovery.zen.minimum_master_nodes": 2
- }
-}'[A[A[A[A[A]0;ubuntu@flightdata1: ~[01;32mubuntu@flightdata1[00m:[01;34m~[00m$ [C[C[C[C[C[46Phttp://localhost:9200/_cluster/health?pretty
-[K
-[K
-[K
-[K
-[K[A[A[A[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
-{
-  "cluster_name" : "flightdata",
-  "status" : "green",
-  "timed_out" : false,
-  "number_of_nodes" : 1,
-  "number_of_data_nodes" : 1,
-  "active_primary_shards" : 1,
-  "active_shards" : 1,
-  "relocating_shards" : 0,
-  "initializing_shards" : 0,
-  "unassigned_shards" : 0,
-  "delayed_unassigned_shards" : 0,
-  "number_of_pending_tasks" : 0,
-  "number_of_in_flight_fetch" : 0,
-  "task_max_waiting_in_queue_millis" : 0,
-  "active_shards_percent_as_number" : 100.0
-}
-]0;ubuntu@flightdata1: ~[01;32mubuntu@flightdata1[00m:[01;34m~[00m$ curl http://localhost:9200/_cluster/health?pretty
-{
-  "cluster_name" : "flightdata",
-  "status" : "green",
-  "timed_out" : false,
-  "number_of_nodes" : 1,
-  "number_of_data_nodes" : 1,
-  "active_primary_shards" : 1,
-  "active_shards" : 1,
-  "relocating_shards" : 0,
-  "initializing_shards" : 0,
-  "unassigned_shards" : 0,
-  "delayed_unassigned_shards" : 0,
-  "number_of_pending_tasks" : 0,
-  "number_of_in_flight_fetch" : 0,
-  "task_max_waiting_in_queue_millis" : 0,
-  "active_shards_percent_as_number" : 100.0
-}
-]0;ubuntu@flightdata1: ~[01;32mubuntu@flightdata1[00m:[01;34m~[00m$ curl http://localhost:9200/_cluster/health?pretty
-{
-  "cluster_name" : "flightdata",
-  "status" : "green",
-  "timed_out" : false,
-  "number_of_nodes" : 1,
-  "number_of_data_nodes" : 1,
-  "active_primary_shards" : 1,
-  "active_shards" : 1,
-  "relocating_shards" : 0,
-  "initializing_shards" : 0,
-  "unassigned_shards" : 0,
-  "delayed_unassigned_shards" : 0,
-  "number_of_pending_tasks" : 0,
-  "number_of_in_flight_fetch" : 0,
-  "task_max_waiting_in_queue_millis" : 0,
-  "active_shards_percent_as_number" : 100.0
-}
-]0;ubuntu@flightdata1: ~[01;32mubuntu@flightdata1[00m:[01;34m~[00m$ curl http://localhost:9200/_cluster/health?pretty
-{
-  "cluster_name" : "flightdata",
-  "status" : "green",
-  "timed_out" : false,
-  "number_of_nodes" : 1,
-  "number_of_data_nodes" : 1,
-  "active_primary_shards" : 1,
-  "active_shards" : 1,
-  "relocating_shards" : 0,
-  "initializing_shards" : 0,
-  "unassigned_shards" : 0,
-  "delayed_unassigned_shards" : 0,
-  "number_of_pending_tasks" : 0,
-  "number_of_in_flight_fetch" : 0,
-  "task_max_waiting_in_queue_millis" : 0,
-  "active_shards_percent_as_number" : 100.0
-}
-]0;ubuntu@flightdata1: ~[01;32mubuntu@flightdata1[00m:[01;34m~[00m$ curl http://localhost:9200/_cluster/health?pretty
-{
-  "cluster_name" : "flightdata",
-  "status" : "green",
-  "timed_out" : false,
-  "number_of_nodes" : 1,
-  "number_of_data_nodes" : 1,
-  "active_primary_shards" : 1,
-  "active_shards" : 1,
-  "relocating_shards" : 0,
-  "initializing_shards" : 0,
-  "unassigned_shards" : 0,
-  "delayed_unassigned_shards" : 0,
-  "number_of_pending_tasks" : 0,
-  "number_of_in_flight_fetch" : 0,
-  "task_max_waiting_in_queue_millis" : 0,
-  "active_shards_percent_as_number" : 100.0
-}
-]0;ubuntu@flightdata1: ~[01;32mubuntu@flightdata1[00m:[01;34m~[00m$ sudo poeroff[K[K[K[K[Kweroff
