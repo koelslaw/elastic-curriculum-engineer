@@ -1,0 +1,428 @@
+Welcome to Ubuntu 16.04.6 LTS (GNU/Linux 4.4.0-1092-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+76 packages can be updated.
+43 updates are security updates.
+
+New release '18.04.3 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Tue Jan 28 20:19:37 2020 from 174.234.16.128
+]0;ubuntu@ip-172-31-92-226: ~[01;32mubuntu@ip-172-31-92-226[00m:[01;34m~[00m$ cat /[K.bash_hia[Kstory 
+zekoelzerdev@1
+ip a
+sudo reboot
+sudo vi elasticsearch.yml
+exit
+sudo tail /var/log/elasticsearch/elasticsearch.log 
+sudo vi /etc/elasticsearch/elasticsearch.yml
+exit
+cd /etc/elasticsearch/
+ls
+sudo vi elasticsearch.yml 
+sudo systemctl status elasticsearch
+sudo systemctl start elasticsearch
+sudo systemctl status elasticsearch
+sudo systemctl status kibana logstash
+sudo systemctl start kibana logstash
+curl localhost:9200
+sudo ufw allow 9200/tcp
+sudo ufw allow 5601/tcp
+sudo -s
+sudo systemctl stop elasticsearch
+sudo systemctl start elasticsearch
+sudo systemctl status elasticsearch -l
+sudo -s
+sudo systemctl start elasticsearch -l
+sudo systemctl status elasticsearch -l
+curl localhost:9200
+cd ..
+exit
+sudo -s
+cd /etc/logstash/conf.d/
+ls
+sudo vi /etc/logstash/conf.d/logstash.conf
+cd ..
+ls
+sudo vi logstash.yml
+sudo systemctl start kibana
+sudo systemctl status kibana
+curl localhost:5601
+sudo apt install kibana
+sudo vi /etc/kibana/kibana.yml 
+sudo systemctl stop kibana
+sudo systemctl start kibana
+sudo systemctl status kibana
+sudo vi /etc/kibana/kibana.yml 
+ls
+sudo systemctl start kibana
+sudo systemctl status kibana -l
+sudo systemctl stop kibana
+sudo systemctl status kibana -l
+sudo systemctl start kibana
+sudo systemctl status kibana -l
+exit
+]0;ubuntu@ip-172-31-92-226: ~[01;32mubuntu@ip-172-31-92-226[00m:[01;34m~[00m$ ls
+]0;ubuntu@ip-172-31-92-226: ~[01;32mubuntu@ip-172-31-92-226[00m:[01;34m~[00m$ sudo vi [K[K[Ksystemctl stat[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Ksudo -s
+]0;root@ip-172-31-92-226: ~[01;32mroot@ip-172-31-92-226[00m:[01;34m~[00m# cat .bash_history 
+zekoelzerdev@1
+ip a
+sudo reboot
+sudo vi elasticsearch.yml
+exit
+sudo tail /var/log/elasticsearch/elasticsearch.log 
+sudo vi /etc/elasticsearch/elasticsearch.yml
+exit
+cd /etc/elasticsearch/
+ls
+sudo vi elasticsearch.yml 
+sudo systemctl status elasticsearch
+sudo systemctl start elasticsearch
+sudo systemctl status elasticsearch
+sudo systemctl status kibana logstash
+sudo systemctl start kibana logstash
+curl localhost:9200
+sudo ufw allow 9200/tcp
+sudo ufw allow 5601/tcp
+sudo -s
+sudo systemctl stop elasticsearch
+sudo systemctl start elasticsearch
+sudo systemctl status elasticsearch -l
+sudo -s
+sudo systemctl start elasticsearch -l
+sudo systemctl status elasticsearch -l
+curl localhost:9200
+cd ..
+exit
+sudo -s
+cd /etc/logstash/conf.d/
+ls
+sudo vi /etc/logstash/conf.d/logstash.conf
+cd ..
+ls
+sudo vi logstash.yml
+sudo systemctl start kibana
+sudo systemctl status kibana
+curl localhost:5601
+sudo apt install kibana
+sudo vi /etc/kibana/kibana.yml 
+sudo systemctl stop kibana
+sudo systemctl start kibana
+sudo systemctl status kibana
+sudo vi /etc/kibana/kibana.yml 
+ls
+sudo systemctl start kibana
+sudo systemctl status kibana -l
+sudo systemctl stop kibana
+sudo systemctl status kibana -l
+sudo systemctl start kibana
+sudo systemctl status kibana -l
+exit
+]0;root@ip-172-31-92-226: ~[01;32mroot@ip-172-31-92-226[00m:[01;34m~[00m# exit
+exit
+]0;ubuntu@ip-172-31-92-226: ~[01;32mubuntu@ip-172-31-92-226[00m:[01;34m~[00m$ sudo systemctl status [K[K[K[Ktus elasticsearch logstash kibana
+[?1h=[0;1;32m●[0m elasticsearch.service - Elasticsearch[m
+   Loaded: loaded (/usr/lib/systemd/system/elasticsearch.service; disabled; vendor preset: enabled)[m
+   Active: [0;1;32mactive (running)[0m since Tue 2020-01-28 20:45:04 UTC; 9min ago[m
+     Docs: http://www.elastic.co[m
+ Main PID: 4202 (java)[m
+    Tasks: 62[m
+   Memory: 1.2G[m
+      CPU: 42.159s[m
+   CGroup: /system.slice/elasticsearch.service[m
+           ├─4202 /usr/share/elasticsearch/jdk/bin/java -Des.networkaddress.cache.ttl=60 -Des.networkaddress.cache.ne[m
+           └─4296 /usr/share/elasticsearch/modules/x-pack-ml/platform/linux-x86_64/bin/controller[m
+[m
+Jan 28 20:44:40 ip-172-31-92-226 systemd[1]: Starting Elasticsearch...[m
+Jan 28 20:44:40 ip-172-31-92-226 elasticsearch[4202]: OpenJDK 64-Bit Server VM warning: Option UseConcMarkSweepGC was[m
+Jan 28 20:45:04 ip-172-31-92-226 systemd[1]: Started Elasticsearch.[m
+[m
+[0;1;32m●[0m logstash.service - logstash[m
+   Loaded: loaded (/etc/systemd/system/logstash.service; disabled; vendor preset: enabled)[m
+   Active: [0;1;32mactive (running)[0m since Tue 2020-01-28 20:47:38 UTC; 7min ago[m
+ Main PID: 4665 (java)[m
+    Tasks: 32[m
+   Memory: 542.6M[m
+      CPU: 50.934s[m
+   CGroup: /system.slice/logstash.service[m
+           └─4665 /usr/bin/java -Xms1g -Xmx1g -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseC[m
+[m
+Jan 28 20:48:03 ip-172-31-92-226 logstash[4665]: [2020-01-28T20:48:03,427][INFO ][logstash.outputs.elasticsearch][mai[m
+Jan 28 20:48:03 ip-172-31-92-226 logstash[4665]: [2020-01-28T20:48:03,545][WARN ][org.logstash.instrument.metrics.gau[m
+Jan 28 20:48:03 ip-172-31-92-226 logstash[4665]: [2020-01-28T20:48:03,588][INFO ][logstash.javapipeline    ][main] St[m
+Jan 28 20:48:03 ip-172-31-92-226 logstash[4665]: [2020-01-28T20:48:03,592][INFO ][logstash.outputs.elasticsearch][mai[m
+Jan 28 20:48:03 ip-172-31-92-226 logstash[4665]: [2020-01-28T20:48:03,629][INFO ][logstash.outputs.elasticsearch][mai[m
+Jan 28 20:48:04 ip-172-31-92-226 logstash[4665]: [2020-01-28T20:48:04,604][INFO ][logstash.inputs.beats    ][main] Be[m
+Jan 28 20:48:04 ip-172-31-92-226 logstash[4665]: [2020-01-28T20:48:04,623][INFO ][logstash.javapipeline    ][main] Pi[m
+Jan 28 20:48:04 ip-172-31-92-226 logstash[4665]: [2020-01-28T20:48:04,703][INFO ][logstash.agent           ] Pipeline[m
+Jan 28 20:48:04 ip-172-31-92-226 logstash[4665]: [2020-01-28T20:48:04,760][INFO ][org.logstash.beats.Server][main] St[m
+Jan 28 20:48:05 ip-172-31-92-226 logstash[4665]: [2020-01-28T20:48:05,077][INFO ][logstash.agent           ] Successf[m
+[m
+[0;1;32m●[0m kibana.service - Kibana[m
+   Loaded: loaded (/etc/systemd/system/kibana.service; disabled; vendor preset: enabled)[m
+   Active: [0;1;32mactive (running)[0m since Tue 2020-01-28 20:53:05 UTC; 1min 48s ago[m
+ Main PID: 4852 (node)[m
+    Tasks: 11[m
+   Memory: 448.6M[m
+      CPU: 17.486s[m
+   CGroup: /system.slice/kibana.service[m
+           └─4852 /usr/share/kibana/bin/../node/bin/node /usr/share/kibana/bin/../src/cli -c /etc/kibana/kibana.yml[m
+[m
+Jan 28 20:53:37 ip-172-31-92-226 kibana[4852]: {"type":"response","@timestamp":"2020-01-28T20:53:37Z","tags":[],"pid"[m
+Jan 28 20:53:37 ip-172-31-92-226 kibana[4852]: {"type":"response","@timestamp":"2020-01-28T20:53:37Z","tags":[],"pid"[m
+Jan 28 20:53:37 ip-172-31-92-226 kibana[4852]: {"type":"response","@timestamp":"2020-01-28T20:53:37Z","tags":[],"pid"[m
+Jan 28 20:53:37 ip-172-31-92-226 kibana[4852]: {"type":"response","@timestamp":"2020-01-28T20:53:37Z","tags":[],"pid"[m
+Jan 28 20:53:37 ip-172-31-92-226 kibana[4852]: {"type":"response","@timestamp":"2020-01-28T20:53:37Z","tags":[],"pid"[m
+Jan 28 20:53:37 ip-172-31-92-226 kibana[4852]: {"type":"response","@timestamp":"2020-01-28T20:53:37Z","tags":[],"pid"[m
+Jan 28 20:53:38 ip-172-31-92-226 kibana[4852]: {"type":"response","@timestamp":"2020-01-28T20:53:37Z","tags":[],"pid"[m
+Jan 28 20:53:38 ip-172-31-92-226 kibana[4852]: {"type":"response","@timestamp":"2020-01-28T20:53:38Z","tags":[],"pid"[m
+[7mlines 1-55[27m[K[K[?1l>
+]0;ubuntu@ip-172-31-92-226: ~[01;32mubuntu@ip-172-31-92-226[00m:[01;34m~[00m$ sudo vi /etc/logstash/conf.d/logstash.conf 
+[?1049h[?1h=[2;1H▽[6n[2;1H  [1;1H]11;?[1;56r[?12;25h[?12l[?25h[27m[23m[m[H[2J[?25l[56;1H"/etc/logstash/conf.d/logstash.conf" 12L, 175C[>c[1;1Hinput {
+  beats {
+    port => 5044
+  }
+}
+
+output {
+  elasticsearch {
+    hosts => ["http://localhost:9200"]
+    index => "%{[@metadata][beat]}-%{[@metadata][version]}"
+  }
+}
+[94m~                                                                                                                    [14;1H~                                                                                                                    [15;1H~                                                                                                                    [16;1H~                                                                                                                    [17;1H~                                                                                                                    [18;1H~                                                                                                                    [19;1H~                                                                                                                    [20;1H~                                                                                                                    [21;1H~                                                                                                                    [22;1H~                                                                                                                    [23;1H~                                                                                                                    [24;1H~                                                                                                                    [25;1H~                                                                                                                    [26;1H~                                                                                                                    [27;1H~                                                                                                                    [28;1H~                                                                                                                    [29;1H~                                                                                                                    [30;1H~                                                                                                                    [31;1H~                                                                                                                    [32;1H~                                                                                                                    [33;1H~                                                                                                                    [34;1H~                                                                                                                    [35;1H~                                                                                                                    [36;1H~                                                                                                                    [37;1H~                                                                                                                    [38;1H~                                                                                                                    [39;1H~                                                                                                                    [40;1H~                                                                                                                    [41;1H~                                                                                                                    [42;1H~                                                                                                                    [43;1H~                                                                                                                    [44;1H~                                                                                                                    [45;1H~                                                                                                                    [46;1H~                                                                                                                    [47;1H~                                                                                                                    [48;1H~                                                                                                                    [49;1H~                                                                                                                    [50;1H~                                                                                                                    [51;1H~                                                                                                                    [52;1H~                                                                                                                    [53;1H~                                                                                                                    [54;1H~                                                                                                                    [55;1H~                                                                                                                    [m[56;100H1,1[11CAll[1;1H[?12l[?25h[?25l[56;100H2[2;1H[?12l[?25h[?25l[56;100H3[3;1H[?12l[?25h[?25l[56;100H4[4;1H[?12l[?25h[?25l[1;7H[106m{[5;1H}[m[56;100H5[5;1H[?12l[?25h[?25l[1;7H{[5;1H}[56;100H6,0-1[6;1H[?12l[?25h[?25l[56;100H7,1  [7;1H[?12l[?25h[?25l[56;100H8[8;1H[?12l[?25h[?25l[56;1H[K[56;1H:[?12l[?25hq[?25l[?12l[?25h![?25l[?12l[?25h[?25l[56;1H[K[56;1H[?1l>[?12l[?25h[?1049l]0;ubuntu@ip-172-31-92-226: ~[01;32mubuntu@ip-172-31-92-226[00m:[01;34m~[00m$ C:\Program Files\Winlogbeat> .\winlogbeat.exe test config -c .\winlogbeat.yml -e[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Ksudo vi /logst[K[K[K[K[K[K[K[K[K[K[K[K[K[Ksudo tailf/[K /var/log/logstash/logstash-plain.log 
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989) [netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_232]
+Caused by: org.logstash.beats.InvalidFrameProtocolException: Invalid version of beats protocol: 69
+	at org.logstash.beats.Protocol.version(Protocol.java:22) ~[logstash-input-beats-6.0.5.jar:?]
+	at org.logstash.beats.BeatsParser.decode(BeatsParser.java:62) ~[logstash-input-beats-6.0.5.jar:?]
+	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:493) ~[netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:432) ~[netty-all-4.1.44.Final.jar:4.1.44.Final]
+	... 11 more
+[2020-01-28T21:20:21,690][INFO ][org.logstash.beats.BeatsHandler][main] [local: 172.31.92.226:5044, remote: 52.90.213.150:49809] Handling exception: org.logstash.beats.InvalidFrameProtocolException: Invalid version of beats protocol: 71
+[2020-01-28T21:20:21,692][WARN ][io.netty.channel.DefaultChannelPipeline][main] An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+io.netty.handler.codec.DecoderException: org.logstash.beats.InvalidFrameProtocolException: Invalid version of beats protocol: 71
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:463) ~[netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:271) ~[netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:377) ~[netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.access$600(AbstractChannelHandlerContext.java:59) ~[netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.channel.AbstractChannelHandlerContext$7.run(AbstractChannelHandlerContext.java:368) ~[netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.util.concurrent.DefaultEventExecutor.run(DefaultEventExecutor.java:66) ~[netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989) [netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_232]
+Caused by: org.logstash.beats.InvalidFrameProtocolException: Invalid version of beats protocol: 71
+	at org.logstash.beats.Protocol.version(Protocol.java:22) ~[logstash-input-beats-6.0.5.jar:?]
+	at org.logstash.beats.BeatsParser.decode(BeatsParser.java:62) ~[logstash-input-beats-6.0.5.jar:?]
+	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:493) ~[netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:432) ~[netty-all-4.1.44.Final.jar:4.1.44.Final]
+	... 9 more
+[2020-01-28T21:20:21,697][INFO ][org.logstash.beats.BeatsHandler][main] [local: 172.31.92.226:5044, remote: 52.90.213.150:49809] Handling exception: org.logstash.beats.InvalidFrameProtocolException: Invalid version of beats protocol: 69
+[2020-01-28T21:20:21,698][WARN ][io.netty.channel.DefaultChannelPipeline][main] An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+io.netty.handler.codec.DecoderException: org.logstash.beats.InvalidFrameProtocolException: Invalid version of beats protocol: 69
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:463) ~[netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelInputClosed(ByteToMessageDecoder.java:396) ~[netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelInputClosed(ByteToMessageDecoder.java:363) ~[netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelInactive(ByteToMessageDecoder.java:346) ~[netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:260) ~[netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.access$300(AbstractChannelHandlerContext.java:59) ~[netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.channel.AbstractChannelHandlerContext$4.run(AbstractChannelHandlerContext.java:251) ~[netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.util.concurrent.DefaultEventExecutor.run(DefaultEventExecutor.java:66) ~[netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989) [netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_232]
+Caused by: org.logstash.beats.InvalidFrameProtocolException: Invalid version of beats protocol: 69
+	at org.logstash.beats.Protocol.version(Protocol.java:22) ~[logstash-input-beats-6.0.5.jar:?]
+	at org.logstash.beats.BeatsParser.decode(BeatsParser.java:62) ~[logstash-input-beats-6.0.5.jar:?]
+	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:493) ~[netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:432) ~[netty-all-4.1.44.Final.jar:4.1.44.Final]
+	... 11 more
+[2020-01-28T21:21:03,884][INFO ][org.logstash.beats.BeatsHandler][main] [local: 172.31.92.226:5044, remote: 52.90.213.150:49810] Handling exception: org.logstash.beats.InvalidFrameProtocolException: Invalid version of beats protocol: 71
+[2020-01-28T21:21:03,886][WARN ][io.netty.channel.DefaultChannelPipeline][main] An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+io.netty.handler.codec.DecoderException: org.logstash.beats.InvalidFrameProtocolException: Invalid version of beats protocol: 71
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:463) ~[netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:271) ~[netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:377) ~[netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.access$600(AbstractChannelHandlerContext.java:59) ~[netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.channel.AbstractChannelHandlerContext$7.run(AbstractChannelHandlerContext.java:368) ~[netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.util.concurrent.DefaultEventExecutor.run(DefaultEventExecutor.java:66) ~[netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989) [netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_232]
+Caused by: org.logstash.beats.InvalidFrameProtocolException: Invalid version of beats protocol: 71
+	at org.logstash.beats.Protocol.version(Protocol.java:22) ~[logstash-input-beats-6.0.5.jar:?]
+	at org.logstash.beats.BeatsParser.decode(BeatsParser.java:62) ~[logstash-input-beats-6.0.5.jar:?]
+	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:493) ~[netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:432) ~[netty-all-4.1.44.Final.jar:4.1.44.Final]
+	... 9 more
+[2020-01-28T21:21:03,896][INFO ][org.logstash.beats.BeatsHandler][main] [local: 172.31.92.226:5044, remote: 52.90.213.150:49810] Handling exception: org.logstash.beats.InvalidFrameProtocolException: Invalid version of beats protocol: 69
+[2020-01-28T21:21:03,897][WARN ][io.netty.channel.DefaultChannelPipeline][main] An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+io.netty.handler.codec.DecoderException: org.logstash.beats.InvalidFrameProtocolException: Invalid version of beats protocol: 69
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:463) ~[netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelInputClosed(ByteToMessageDecoder.java:396) ~[netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelInputClosed(ByteToMessageDecoder.java:363) ~[netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelInactive(ByteToMessageDecoder.java:346) ~[netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:260) ~[netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.access$300(AbstractChannelHandlerContext.java:59) ~[netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.channel.AbstractChannelHandlerContext$4.run(AbstractChannelHandlerContext.java:251) ~[netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.util.concurrent.DefaultEventExecutor.run(DefaultEventExecutor.java:66) ~[netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989) [netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_232]
+Caused by: org.logstash.beats.InvalidFrameProtocolException: Invalid version of beats protocol: 69
+	at org.logstash.beats.Protocol.version(Protocol.java:22) ~[logstash-input-beats-6.0.5.jar:?]
+	at org.logstash.beats.BeatsParser.decode(BeatsParser.java:62) ~[logstash-input-beats-6.0.5.jar:?]
+	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:493) ~[netty-all-4.1.44.Final.jar:4.1.44.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:432) ~[netty-all-4.1.44.Final.jar:4.1.44.Final]
+	... 11 more
+^C
+]0;ubuntu@ip-172-31-92-226: ~[01;32mubuntu@ip-172-31-92-226[00m:[01;34m~[00m$ sudo tailf /var/log/logstash/logstash-plain.log [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[5Pvi /etc/logstash/conf.d/logstash.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[5@tailf /var/log/logstash/logstash-plain.log[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ksudo vi /etc/va[K[K[K/
+Display all 189 possibilities? (y or n)
+]0;ubuntu@ip-172-31-92-226: ~[01;32mubuntu@ip-172-31-92-226[00m:[01;34m~[00m$ sudo vi /etc/logstash/
+conf.d/               log4j2.properties     logstash.yml          startup.options       
+jvm.options           logstash-sample.conf  pipelines.yml         
+]0;ubuntu@ip-172-31-92-226: ~[01;32mubuntu@ip-172-31-92-226[00m:[01;34m~[00m$ sudo vi /etc/logstash/logstash.yml 
+[?1049h[?1h=[2;1H▽[6n[2;1H  [1;1H]11;?[1;56r[?12;25h[?12l[?25h[27m[23m[m[H[2J[?25l[56;1H"/etc/logstash/logstash.yml" 251L, 8404C[>c[1;1H[34m# Settings file in YAML
+#
+# Settings can be specified either in hierarchical form, e.g.:
+#
+#   pipeline:
+#     batch:
+#       size: 125
+#       delay: 5
+#
+# Or as flat keys:
+#
+#   pipeline.batch.size: 125
+#   pipeline.batch.delay: 5
+#
+# ------------  Node identity ------------
+#
+# Use a descriptive name for the node:
+#
+# node.name: test
+#
+# If omitted the node name will default to the machine's host name
+#
+# ------------ Data path ------------------
+#
+# Which directory should be used by logstash and its plugins
+# for any persistent needs. Defaults to LOGSTASH_HOME/data
+#[m
+[36mpath.data[m[35m:[m /var/lib/logstash
+[34m#
+# ------------ Pipeline Settings --------------
+#
+# The ID of the pipeline.
+#
+# pipeline.id: main
+#
+# Set the number of workers that will, in parallel, execute the filters+outputs
+# stage of the pipeline.
+#
+# This defaults to the number of the host's CPU cores.
+#
+# pipeline.workers: 2
+#
+# How many events to retrieve from inputs before sending to filters+workers
+#
+# pipeline.batch.size: 125
+#
+# How long to wait in milliseconds while polling for the next event
+# before dispatching an undersized batch to filters+outputs
+#
+# pipeline.batch.delay: 50
+#
+# Force Logstash to exit during shutdown even if there are still inflight
+# events in memory. By default, logstash will refuse to quit until all
+# received events have been pushed to the outputs.
+#[m[56;100H1,1[11CTop[1;1H[?12l[?25h[?25l[56;1H[K[56;1H?[?12l[?25ht[?25l[?12l[?25hl[?25l[?12l[?25hs[?25l[?12l[?25h[?25l[31msearch hit TOP, continuing at BOTTOM[m[97m[41mE486: Pattern not found: tls[m[56;29H[K[56;100H1,1[11CTop[1;1H[?12l[?25h[?25l[56;100H2[2;1H[?12l[?25h[?25l[56;100H3[3;1H[?12l[?25h[?25l[56;100H4[4;1H[?12l[?25h[?25l[56;100H5[5;1H[?12l[?25h[?25l[56;100H6[6;1H[?12l[?25h[?25l[56;100H7[7;1H[?12l[?25h[?25l[56;100H8[8;1H[?12l[?25h[?25l[56;100H9[9;1H[?12l[?25h[?25l[56;100H10,1[10;1H[?12l[?25h[?25l[56;101H1[11;1H[?12l[?25h[?25l[56;101H2[12;1H[?12l[?25h[?25l[56;101H3[13;1H[?12l[?25h[?25l[56;101H4[14;1H[?12l[?25h[?25l[56;101H5[15;1H[?12l[?25h[?25l[56;101H6[16;1H[?12l[?25h[?25l[56;101H7[17;1H[?12l[?25h[?25l[56;101H8[18;1H[?12l[?25h[?25l[56;101H9[19;1H[?12l[?25h[?25l[56;100H20[20;1H[?12l[?25h[?25l[56;101H1[21;1H[?12l[?25h[?25l[56;101H2[22;1H[?12l[?25h[?25l[56;101H3[23;1H[?12l[?25h[?25l[56;101H4[24;1H[?12l[?25h[?25l[56;101H5[25;1H[?12l[?25h[?25l[56;101H6[26;1H[?12l[?25h[?25l[56;101H7[27;1H[?12l[?25h[?25l[56;101H8[28;1H[?12l[?25h[?25l[56;101H9[29;1H[?12l[?25h[?25l[56;100H30[30;1H[?12l[?25h[?25l[56;101H1[31;1H[?12l[?25h[?25l[56;101H2[32;1H[?12l[?25h[?25l[56;101H3[33;1H[?12l[?25h[?25l[56;101H4[34;1H[?12l[?25h[?25l[56;101H5[35;1H[?12l[?25h[?25l[56;101H6[36;1H[?12l[?25h[?25l[56;101H7[37;1H[?12l[?25h[?25l[56;101H8[38;1H[?12l[?25h[?25l[56;101H9[39;1H[?12l[?25h[?25l[56;100H40[40;1H[?12l[?25h[?25l[56;101H1[41;1H[?12l[?25h[?25l[56;101H2[42;1H[?12l[?25h[?25l[56;101H3[43;1H[?12l[?25h[?25l[56;101H4[44;1H[?12l[?25h[?25l[56;101H5[45;1H[?12l[?25h[?25l[56;101H6[46;1H[?12l[?25h[?25l[56;101H7[47;1H[?12l[?25h[?25l[56;101H8[48;1H[?12l[?25h[?25l[56;101H9[49;1H[?12l[?25h[?25l[56;100H50[50;1H[?12l[?25h[?25l[56;101H1[51;1H[?12l[?25h[?25l[56;101H2[52;1H[?12l[?25h[?25l[56;101H3[53;1H[?12l[?25h[?25l[56;101H4[54;1H[?12l[?25h[?25l[56;101H5[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# WARNING: enabling this can lead to data loss during shutdown[m[56;1H[K[56;100H56,1[11C0%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#[m[56;100H[K[56;100H57,1[11C1%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# pipeline.unsafe_shutdown: false[m[56;100H[K[56;100H58,1[11C1%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#[m[56;100H[K[56;100H59,1[11C2%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# ------------ Pipeline Configuration Settings --------------[m[56;100H[K[56;100H60,1[11C2%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#[m[56;100H[K[56;100H61,1[11C3%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# Where to fetch the pipeline configuration for the main pipeline[m[56;100H[K[56;100H62,1[11C3%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#[m[56;100H[K[56;100H63,1[11C4%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# path.config:[m[56;100H[K[56;100H64,1[11C4%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#[m[56;100H[K[56;100H65,1[11C5%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# Pipeline configuration string for the main pipeline[m[56;100H[K[56;100H66,1[11C5%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#[m[56;100H[K[56;100H67,1[11C6%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# config.string:[m[56;100H[K[56;100H68,1[11C6%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#[m[56;100H[K[56;100H69,1[11C7%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# At startup, test if the configuration is valid and exit (dry run)[m[56;100H[K[56;100H70,1[11C7%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#[m[56;100H[K[56;100H71,1[11C8%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# config.test_and_exit: false[m[56;100H[K[56;100H72,1[11C8%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#[m[56;100H[K[56;100H73,1[11C9%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# Periodically check if the configuration has changed and reload the pipeline[m[56;100H[K[56;100H74,1[11C9%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# This can also be triggered manually through the SIGHUP signal[m[56;100H[K[56;100H75,1[10C10%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#[m[56;100H[K[56;100H76,1[10C10%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# config.reload.automatic: false[m[56;100H[K[56;100H77,1[10C11%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#[m[56;100H[K[56;100H78,1[10C11%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# How often to check if the pipeline configuration has changed (in seconds)[m[56;100H[K[56;100H79,1[10C12%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#[m[56;100H[K[56;100H80,1[10C12%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# config.reload.interval: 3s[m[56;100H[K[56;100H81,1[10C13%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#[m[56;100H[K[56;100H82,1[10C13%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# Show fully compiled configuration as debug log message[m[56;100H[K[56;100H83,1[10C14%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# [m[30m[103mNOTE[m[34m: --log.level must be 'debug'[m[56;100H[K[56;100H84,1[10C14%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#[m[56;100H[K[56;100H85,1[10C15%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# config.debug: false[m[56;100H[K[56;100H86,1[10C15%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#[m[56;100H[K[56;100H87,1[10C16%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# When enabled, process escaped characters such as \n and \" in strings in the[m[56;100H[K[56;100H88,1[10C16%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# pipeline configuration files.[m[56;100H[K[56;100H89,1[10C17%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#[m[56;100H[K[56;100H90,1[10C17%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# config.support_escapes: false[m[56;100H[K[56;100H91,1[10C18%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#[m[56;100H[K[56;100H92,1[10C18%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# ------------ Module Settings ---------------[m[56;100H[K[56;100H93,1[10C19%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# Define modules here.  Modules definitions must be defined as an array.[m[56;100H[K[56;100H94,1[10C19%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# The simple way to see this is to prepend each `name` with a `-`, and keep[m[56;100H[K[56;100H95,1[10C20%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# all associated variables under the `name` they are associated with, and[m[56;100H[K[56;100H96,1[10C20%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# above the next, like this:[m[56;100H[K[56;100H97,1[10C21%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#[m[56;100H[K[56;100H98,1[10C21%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# modules:[m[56;100H[K[56;100H99,1[10C22%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#   - name: MODULE_NAME[m[56;100H[K[56;100H100,1[9C22%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#     var.PLUGINTYPE1.PLUGINNAME1.KEY1: VALUE[m[56;100H[K[56;100H101,1[9C23%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#     var.PLUGINTYPE1.PLUGINNAME1.KEY2: VALUE[m[56;100H[K[56;100H102,1[9C23%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#     var.PLUGINTYPE2.PLUGINNAME1.KEY1: VALUE[m[56;100H[K[56;100H103,1[9C24%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#     var.PLUGINTYPE3.PLUGINNAME3.KEY1: VALUE[m[56;100H[K[56;100H104,1[9C25%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#[m[56;100H[K[56;100H105,1[9C25%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# Module variable names must be in the format of[m[56;100H[K[56;100H106,1[9C26%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#[m[56;100H[K[56;100H107,1[9C26%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# var.PLUGIN_TYPE.PLUGIN_NAME.KEY[m[56;100H[K[56;100H108,1[9C27%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#[m[56;100H[K[56;100H109,1[9C27%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# modules:[m[56;100H[K[56;100H110,1[9C28%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#[m[56;100H[K[56;100H111,1[9C28%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# ------------ Cloud Settings ---------------[m[56;100H[K[56;100H112,1[9C29%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# Define Elastic Cloud settings here.[m[56;100H[K[56;100H113,1[9C29%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# Format of cloud.id is a base64 value e.g. dXMtZWFzdC0xLmF3cy5mb3VuZC5pbyRub3RhcmVhbCRpZGVudGlmaWVy[m[56;100H[K[56;100H114,1[9C30%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# and it may have an label prefix e.g. staging:dXMtZ...[m[56;100H[K[56;100H115,1[9C30%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# This will overwrite 'var.elasticsearch.hosts' and 'var.kibana.host'[m[56;100H[K[56;100H116,1[9C31%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# cloud.id: <identifier>[m[56;100H[K[56;100H117,1[9C31%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#[m[56;100H[K[56;100H118,1[9C32%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# Format of cloud.auth is: <user>:<pass>[m[56;100H[K[56;100H119,1[9C32%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# This is optional[m[56;100H[K[56;100H120,1[9C33%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# If supplied this will overwrite 'var.elasticsearch.username' and 'var.elasticsearch.password'[m[56;100H[K[56;100H121,1[9C33%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# If supplied this will overwrite 'var.kibana.username' and 'var.kibana.password'[m[56;100H[K[56;100H122,1[9C34%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# cloud.auth: elastic:<password>[m[56;100H[K[56;100H123,1[9C34%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#[m[56;100H[K[56;100H124,1[9C35%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# ------------ Queuing Settings --------------[m[56;100H[K[56;100H125,1[9C35%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#[m[56;100H[K[56;100H126,1[9C36%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# Internal queuing model, "memory" for legacy in-memory based queuing and[m[56;100H[K[56;100H127,1[9C36%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# "persisted" for disk-based acked queueing. Defaults is memory[m[56;100H[K[56;100H128,1[9C37%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#[m[56;100H[K[56;100H129,1[9C37%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# queue.type: memory[m[56;100H[K[56;100H130,1[9C38%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#[m[56;100H[K[56;100H131,1[9C38%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# If using queue.type: persisted, the directory path where the data files will be stored.[m[56;100H[K[56;100H132,1[9C39%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m# Default is path.data/queue[m[56;100H[K[56;100H133,1[9C39%[55;1H[?12l[?25h[?25l[1;55r[55;1H
+[1;56r[55;1H[34m#[m[56;100H[K[56;100H134,1[9C40%[55;1H[?12l[?25h[?25l[56;102H3[54;1H[?12l[?25h[?25l[56;102H2[53;1H[?12l[?25h[?25l[56;102H1[52;1H[?12l[?25h[?25l[56;102H0[51;1H[?12l[?25h[?25l[56;101H29[50;1H[?12l[?25h[?25l[56;102H8[49;1H[?12l[?25h[?25l[56;102H7[48;1H[?12l[?25h[?25l[56;102H6[47;1H[?12l[?25h[?25l[56;102H5[46;1H[?12l[?25h[?25l[56;102H4[45;1H[?12l[?25h[?25l[56;102H3[44;1H[?12l[?25h[?25l[56;100H[K[56;1H:[?12l[?25hq[?25l[?12l[?25h![?25l[?12l[?25h[?25l[56;1H[K[56;1H[?1l>[?12l[?25h[?1049l]0;ubuntu@ip-172-31-92-226: ~[01;32mubuntu@ip-172-31-92-226[00m:[01;34m~[00m$ sudo poweroff

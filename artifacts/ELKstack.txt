@@ -1,0 +1,27 @@
+Welcome to Ubuntu 16.04.6 LTS (GNU/Linux 4.4.0-1092-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+76 packages can be updated.
+39 updates are security updates.
+
+New release '18.04.3 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Tue Jan 28 17:02:05 2020 from 174.234.16.128
+]0;ubuntu@ip-172-31-92-226: ~[01;32mubuntu@ip-172-31-92-226[00m:[01;34m~[00m$ ^C
+]0;ubuntu@ip-172-31-92-226: ~[01;32mubuntu@ip-172-31-92-226[00m:[01;34m~[00m$ zekoelzerdev@1[Ksudo cat .bash_hosto[K[K[K[Kistory 
+zekoelzerdev@1
+]0;ubuntu@ip-172-31-92-226: ~[01;32mubuntu@ip-172-31-92-226[00m:[01;34m~[00m$ exxit
+
+
+
+exxit: command not found
+]0;ubuntu@ip-172-31-92-226: ~[01;32mubuntu@ip-172-31-92-226[00m:[01;34m~[00m$ 
+]0;ubuntu@ip-172-31-92-226: ~[01;32mubuntu@ip-172-31-92-226[00m:[01;34m~[00m$ 
+]0;ubuntu@ip-172-31-92-226: ~[01;32mubuntu@ip-172-31-92-226[00m:[01;34m~[00m$ 
+]0;ubuntu@ip-172-31-92-226: ~[01;32mubuntu@ip-172-31-92-226[00m:[01;34m~[00m$ exit
+logout
