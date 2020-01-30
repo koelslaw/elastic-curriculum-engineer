@@ -1,4 +1,4 @@
 Update /etc/hosts and IPs on aws instances
 Add data to historians
 config elasticsearch
-open ports for everything
+check ports for everything
