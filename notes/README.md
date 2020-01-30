@@ -1,5 +1,5 @@
 # Instructor Notes
-
+The whole point of this small class it to lead into other discussions. I will explore some of those discussions here like where and how to scale an elastic cluster. I will leave little pieces of information to help facilitate discussion.  
 
 ## Primer on Windows Security Events with Winlogbeat
 
