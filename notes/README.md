@@ -9,9 +9,11 @@ The whole point of this small class it to lead into other discussions. I will ex
 - Administrator Access to both machines
 - ssh or putty (windows)
 - rdp
+- Git installed
+- Code Editor
 
 ### EC2 Components
-The recommended setup is to do prior to class. The intention is to have a windows server and an elastic machine for every student.
+The recommended setup is done prior to class. Every Student will have a windows server and an elastic stack to send their logs.
 
 ### Setup Linux
 
@@ -257,164 +259,165 @@ If there were any special things that needed to be done to logstash it would be 
 - Check Status of logstash `sudo systemctl status logstash`
 
 #### Elasticsearch
- You may have to elevate privelages with `sudo -s`to edit configuration file for Elasticsearch `sudo vi /etc/elasticsearch/elasticsearch.yml`. Like everything else with elastic stack there are a lot of thigns we can tweak. for simplicity we are only going to change a few things.
+You may have to elevate privelages with `sudo -s`to edit configuration file for Elasticsearch `sudo vi /etc/elasticsearch/elasticsearch.yml`. Like everything else with elastic stack there are a lot of thigns we can tweak. for simplicity we are only going to change a few things.
 
- Similar to logstash the default configuration will work Once you start to have more nodes then there are some options that you will want to take into account. Setting the cluster information can be done here. The cluster will be the same across all the configs.
+Similar to logstash the default configuration will work Once you start to have more nodes then there are some options that you will want to take into account. Setting the cluster information can be done here. The cluster will be the same across all the configs.
 
-    ```yml
-    ---------------------------------- Cluster -----------------------------------
-   #
-   # Use a descriptive name for your cluster:
-   #
-   cluster.name: my-application
-   #
-    ```
-  - Below is the section that includes the name for the node. When setting up a cluster each node must have a unique name.
-    > NOTE: Hostname and Node name need to match
+```yml
+---------------------------------- Cluster -----------------------------------
+#
+# Use a descriptive name for your cluster:
+#
+cluster.name: my-application
+#
+```
 
-    ```yml
-    # ------------------------------------ Node ------------------------------------
-    #
-    # Use a descriptive name for the node:
-    #
-    #node.name: node-1
-    #
-    ```
+Below is the section that includes the name for the node. When setting up a cluster each node must have a unique name.
 
-    In the network section you can set ip that elasticsearc will bind too.
+> NOTE: Hostname and Node name need to match
 
-    ```yml
-    # ---------------------------------- Network -----------------------------------
-    #
-    # Set the bind address to a specific IP (IPv4 or IPv6):
-    #
-    network.host: 0.0.0.0
-    #
-    # Set a custom port for HTTP:
-    #
-    #http.port: 9200
-    #
-    # For more information, consult the network module documentation.
-    #
-    ```
+```yml
+# ------------------------------------ Node ------------------------------------
+#
+# Use a descriptive name for the node:
+#
+#node.name: node-1
+#
+```
 
-    As more nodes are added, you will need to open ports 9200 (REST API) and 9300 (Node Communication). As we have everything one one machince and only a single instance of elasticsearch we do not need to accomplish this. Once we reach the point we need additional nodes, the section below is where the configuration will happen.
+In the network section you can set ip that elasticsearc will bind too.
 
-    ```yml
-    #
-    # --------------------------------- Discovery ----------------------------------
-    #
-    # Pass an initial list of hosts to perform discovery when this node is started:
-    # The default list of hosts is ["127.0.0.1", "[::1]"]
-    #
-    discovery.seed_hosts: ["18.214.204.121"]
-    #
-    # Bootstrap the cluster using an initial set of master-eligible nodes:
-    #
-    #cluster.initial_master_nodes: ["node-1", "node-2"]
-    #
-    # For more information, consult the discovery and cluster formation module documentation.
-    #
-    ```
+```yml
+# ---------------------------------- Network -----------------------------------
+#
+# Set the bind address to a specific IP (IPv4 or IPv6):
+#
+network.host: 0.0.0.0
+#
+# Set a custom port for HTTP:
+#
+#http.port: 9200
+#
+# For more information, consult the network module documentation.
+#
+```
 
-    - Example a of full config file:
+As more nodes are added, you will need to open ports 9200 (REST API) and 9300 (Node Communication). As we have everything one one machince and only a single instance of elasticsearch we do not need to accomplish this. Once we reach the point we need additional nodes, the section below is where the configuration will happen.
 
-      ```yml
-        # ======================== Elasticsearch Configuration =========================
-      #
-      # NOTE: Elasticsearch comes with reasonable defaults for most settings.
-      #       Before you set out to tweak and tune the configuration, make sure you
-      #       understand what are you trying to accomplish and the consequences.
-      #
-      # The primary way of configuring a node is via this file. This template lists
-      # the most important settings you may want to configure for a production cluster.
-      #
-      # Please consult the documentation for further information on configuration options:
-      # https://www.elastic.co/guide/en/elasticsearch/reference/index.html
-      #
-      # ---------------------------------- Cluster -----------------------------------
-      #
-      # Use a descriptive name for your cluster:
-      #
-      #cluster.name: my-application
-      #
-      # ------------------------------------ Node ------------------------------------
-      #
-      # Use a descriptive name for the node:
-      #
-      #node.name: node-1
-      #
-      # Add custom attributes to the node:
-      #
-      #node.attr.rack: r1
-      #
-      # ----------------------------------- Paths ------------------------------------
-      #
-      # Path to directory where to store the data (separate multiple locations by comma):
-      #
-      path.data: /var/lib/elasticsearch
-      #
-      # Path to log files:
-      #
-      path.logs: /var/log/elasticsearch
-      #
-      # ----------------------------------- Memory -----------------------------------
-      #
-      # Lock the memory on startup:
-      #
-      #bootstrap.memory_lock: true
-      #
-      # Make sure that the heap size is set to about half the memory available
-      # on the system and that the owner of the process is allowed to use this
-      # limit.
-      #
-      # Elasticsearch performs poorly when the system is swapping the memory.
-      #
-      # ---------------------------------- Network -----------------------------------
-      #
-      # Set the bind address to a specific IP (IPv4 or IPv6):
-      #
-      network.host: 0.0.0.0
-      #
-      # Set a custom port for HTTP:
-      #
-      #http.port: 9200
-      #
-      # For more information, consult the network module documentation.
-      #
-      # --------------------------------- Discovery ----------------------------------
-      #
-      # Pass an initial list of hosts to perform discovery when this node is started:
-      # The default list of hosts is ["127.0.0.1", "[::1]"]
-      #
-      discovery.seed_hosts: ["18.214.204.121"]
-      #
-      # Bootstrap the cluster using an initial set of master-eligible nodes:
-      #
-      #cluster.initial_master_nodes: ["node-1", "node-2"]
-      #
-      # For more information, consult the discovery and cluster formation module documentation.
-      #
-      # ---------------------------------- Gateway -----------------------------------
-      #
-      # Block initial recovery after a full cluster restart until N nodes are started:
-      #
-      #gateway.recover_after_nodes: 3
-      #
-      # For more information, consult the gateway module documentation.
-      #
-      # ---------------------------------- Various -----------------------------------
-      #
-      # Require explicit names when deleting indices:
-      #
-      #action.destructive_requires_name: true
+```yml
+#
+# --------------------------------- Discovery ----------------------------------
+#
+# Pass an initial list of hosts to perform discovery when this node is started:
+# The default list of hosts is ["127.0.0.1", "[::1]"]
+#
+discovery.seed_hosts: ["18.214.204.121"]
+#
+# Bootstrap the cluster using an initial set of master-eligible nodes:
+#
+#cluster.initial_master_nodes: ["node-1", "node-2"]
+#
+# For more information, consult the discovery and cluster formation module documentation.
+#
+```
 
-      ```
-Now that we have elaticseach installed and configured lets go ahead and start elasticsearch `sudo systemctl start elasticsearch`.
+  - Example a of full config file:
+
+  ```yml
+  # ======================== Elasticsearch Configuration =========================
+  #
+  # NOTE: Elasticsearch comes with reasonable defaults for most settings.
+  #       Before you set out to tweak and tune the configuration, make sure you
+  #       understand what are you trying to accomplish and the consequences.
+  #
+  # The primary way of configuring a node is via this file. This template lists
+  # the most important settings you may want to configure for a production cluster.
+  #
+  # Please consult the documentation for further information on configuration options:
+  # https://www.elastic.co/guide/en/elasticsearch/reference/index.html
+  #
+  # ---------------------------------- Cluster -----------------------------------
+  #
+  # Use a descriptive name for your cluster:
+  #
+  #cluster.name: my-application
+  #
+  # ------------------------------------ Node ------------------------------------
+  #
+  # Use a descriptive name for the node:
+  #
+  #node.name: node-1
+  #
+  # Add custom attributes to the node:
+  #
+  #node.attr.rack: r1
+  #
+  # ----------------------------------- Paths ------------------------------------
+  #
+  # Path to directory where to store the data (separate multiple locations by comma):
+  #
+  path.data: /var/lib/elasticsearch
+  #
+  # Path to log files:
+  #
+  path.logs: /var/log/elasticsearch
+  #
+  # ----------------------------------- Memory -----------------------------------
+  #
+  # Lock the memory on startup:
+  #
+  #bootstrap.memory_lock: true
+  #
+  # Make sure that the heap size is set to about half the memory available
+  # on the system and that the owner of the process is allowed to use this
+  # limit.
+  #
+  # Elasticsearch performs poorly when the system is swapping the memory.
+  #
+  # ---------------------------------- Network -----------------------------------
+  #
+  # Set the bind address to a specific IP (IPv4 or IPv6):
+  #
+  #network.host: 0.0.0.0
+  #
+  # Set a custom port for HTTP:
+  #
+  #http.port: 9200
+  #
+  # For more information, consult the network module documentation.
+  #
+  # --------------------------------- Discovery ----------------------------------
+  #
+  # Pass an initial list of hosts to perform discovery when this node is started:
+  # The default list of hosts is ["127.0.0.1", "[::1]"]
+  #
+  #discovery.seed_hosts: ["18.214.204.121"]
+  #
+  # Bootstrap the cluster using an initial set of master-eligible nodes:
+  #
+  #cluster.initial_master_nodes: ["node-1", "node-2"]
+  #
+  # For more information, consult the discovery and cluster formation module documentation.
+  #
+  # ---------------------------------- Gateway -----------------------------------
+  #
+  # Block initial recovery after a full cluster restart until N nodes are started:
+  #
+  #gateway.recover_after_nodes: 3
+  #
+  # For more information, consult the gateway module documentation.
+  #
+  # ---------------------------------- Various -----------------------------------
+  #
+  # Require explicit names when deleting indices:
+  #
+  #action.destructive_requires_name: true
+
+  ```
+Now that we have elasticsearch installed and configured lets go ahead and start elasticsearch `sudo systemctl start elasticsearch`.
 
 #### Kibana
 Last but not least on our aws instance is kibana. Just like the rest there is a configuration file. To edit the configuration file, use `sudo vi /etc/kibana/kibana.yml`. This machine does not reside on the same network as the students. When building we have 2 options here. We can bind it to a specific IP address or 0.0.0.0. For production binding it to a specific address is best. These instances are temporary so we can not worry about what IP it decides to use. This can be accomplished with changing the `server.host:` to ` "0.0.0.0"` instead of localhost.
-
 
   - Example of our full config file:
 
@@ -569,7 +572,6 @@ Feb 01 15:16:04 ip-172-31-92-226 systemd[1]: Started logstash.
 Jan 30 20:04:17 ip-172-31-92-226 systemd[1]: Starting Elasticsearch...
 Jan 30 20:04:18 ip-172-31-92-226 elasticsearch[14245]: OpenJDK 64-Bit Server VM warning: Option UseConcMarkSweepGC was deprecated in version 9.0 and will lik
 Jan 30 20:04:32 ip-172-31-92-226 systemd[1]: Started Elasticsearch.
-Feb 01 15:16:04 ip-172-31-92-226 systemd[1]: Started Elasticsearch.
 
 ● kibana.service - Kibana
    Loaded: loaded (/etc/systemd/system/kibana.service; disabled; vendor preset: enabled)
@@ -582,9 +584,6 @@ Feb 01 15:16:04 ip-172-31-92-226 systemd[1]: Started Elasticsearch.
            └─18802 /usr/share/kibana/bin/../node/bin/node /usr/share/kibana/bin/../src/cli -c /etc/kibana/kibana.yml
 
 Feb 01 15:16:10 ip-172-31-92-226 kibana[18802]: {"type":"log","@timestamp":"2020-02-01T15:16:10Z","tags":["info","plugins","security"],"pid":18802,"message":
-Feb 01 15:16:10 ip-172-31-92-226 kibana[18802]: {"type":"log","@timestamp":"2020-02-01T15:16:10Z","tags":["warning","plugins","security","config"],"pid":1880
-Feb 01 15:16:10 ip-172-31-92-226 kibana[18802]: {"type":"log","@timestamp":"2020-02-01T15:16:10Z","tags":["warning","plugins","security","config"],"pid":1880
-Feb 01 15:16:10 ip-172-31-92-226 kibana[18802]: {"type":"log","@timestamp":"2020-02-01T15:16:10Z","tags":["info","plugins","code"],"pid":18802,"message":"Set
 ```
 
 ### Discussion about Nodes
@@ -594,19 +593,14 @@ For simplicity we are going to do everything on one node. However can take a sma
   - For Logstash, visit https://www.elastic.co/guide/en/logstash/current/deploying-and-scaling.html
 
 There are lots of "It Depends..." here but as this is aimed at a beginner audience the main points are:
-- Availability (Shards are distributed across all the nodes, protecting the data)
-- Throughput (Reads and writes will not overwhelm a cluster)
-- Distribution of effort. (Shifting to dedicated node types: master nodes, ingest, etc.)
+- Availability - (Shards are distributed across all the nodes, protecting the data)
+- Throughput - (Reads and writes will not overwhelm a cluster)
+- Distribution of effort - (Shifting to dedicated node types: master nodes, ingest, etc.)
 
 ## Setup Windows EC2
-- Once you have a remote desktop connection to your AWS instance.
+Select your Windows EC2 instance and select `Connect`. That will open a small window. Click on `Get Password` to start the password retrieval process. It will ask you for the key in order to decrypt the password for the instance. Select `Elasticsearch.pem` and then `Decrypt Password`. You will be presented with the password to your instance. use the information provided to access the windows EC2 instance.
 
-- Download the latest 64-bit version Winlogbeat zip file from the downloads page, in our case its 7.5.2. `https://artifacts.elastic.co/downloads/beats/winlogbeat/winlogbeat-7.5.2-windows-x86_64.zip`
-- Extract the zip file into `C:\Program Files` folder.
-- Rename the `winlogbeat-<version>` folder to `Winlogbeat`.
-- Open a PowerShell prompt as an **Administrator** (right-click on the PowerShell icon and select `Run As Administrator`).
-- From the PowerShell prompt, run the following commands to install the service.
-- To ensure that the script runs without issue we will execute the install of the service under a different execution policy via `PowerShell.exe -ExecutionPolicy UnRestricted -File .\install-service-winlogbeat.ps1`
+Once you have a remote desktop connection to your AWS instance. Download the latest 64-bit version Winlogbeat zip file from the downloads page, in our case its 7.5.2. `https://artifacts.elastic.co/downloads/beats/winlogbeat/winlogbeat-7.5.2-windows-x86_64.zip` From your downloads folder, extract the zip file into `C:\Program Files` folder. Rename the extracted file with the name `winlogbeat-<some_version>` folder to `Winlogbeat`. Open a PowerShell prompt as an **Administrator**. From start menu, right-click on the PowerShell icon and select `Run As Administrator`. To ensure that the script runs without issue we will execute the install of the service under a different execution policy via `PowerShell.exe -ExecutionPolicy UnRestricted -File .\install-service-winlogbeat.ps1`
 - Edit the config file for Winlogbeat notepad
   - Example of winlogbeat config file
   ```
