@@ -1,71 +1,0 @@
-Welcome to Ubuntu 16.04.6 LTS (GNU/Linux 4.4.0-1092-aws x86_64)
-
- * Documentation:  https://help.ubuntu.com
- * Management:     https://landscape.canonical.com
- * Support:        https://ubuntu.com/advantage
-
-76 packages can be updated.
-43 updates are security updates.
-
-New release '18.04.3 LTS' available.
-Run 'do-release-upgrade' to upgrade to it.
-
-
-Last login: Tue Jan 28 18:59:26 2020 from 174.234.16.128
-]0;ubuntu@elastic1: ~[01;32mubuntu@elastic1[00m:[01;34m~[00m$ sudo rebootvi /etc/hosts[7Preboot[Ksudo rebootvi /etc/hostsname s[Kufw allow 9200/tcp[K-s[Ktailf /var/log/syslog [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[13Psudo htopapt install htophtop[K[5Pdatesudo systemctl status logstash kibana elasticsearch[K[1Prt[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[17Pcurl localhost:9200sudo systemctl start elasticsearch[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[7Pvi[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[8Pcurl localhost:9200[5Plocalhost:9200exit[Ktailf elasticsearch.log [1P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[Kcd /var/log/elasticsearch/..[K[3Plscd /etc/elasticsearch/[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Csudo vi /etc/logstash/conf.d/logstash.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[Kping 172.31.92.226,226ec2-3-87-224-83.compute-1.amazonaws.com[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[26P172.31.92,226ec2-3-87-224-83.compute-1.amazonaws.com[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K172.31.33.155
-PING 172.31.33.155 (172.31.33.155) 56(84) bytes of data.
-^C
---- 172.31.33.155 ping statistics ---
-18 packets transmitted, 0 received, 100% packet loss, time 17136ms
-
-]0;ubuntu@elastic1: ~[01;32mubuntu@elastic1[00m:[01;34m~[00m$ sudo vi etc.[K[K[K[K/etc/hosts
-[?1049h[?1h=[2;1H▽[6n[2;1H  [1;1H]11;?[1;56r[?12;25h[?12l[?25h[27m[23m[m[H[2J[?25l[56;1H"/etc/hosts" 10L, 266C[>c[1;1H127.0.0.1 localhost
-172.31.33.155   windows1
-172.31.92.226   elastic1
-[34m# The following lines are desirable for IPv6 capable hosts[m
-::1 ip6-localhost ip6-loopback
-fe00::0 ip6-localnet
-ff00::0 ip6-mcastprefix
-ff02::1 ip6-allnodes
-ff02::2 ip6-allrouters
-ff02::3 ip6-allhosts
-[94m~                                                                                                                    [12;1H~                                                                                                                    [13;1H~                                                                                                                    [14;1H~                                                                                                                    [15;1H~                                                                                                                    [16;1H~                                                                                                                    [17;1H~                                                                                                                    [18;1H~                                                                                                                    [19;1H~                                                                                                                    [20;1H~                                                                                                                    [21;1H~                                                                                                                    [22;1H~                                                                                                                    [23;1H~                                                                                                                    [24;1H~                                                                                                                    [25;1H~                                                                                                                    [26;1H~                                                                                                                    [27;1H~                                                                                                                    [28;1H~                                                                                                                    [29;1H~                                                                                                                    [30;1H~                                                                                                                    [31;1H~                                                                                                                    [32;1H~                                                                                                                    [33;1H~                                                                                                                    [34;1H~                                                                                                                    [35;1H~                                                                                                                    [36;1H~                                                                                                                    [37;1H~                                                                                                                    [38;1H~                                                                                                                    [39;1H~                                                                                                                    [40;1H~                                                                                                                    [41;1H~                                                                                                                    [42;1H~                                                                                                                    [43;1H~                                                                                                                    [44;1H~                                                                                                                    [45;1H~                                                                                                                    [46;1H~                                                                                                                    [47;1H~                                                                                                                    [48;1H~                                                                                                                    [49;1H~                                                                                                                    [50;1H~                                                                                                                    [51;1H~                                                                                                                    [52;1H~                                                                                                                    [53;1H~                                                                                                                    [54;1H~                                                                                                                    [55;1H~                                                                                                                    [m[56;100H1,1[11CAll[1;1H[?12l[?25h[?25l[56;100H2[2;1H[?12l[?25h[?25l[56;100H3[3;1H[?12l[?25h[?25l[56;100H4[4;1H[?12l[?25h[?25l[56;100H3[3;1H[?12l[?25h[?25l[56;100H2[2;1H[?12l[?25h[?25l[56;102H2[2;2H[?12l[?25h[?25l[56;102H3[2;3H[?12l[?25h[?25l[56;102H4[2;4H[?12l[?25h[?25l[56;102H5[2;5H[?12l[?25h[?25l[56;102H6[2;6H[?12l[?25h[?25l[56;102H7[2;7H[?12l[?25h[?25l[56;102H8[2;8H[?12l[?25h[?25l[56;102H9[2;9H[?12l[?25h[?25l[56;102H10[2;10H[?12l[?25h[?25l[56;103H1[2;11H[?12l[?25h[?25l[56;103H2[2;12H[?12l[?25h[?25l[56;103H3[2;13H[?12l[?25h[?25l[56;103H4-16[2;16H[?12l[?25h[?25l[56;103H5-17[2;17H[?12l[?25h[?25l[56;103H6-18[2;18H[?12l[?25h[?25l[56;1H[K[56;1H:[?12l[?25hq[?25l[?12l[?25h![?25l[?12l[?25h[?25l[56;1H[K[56;1H[?1l>[?12l[?25h[?1049l]0;ubuntu@elastic1: ~[01;32mubuntu@elastic1[00m:[01;34m~[00m$ ping 8.8.8.8
-PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
-64 bytes from 8.8.8.8: icmp_seq=1 ttl=48 time=0.878 ms
-64 bytes from 8.8.8.8: icmp_seq=2 ttl=48 time=0.881 ms
-^C
---- 8.8.8.8 ping statistics ---
-2 packets transmitted, 2 received, 0% packet loss, time 999ms
-rtt min/avg/max/mdev = 0.878/0.879/0.881/0.029 ms
-]0;ubuntu@elastic1: ~[01;32mubuntu@elastic1[00m:[01;34m~[00m$ ping 8.8.8.8sudo vi /etc/hostsping 172.31.33.155[C[C[C[C[C[C[C
-PING 172.31.33.155 (172.31.33.155) 56(84) bytes of data.
-^C
---- 172.31.33.155 ping statistics ---
-34 packets transmitted, 0 received, 100% packet loss, time 32999ms
-
-]0;ubuntu@elastic1: ~[01;32mubuntu@elastic1[00m:[01;34m~[00m$ ping 172.31.33.155
-PING 172.31.33.155 (172.31.33.155) 56(84) bytes of data.
-^C
---- 172.31.33.155 ping statistics ---
-21 packets transmitted, 0 received, 100% packet loss, time 19999ms
-
-]0;ubuntu@elastic1: ~[01;32mubuntu@elastic1[00m:[01;34m~[00m$ ping 172.31.33.155[K[K[K[K[K[K[K[K[K[K[K[K[K172.31.33.155
-PING 172.31.33.155 (172.31.33.155) 56(84) bytes of data.
-^C
---- 172.31.33.155 ping statistics ---
-19 packets transmitted, 0 received, 100% packet loss, time 18144ms
-
-]0;ubuntu@elastic1: ~[01;32mubuntu@elastic1[00m:[01;34m~[00m$ ip a
-1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-    inet 127.0.0.1/8 scope host lo
-       valid_lft forever preferred_lft forever
-    inet6 ::1/128 scope host 
-       valid_lft forever preferred_lft forever
-2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9001 qdisc mq state UP group default qlen 1000
-    link/ether 12:36:bb:0b:f1:9b brd ff:ff:ff:ff:ff:ff
-    inet 172.31.92.226/20 brd 172.31.95.255 scope global eth0
-       valid_lft forever preferred_lft forever
-    inet6 fe80::1036:bbff:fe0b:f19b/64 scope link 
-       valid_lft forever preferred_lft forever
-]0;ubuntu@elastic1: ~[01;32mubuntu@elastic1[00m:[01;34m~[00m$ 

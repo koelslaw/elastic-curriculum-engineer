@@ -1,34 +1,62 @@
 # Instructor Notes
-The whole point of this small class it to lead into other discussions. I will explore some of those discussions here like where and how to scale an elastic cluster. I will leave little pieces of information to help facilitate discussion.  
+The whole point of this small class is to lead to other discussions. I will explore some of those discussions here like, how to scale an elastic cluster. I will leave little pieces of information to help facilitate discussion.  
+
+**Question: When has someone been logging into our Windows machine?**
+  - Why is that important?
+  - Who or What IP is logging in?
+  - Where are they Logging in from? 
 
 ## Primer on Windows Security Events with Winlogbeat
 
-### Prereq & Assumptions
+### Prerequisites & Assumptions
 - Configured AWS account at https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/
-- Internet connectivity stable enough for RDP and SSH
 - Administrator Access to both machines
 - ssh or putty (windows)
-- rdp
-- Git installed
+- RDP
+- Git Installed
 - Code Editor
+- Comfort with Windows and Linux Command Line
+- Some Familiarity with Elastic Components
+- vi Text Editor
+
 
 ### EC2 Components
-The recommended setup is done prior to class. Every Student will have a windows server and an elastic stack to send their logs.
+The recommended setup is done before class. Every student will have a Windows server and a Linux Elastic Stack to send their logs.
 
 ### Setup Linux
 
-#### Setup linux EC2 instance
-Login to AWS https://console.aws.amazon.com/
-- Look under `all services` and find the `compute` heading. From there select `EC2`
-- on the left pane select `instances` and then `launch instance`
-- Select the `Ubuntu Server 16.04 LTS (HVM), SSD Volume Type` option.
-- Select `t2.medium` instance type  then select the `Next: Configure Instance Details` button
-- unless you anything special needs to be done in this area accept the defaults and select `Next: Add Storage`
-- A couple of factors will determine how much storage is required. I have found 250 GB is sufficient for a single node setup that hass all the elastic componenets. As nodes are added then the hard disks could be smaller. once you have decided the size then select `Next: Add Tags`
-- If you have several students adding tags may be useful to assist with troublshooting and orginization. Once completed select `Next: Configure Security Group`
+#### Setup Linux and Windows EC2 Instances
+Login to AWS https://console.aws.amazon.com. Search for the `All Services` and find the `Compute` heading. From there select `EC2`
+![](/img/snapshot1.png).
 
-- For the very first instance you will set the security group. This security grou can be reused for the subsequent instances.
+On the left pane, select `Instances` and then `Launch Instance`.
+![](/img/snapshot3.png)
 
+Select the `Ubuntu Server 16.04 LTS (HVM), SSD Volume Type` for our Elastic stack and `Microsoft Windows Server 2019 Base` for our Windows Machine.
+![](/img/snapshot4.png)
+
+
+![](/img/snapshot5.png)
+Select `t2.medium` instance type for both instances, then select the `Next: Configure Instance Details` button.
+
+
+![](/img/snapshot6.png)
+Unless anything special needs to be done, accept the defaults and select `Next: Add Storage`
+
+A couple of factors will determine how much storage is required. I have found 250 GB is sufficient for a single node setup that has all the Elastic components. As nodes are added, then the hard disks could be smaller. once you have decided the size then select `Next: Add Tags`
+![](/img/snapshot7.png)
+
+If you have several students adding tags may be useful to assist with troubleshooting and organization. Once completed select `Next: Configure Security Group`
+![](/img/snapshot8.png)
+
+For the very first, instance you will set the security group. This security group can be reused for the subsequent instances.
+
+##### Windows
+| Type            | Protocol | Port Range | Source         | Description |
+|-----------------|----------|------------|----------------|-------------|
+| RPD             | TCP      | 3389       | 0.0.0.0/0      | RDP Access  |
+
+##### Linux
 | Type            | Protocol | Port Range | Source         | Description |
 |-----------------|----------|------------|----------------|-------------|
 | SSH             | TCP      | 22         | 0.0.0.0/0      | SSH Access  |
@@ -38,30 +66,41 @@ Login to AWS https://console.aws.amazon.com/
 
 > Why is the addressing setup this way? SSH and Kibana are set to everywhere because we dont know what ip the student is comming from. ICMP facilitates ping. Port 5044 is for winlogbeat. We set a specific IP range as we want to limit it to just us.
 
-- Review the details of the instance and select `launch` when you satisfied with the results
+![](/img/snapshot9.png)
 
-- Repeat as required
+Review the details of the instance and select `Launch` when you satisfied with the results
 
-#### Install Elastic Components Via APT on linux ec2 instance
+> NOTE: Repeat as required for each student.
 
-This is the recommended start of the class. It's enough the student to get their hands dirty and lead to other discussions. My recommendation is to use a single key for all the instances in the class. For each class the key needs to be changed. My biggest is it gets the users used to authenticating with ssh keys, which are better than a standard username and password. Its also less prone to mistakes as its less complex. Finally, if they use aws in the future they are more comfortable.
+#### Install Elastic Components Via APT on Linux EC2 Instance
+This is the recommended start of the class. It's enough for the student to get their "hands dirty" and lead to other discussions. My recommendation is to use a single key for all the instances in the class. For each class the key needs to be changed.
 
-- Log into the linux instance via ssh
-  - linux users can use  `ssh -i "PathtoCert.pem" ubuntu@some-provided-address.compute-1.amazonaws.com`
+Log into the linux instance via ssh:
+  - Linux users can use  `ssh -i "PathtoCert.pem" ubuntu@some-provided-address.compute-1.amazonaws.com`
 
-  - windows users can follow the instructions here for putty https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html
+  - Windows users can follow the instructions here for putty https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html
 
 
-Installing via rpm instead of an archive is a matter of preference here. In order to simplfy things a little I am using apt to load the required packages. To sart the process we mush add elastic keys with `wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -` Amazon EC2 instances should already have have the `apt-transport-https` package installed but just in case it does not run `sudo apt-get install apt-transport-https`. An entry to the sources list for ubuntu needs to be added. This can be done with `echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list`. We need to update and install the Java environment with `sudo apt-get update && sudo apt-get install default-jre`. Using `default-jre` *could* install an unsupported version of Java. Make sure it installs a supported version of Java by visiting https://www.elastic.co/support/matrix#matrix_jvm. Now that everything is setup we can actually install something. Enter `sudo apt-get install elasticsearch logstash kibana` to install the Elastic components.
+Installing via rpm instead of an archive is a matter of preference here. In order to simplify things a little, I am using apt to load the required packages. To start the process we must add elastic keys with `wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -`
+
+Amazon EC2 instances should already have the `apt-transport-https` package installed but just in case it does not run `sudo apt-get install apt-transport-https`.
+
+An entry to the sources list for ubuntu needs to be added. This can be done with `echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list`.
+
+We need to update and install the Java environment with `sudo apt-get update && sudo apt-get install default-jre`.
+
+> NOTE: Using `default-jre` *could* install an unsupported version of Java. Make sure it installs a supported version of Java by visiting https://www.elastic.co/support/matrix#matrix_jvm.
+
+Now that everything is setup we can actually install something. Enter `sudo apt-get install elasticsearch logstash kibana` to install the Elastic components.
 
 #### Logstash
-Starting with Logstash, we are going to create the logstash configuration file. Logstash it an optional component. It is not required in this scenario. However, there comes a time when you want add capabilities. If you have Logstash already running then reconfiguration will be much easier.
+Starting with Logstash, we are going to create the Logstash configuration file. Logstash it an **optional** component. It is not required in this scenario. However, there will come a time when you want add capabilities. If you have Logstash already running then reconfiguration will be much easier.
 
 `sudo vi /etc/logstash/conf.d/logstash.conf`
 
-This file defines the how logstash will input and output information.
+This file defines how Logstash will input and output information.
 
-Starting with the input we have set this up to receive a beats connection. Logstash opens a port on 5044 to recvieve information for the beats clients. In our case it will be only one but it could be an entire organization of windows machines if needed.
+Starting with the input we have set this up to receive a beats connection. Logstash opens a port on 5044 to receive information for the beats clients. In our case, it will be only one but it could be an entire organization of windows machines if needed.
 
 ```
 input {
@@ -98,9 +137,9 @@ output {
       }
     }
 
-  ```
+    ```
 
-If there were any special things that needed to be done to logstash it would be performed in `/etc/logstash/logstash.yml`. This can be accomplished by `sudo vi /etc/logstash/logstash.yml` As we have no changes, we will leave this alone.
+If there were any special things that needed to be done to Logstash it would be performed in `/etc/logstash/logstash.yml`. This can be accomplished by `sudo vi /etc/logstash/logstash.yml` As we have no changes, we will leave this alone.
 
 
   - Example of config file:
@@ -259,9 +298,9 @@ If there were any special things that needed to be done to logstash it would be 
 - Check Status of logstash `sudo systemctl status logstash`
 
 #### Elasticsearch
-You may have to elevate privelages with `sudo -s`to edit configuration file for Elasticsearch `sudo vi /etc/elasticsearch/elasticsearch.yml`. Like everything else with elastic stack there are a lot of thigns we can tweak. for simplicity we are only going to change a few things.
+You may have to elevate privileges with `sudo -s` to edit the configuration file for Elasticsearch `sudo vi /etc/elasticsearch/elasticsearch.yml`. Like everything else with Elastic Stack there are a lot of things we can tweak. For simplicity, we are only going to change a few things.
 
-Similar to logstash the default configuration will work Once you start to have more nodes then there are some options that you will want to take into account. Setting the cluster information can be done here. The cluster will be the same across all the configs.
+Similar to Logstash, the default configuration will work. Once you start to have more nodes then there are some options that you will want to take into account. Setting up cluster information can be done here. This cluster name will be the same across all configuration files.
 
 ```yml
 ---------------------------------- Cluster -----------------------------------
@@ -274,18 +313,18 @@ cluster.name: my-application
 
 Below is the section that includes the name for the node. When setting up a cluster each node must have a unique name.
 
-> NOTE: Hostname and Node name need to match
+> NOTE: System hostname and node name need to match
 
 ```yml
 # ------------------------------------ Node ------------------------------------
 #
 # Use a descriptive name for the node:
 #
-#node.name: node-1
+node.name: node-1
 #
 ```
 
-In the network section you can set ip that elasticsearc will bind too.
+In the network section you can set ip that Elasticsearch will bind too.
 
 ```yml
 # ---------------------------------- Network -----------------------------------
@@ -302,7 +341,7 @@ network.host: 0.0.0.0
 #
 ```
 
-As more nodes are added, you will need to open ports 9200 (REST API) and 9300 (Node Communication). As we have everything one one machince and only a single instance of elasticsearch we do not need to accomplish this. Once we reach the point we need additional nodes, the section below is where the configuration will happen.
+As more nodes are added, you will need to open ports 9200 (REST API) and 9300 (Node Communication). As we have everything one machine and only a single instance of Elasticsearch, we do not need to accomplish this. Once we reach the point we need additional nodes, the section below can be used as an example.
 
 ```yml
 #
@@ -414,10 +453,16 @@ discovery.seed_hosts: ["18.214.204.121"]
   #action.destructive_requires_name: true
 
   ```
-Now that we have elasticsearch installed and configured lets go ahead and start elasticsearch `sudo systemctl start elasticsearch`.
+
+Now that we have Elasticsearch installed and configured, lets go ahead and start Elasticsearch, `sudo systemctl start elasticsearch`.
+
 
 #### Kibana
-Last but not least on our aws instance is kibana. Just like the rest there is a configuration file. To edit the configuration file, use `sudo vi /etc/kibana/kibana.yml`. This machine does not reside on the same network as the students. When building we have 2 options here. We can bind it to a specific IP address or 0.0.0.0. For production binding it to a specific address is best. These instances are temporary so we can not worry about what IP it decides to use. This can be accomplished with changing the `server.host:` to ` "0.0.0.0"` instead of localhost.
+Last but not least on our AWS instance is Kibana. Just like the rest there is a configuration file. To edit the configuration file, use `sudo vi /etc/kibana/kibana.yml`. This machine does not reside on the same network as the students. When building we have two options here.
+  - We can bind it to a specific IP address
+  - 0.0.0.0.
+
+For production binding it to a specific address is best. These instances are temporary so we do not need to worry about what IP it decides to use. This can be accomplished by changing the `server.host:` to ` "0.0.0.0"` instead of localhost.
 
   - Example of our full config file:
 
@@ -540,7 +585,7 @@ Last but not least on our aws instance is kibana. Just like the rest there is a 
   ```
 Save the file and Start kibana with `sudo systemctl start kibana`
 
->NOTE: Ensure the elastic services start without issues as Windows section requires that everything is functioning properly.
+>NOTE: Ensure the Elastic services start without issues as Windows section requires that everything is functioning properly.
 
 To ensure everything is up and running, enter `sudo systemctl status logstash elasticsearch kibana`
 
@@ -587,7 +632,7 @@ Feb 01 15:16:10 ip-172-31-92-226 kibana[18802]: {"type":"log","@timestamp":"2020
 ```
 
 ### Discussion about Nodes
-For simplicity we are going to do everything on one node. However can take a small trek through what it will take to scale to a cluster. This most likely candidate for clustering is Elasticsearch and then Logstash.
+We are going to do everything on one node. However, can take a small trek through what it will take to scale to a cluster. This most likely candidate for clustering is Elasticsearch and then Logstash.
 
   - For Elasticsearh, visit https://www.elastic.co/guide/en/elasticsearch/reference/current/add-elasticsearch-nodes.html.
   - For Logstash, visit https://www.elastic.co/guide/en/logstash/current/deploying-and-scaling.html
@@ -598,36 +643,243 @@ There are lots of "It Depends..." here but as this is aimed at a beginner audien
 - Distribution of effort - (Shifting to dedicated node types: master nodes, ingest, etc.)
 
 ## Setup Windows EC2
-Select your Windows EC2 instance and select `Connect`. That will open a small window. Click on `Get Password` to start the password retrieval process. It will ask you for the key in order to decrypt the password for the instance. Select `Elasticsearch.pem` and then `Decrypt Password`. You will be presented with the password to your instance. use the information provided to access the windows EC2 instance.
+Select your Windows EC2 instance and select `Connect`. That will open a small window. Click on `Get Password` to start the password retrieval process. It will ask you for the key in order to decrypt the password for the instance. Select `Elasticsearch.pem` and then `Decrypt Password`. You will be presented with the password to your instance. Use the information provided to access the windows EC2 instance.
 
-Once you have a remote desktop connection to your AWS instance. Download the latest 64-bit version Winlogbeat zip file from the downloads page, in our case its 7.5.2. `https://artifacts.elastic.co/downloads/beats/winlogbeat/winlogbeat-7.5.2-windows-x86_64.zip` From your downloads folder, extract the zip file into `C:\Program Files` folder. Rename the extracted file with the name `winlogbeat-<some_version>` folder to `Winlogbeat`. Open a PowerShell prompt as an **Administrator**. From start menu, right-click on the PowerShell icon and select `Run As Administrator`. To ensure that the script runs without issue we will execute the install of the service under a different execution policy via `PowerShell.exe -ExecutionPolicy UnRestricted -File .\install-service-winlogbeat.ps1`
-- Edit the config file for Winlogbeat notepad
+> NOTE: It can take up to 4 minutes after the Windows Instances starts to retrieve the password. 
+
+Once you have a remote desktop connection to your AWS instance. Download the latest 64-bit version Winlogbeat zip file from the downloads page, in our case its 7.5.2. `https://artifacts.elastic.co/downloads/beats/winlogbeat/winlogbeat-7.5.2-windows-x86_64.zip` 
+
+From your downloads folder, extract the zip file into `C:\Program Files` folder. Rename the extracted file with the name `winlogbeat-<some_version>` folder to `Winlogbeat`. Open a PowerShell prompt as an **Administrator**. From start menu, right-click on the PowerShell icon and select `Run As Administrator`. To ensure that the script runs without issue we will execute the install of the service under a different execution policy via `PowerShell.exe -ExecutionPolicy UnRestricted -File .\install-service-winlogbeat.ps1` 
+
+Edit the config file for Winlogbeat notepad with `notepad C:\Program Files\Winlogbeat\winlogbeat.yml` We only need to edit a small section that pertains to Logstash and Elasticsearch. This will send the logs from our Windows server to our Linux server.
+
+```
+ #================================ Outputs =====================================
+
+  # Configure what output to use when sending the data collected by the beat.
+
+  #-------------------------- Elasticsearch output ------------------------------
+  #output.elasticsearch:
+  # Array of hosts to connect to.
+  #  hosts: ["localhost:9200"]
+
+  # Optional protocol and basic auth credentials.
+  #protocol: "https"
+  #username: "elastic"
+  #password: "changeme"
+
+  #----------------------------- Logstash output --------------------------------
+  output.logstash:
+  # The Logstash hosts
+  hosts: ["18.214.204.121:5044"]
+```
+
+
+
   - Example of winlogbeat config file
-  ```
-  ```
-- Comment out any logs that you do not require.
-- disable the elasticsearch output for Beats by commenting out the following line
+    ```yml
+    ###################### Winlogbeat Configuration Example ########################
 
-```
-```
-- Set the output to use logstash instead
+    # This file is an example configuration file highlighting only the most common
+    # options. The winlogbeat.reference.yml file from the same directory contains
+    # all the supported options with more comments. You can use it as a reference.
+    #
+    # You can find the full configuration reference here:
+    # https://www.elastic.co/guide/en/beats/winlogbeat/index.html
 
-```yml
-#----------------------------- Logstash output --------------------------------
-output.logstash:
-  hosts: ["<<<IPofLogstashNode>>>:5044"]
-```  
-- Since we are sending out data to logstash instead of elasticsearch then we need to manually setup the index template.
+    #======================= Winlogbeat specific options ===========================
+
+    # event_logs specifies a list of event logs to monitor as well as any
+    # accompanying options. The YAML data type of event_logs is a list of
+    # dictionaries.
+    #
+    # The supported keys are name (required), tags, fields, fields_under_root,
+    # forwarded, ignore_older, level, event_id, provider, and include_xml. Please
+    # visit the documentation for the complete details of each option.
+    # https://go.es.io/WinlogbeatConfig
+    winlogbeat.event_logs:
+    - name: Application
+      ignore_older: 72h
+
+    - name: System
+
+    - name: Security
+      processors:
+        - script:
+            lang: javascript
+            id: security
+            file: ${path.home}/module/security/config/winlogbeat-security.js
+
+    - name: Microsoft-Windows-Sysmon/Operational
+      processors:
+        - script:
+            lang: javascript
+            id: sysmon
+            file: ${path.home}/module/sysmon/config/winlogbeat-sysmon.js
+
+    #==================== Elasticsearch template settings ==========================
+
+    setup.template.settings:
+    index.number_of_shards: 1
+    #index.codec: best_compression
+    #_source.enabled: false
+
+
+    #================================ General =====================================
+
+    # The name of the shipper that publishes the network data. It can be used to group
+    # all the transactions sent by a single shipper in the web interface.
+    #name:
+
+    # The tags of the shipper are included in their own field with each
+    # transaction published.
+    #tags: ["service-X", "web-tier"]
+
+    # Optional fields that you can specify to add additional information to the
+    # output.
+    #fields:
+    #  env: staging
+
+
+    #============================== Dashboards =====================================
+    # These settings control loading the sample dashboards to the Kibana index. Loading
+    # the dashboards is disabled by default and can be enabled either by setting the
+    # options here or by using the `setup` command.
+    # setup.dashboards.enabled: false
+
+    # The URL from where to download the dashboards archive. By default this URL
+    # has a value which is computed based on the Beat name and version. For released
+    # versions, this URL points to the dashboard archive on the artifacts.elastic.co
+    # website.
+    # setup.dashboards.url:
+
+    #============================== Kibana =====================================
+
+    # Starting with Beats version 6.0.0, the dashboards are loaded via the Kibana API.
+    # This requires a Kibana endpoint configuration.
+    # setup.kibana:
+
+    # Kibana Host
+    # Scheme and port can be left out and will be set to the default (http and 5601)
+    # In case you specify and additional path, the scheme is required: http://localhost:5601/path
+    # IPv6 addresses should always be defined as: https://[2001:db8::1]:5601
+    # host: "localhost:5601"
+
+    # Kibana Space ID
+    # ID of the Kibana Space into which the dashboards should be loaded. By default,
+    # the Default Space will be used.
+    #space.id:
+
+    #============================= Elastic Cloud ==================================
+
+    # These settings simplify using Winlogbeat with the Elastic Cloud (https://cloud.elastic.co/).
+
+    # The cloud.id setting overwrites the `output.elasticsearch.hosts` and
+    # `setup.kibana.host` options.
+    # You can find the `cloud.id` in the Elastic Cloud web UI.
+    #cloud.id:
+
+    # The cloud.auth setting overwrites the `output.elasticsearch.username` and
+    # `output.elasticsearch.password` settings. The format is `<user>:<pass>`.
+    #cloud.auth:
+
+    #================================ Outputs =====================================
+
+    # Configure what output to use when sending the data collected by the beat.
+
+    #-------------------------- Elasticsearch output ------------------------------
+    #output.elasticsearch:
+    # Array of hosts to connect to.
+    #  hosts: ["localhost:9200"]
+
+    # Optional protocol and basic auth credentials.
+    #protocol: "https"
+    #username: "elastic"
+    #password: "changeme"
+
+    #----------------------------- Logstash output --------------------------------
+    output.logstash:
+    # The Logstash hosts
+    hosts: ["18.214.204.121:5044"]
+
+    # Optional SSL. By default is off.
+    # List of root certificates for HTTPS server verifications
+    #ssl.certificate_authorities: ["/etc/pki/root/ca.pem"]
+
+    # Certificate for SSL client authentication
+    #ssl.certificate: "/etc/pki/client/cert.pem"
+
+    # Client Certificate Key
+    #ssl.key: "/etc/pki/client/cert.key"
+
+    #================================ Processors =====================================
+
+    # Configure processors to enhance or manipulate events generated by the beat.
+
+    processors:
+    - add_host_metadata: ~
+    - add_cloud_metadata: ~
+    - add_docker_metadata: ~
+
+    #================================ Logging =====================================
+
+    # Sets log level. The default log level is info.
+    # Available log levels are: error, warning, info, debug
+    #logging.level: debug
+
+    # At debug level, you can selectively enable logging only for some components.
+    # To enable all selectors use ["*"]. Examples of other selectors are "beat",
+    # "publish", "service".
+    #logging.selectors: ["*"]
+
+    #============================== X-Pack Monitoring ===============================
+    # winlogbeat can export internal metrics to a central Elasticsearch monitoring
+    # cluster.  This requires xpack monitoring to be enabled in Elasticsearch.  The
+    # reporting is disabled by default.
+
+    # Set to true to enable the monitoring reporter.
+    #monitoring.enabled: false
+
+    # Sets the UUID of the Elasticsearch cluster under which monitoring data for this
+    # Winlogbeat instance will appear in the Stack Monitoring UI. If output.elasticsearch
+    # is enabled, the UUID is derived from the Elasticsearch cluster referenced by output.elasticsearch.
+    #monitoring.cluster_uuid:
+
+    # Uncomment to send the metrics to Elasticsearch. Most settings from the
+    # Elasticsearch output are accepted here as well.
+    # Note that the settings should point to your Elasticsearch *monitoring* cluster.
+    # Any setting that is not set is automatically inherited from the Elasticsearch
+    # output configuration, so if you have the Elasticsearch output configured such
+    # that it is pointing to your Elasticsearch monitoring cluster, you can simply
+    # uncomment the following line.
+    #monitoring.elasticsearch:
+
+    #================================= Migration ==================================
+
+    # This allows to enable 6.7 migration aliases
+    #migration.6_to_7.enabled: true
+
+    ```
+
+
+Since we are sending out data to Logstash instead of Elasticsearch then we need to manually setup the index template.
 
 ```
 .\winlogbeat.exe setup --index-management -E output.logstash.enabled=false -E 'output.elasticsearch.hosts=["<<<IPofLogstashNode>>>:9200"]'
 ```
 
-- Setup dashboards for .To load dashboards when the Logstash output is enabled, you need to temporarily disable the Logstash output and enable Elasticsearch. To connect to a secured Elasticsearch cluster, you also need to pass Elasticsearch credentials.
+To setup dashboards when the Logstash output is enabled, you need to temporarily disable the Logstash output and enable Elasticsearch. To connect to a secured Elasticsearch cluster, you also need to pass Elasticsearch credentials. In our case it is not. In production it should be.
+
 ```
 .\winlogbeat.exe setup -e `
   -E output.logstash.enabled=false `
   -E output.elasticsearch.hosts=['<<<IPofElasticsearchNode>>>:9200'] `
   -E setup.kibana.host=<<<IPofKibanaNode>>>:5601
 ```
-- Test the winlogbeat config `C:\Program Files\Winlogbeat> .\winlogbeat.exe test config -c .\winlogbeat.yml -e`
+
+Test the winlogbeat config `C:\Program Files\Winlogbeat> .\winlogbeat.exe test config -c .\winlogbeat.yml -e`. You can now run `services.msc` to start it.
+
+## Answering the Question
+ And now the fun part! Answering the questions! Navigate to Kibana IP `<<ip_of_linux>>:5601`. Pivot to the `Dashboards` section on the left pane. Look for event ID `4624` That is the event id for a windows login.
+
+## Questions ?
