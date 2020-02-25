@@ -2,7 +2,7 @@
 :toc:
 :imagesdir: ../../img/
 
-== Instructor Notes
+= Instructor Notes
 
 The whole point of this small class is to lead to other discussions. I will
 explore some of those discussions here like, how to scale an elastic cluster. I
@@ -14,13 +14,13 @@ will leave little pieces of information to help facilitate discussion.
 * Who or What IP is logging in? 
 * Where are they Logging in from?
 
-=== Primer on Windows Security Events with Winlogbeat
+== Primer on Windows Security Events with Winlogbeat
 
-==== Prerequisites & Assumptions
+== Prerequisites & Assumptions
 
 * Configured AWS account at https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/
 * Administrator Access to both machines
-* ssh or putty (windows)
+* ssh or putty (Windows)
 * RDP
 * Git Installed
 * Code Editor
@@ -28,14 +28,12 @@ will leave little pieces of information to help facilitate discussion.
 * Some Familiarity with Elastic Components
 * vi Text Editor
 
-==== EC2 Components
+== Amazon EC2 Components
 
 The recommended setup is done before class. Every student will have a Windows
 server and a Linux Elastic Stack to send their logs.
 
-==== Setup Linux
-
-===== Setup Linux and Windows EC2 Instances
+=== AWS Setup for Linux and Windows EC2 Instances
 
 Login to AWS https://console.aws.amazon.com. Search for the `All Services` and
 find the `Compute` heading. From there select `EC2` 
@@ -68,7 +66,7 @@ image:snapshot8.png[image]
 For the very first, instance you will set the security group. This security
 group can be reused for the subsequent instances.
 
-====== Windows
+===== Windows
 
 [cols=",,,,",options="header",]
 |===
@@ -76,7 +74,7 @@ group can be reused for the subsequent instances.
 |RPD |TCP |3389 |0.0.0.0/0 |RDP Access
 |===
 
-====== Linux
+===== Linux
 
 [cols=",,,,",options="header",]
 |===
@@ -103,7 +101,7 @@ the results
 NOTE: Repeat as required for each student.
 
 
-===== Install Elastic Components Via APT on Linux EC2 Instance
+== Configure Linux EC2 Instance
 
 This is the recommended start of the class. It’s enough for the student to get
 their ``hands dirty'' and lead to other discussions. My recommendation is to use
@@ -141,7 +139,7 @@ Now that everything is setup we can actually install something. Enter
 `sudo apt-get install elasticsearch logstash kibana` to install the Elastic
 components.
 
-===== Logstash
+=== Logstash
 
 Starting with Logstash, we are going to create the Logstash configuration file.
 
@@ -201,7 +199,7 @@ Start Logstash`sudo systemctl start logstash`
 
 Check Status of logstash `sudo systemctl status logstash`
 
-===== Elasticsearch
+=== Elasticsearch
 
 You may have to elevate privileges with `sudo -s` to edit the configuration file for Elasticsearch `sudo vi /etc/elasticsearch/elasticsearch.yml`. Like
 everything else with Elastic Stack there are a lot of things we can tweak. For simplicity, we are only going to change a few things.
@@ -277,7 +275,7 @@ discovery.seed_hosts: ["18.214.204.121"]
 
 Now that we have Elasticsearch installed and configured, lets go ahead and start Elasticsearch, `sudo systemctl start elasticsearch`.
 
-===== Kibana
+=== Kibana
 
 Last but not least on our AWS instance is Kibana. Just like the rest there is a configuration file. To edit the configuration file, use `sudo vi /etc/kibana/kibana.yml`. This machine does not reside on the same network as the students. When building we have two options here. - We can bind it to a specific IP address - 0.0.0.0.
 
@@ -290,7 +288,7 @@ Save the file and Start kibana with `sudo systemctl start kibana`
 NOTE: Ensure the Elastic services start without issues as Windows section requires that everything is functioning properly.
 
 
-===== Finishing Up
+=== Finishing Up
 
 To ensure everything is up and running, enter `sudo systemctl status logstash elasticsearch kibana`
 
@@ -336,7 +334,7 @@ Jan 30 20:04:32 ip-172-31-92-226 systemd[1]: Started Elasticsearch.
 Feb 01 15:16:10 ip-172-31-92-226 kibana[18802]: {"type":"log","@timestamp":"2020-02-01T15:16:10Z","tags":["info","plugins","security"],"pid":18802,"message":
 ....
 
-==== Discussion about Nodes
+===+ Discussion about Nodes
 We are going to do everything on one node. However, can take a small trek through what it will take to scale to a cluster. This most likely candidate for clustering is Elasticsearch and then Logstash.
 
 * For Elasticsearh, visit
@@ -350,12 +348,13 @@ There are lots of "It Depends…" here but as this is aimed at a beginner audien
 * Throughput (Reads and writes will not overwhelm a cluster) 
 * Distribution of effort (Shifting to dedicated node types: master nodes, ingest, etc.)
 
-=== Setup Windows EC2
+== Setup Windows EC2
 Select your Windows EC2 instance and select `Connect`. That will open a small
 window. Click on `Get Password` to start the password retrieval process. It will ask you for the key in order to decrypt the password for the instance. Select `Elasticsearch.pem` and then `Decrypt Password`. You will be presented with the password to your instance. Use the information provided to access the windows EC2 instance.
 
 NOTE: It can take up to 4 minutes after the Windows Instances starts to retrieve the password.
 
+=== Installation
 Once you have a remote desktop connection to your AWS instance. Download the
 latest 64-bit version Winlogbeat zip file from the downloads page, in our case its 7.5.2.
 `https://artifacts.elastic.co/downloads/beats/winlogbeat/winlogbeat-7.5.2-windows-x86_64.zip`
@@ -363,6 +362,7 @@ latest 64-bit version Winlogbeat zip file from the downloads page, in our case i
 From your downloads folder, extract the zip file into `C:\Program Files` folder.
 Rename the extracted file with the name `winlogbeat-<some_version>` folder to `Winlogbeat`. Open a PowerShell prompt as an *Administrator*. From start menu, right-click on the PowerShell icon and select `Run As Administrator`. To ensure that the script runs without issue we will execute the install of the service under a different execution policy via `PowerShell.exe -ExecutionPolicy UnRestricted -File .\install-service-winlogbeat.ps1`
 
+=== Configuration
 Edit the config file for Winlogbeat notepad with `notepad C:\Program Files\Winlogbeat\winlogbeat.yml` We only need to edit a small section that pertains to Logstash and Elasticsearch. This will send the logs from our Windows server to our Linux server.
 
 ....
@@ -401,14 +401,13 @@ To setup dashboards when the Logstash output is enabled, you need to temporarily
   -E setup.kibana.host=<<<IPofKibanaNode>>>:5601
 ....
 
+=== Test and Run
 Test the winlogbeat config
 `C:\Program Files\Winlogbeat> .\winlogbeat.exe test config -c .\winlogbeat.yml -e`. You can now run `services.msc` to start it.
 
-=== Answering the Question
+= Answering the Question
 
 And now the fun part! Answering the questions! Navigate to Kibana IP `<<ip_of_linux>>:5601`. Pivot to the `Dashboards` section on the left pane. Look for event ID `4624` That is the event id for a windows login.
-
-=== Questions ?
 
 *Question: When has someone been logging into our Windows machine?* 
 
